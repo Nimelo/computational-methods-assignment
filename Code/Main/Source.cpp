@@ -1,4 +1,6 @@
-#include <vld.h>
+#if _DEBUG
+	#include <vld.h>
+#endif
 #include "Configuration.h"
 #include "Discretizator.h"
 #include "DiscretizationResult.h"
@@ -29,7 +31,7 @@ int main(int argc, char * argv[])
 		if (argc != PARAMETER_COUNT)
 		{
 			std::cout << "Invalid amount of parameters." << std::endl;
-			exit(-1);
+			return -1;
 		}
 
 		char * configurationFile = argv[CONFIGURATION_FILE_INDEX];

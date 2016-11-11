@@ -45,7 +45,7 @@ private:
 	/**
 	 * Flag that indicates if matrices are initialized.
 	 */
-	bool isInit = false;
+	bool isInit;
 
 	/**
 	 * Returns vector of points based on wave.
@@ -98,11 +98,11 @@ private:
 	 */
 	void deleteMatricies()
 	{
-		if (this->l != nullptr)
+		if (this->l != NULL)
 			delete this->l;
-		if (this->u != nullptr)
+		if (this->u != NULL)
 			delete this->u;
-		if (this->p != nullptr)
+		if (this->p != NULL)
 			delete this->p;
 	}
 public:
@@ -183,9 +183,10 @@ public:
 	UpwindImplicitSchema(double a, double dx, double dt)
 		: AbstractSchema(a, dx, dt)
 	{
-		this->l = nullptr;
-		this->u = nullptr;
-		this->p = nullptr;
+		this->l = NULL;
+		this->u = NULL;
+		this->p = NULL;
+		this->isInit = false;
 	}
 
 	/**

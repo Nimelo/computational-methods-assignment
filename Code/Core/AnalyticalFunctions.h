@@ -5,7 +5,7 @@
  * Contains implementations of analytical function that are used in discretization process.
  * @author Mateusz Gasior
  */
-static class AnalyticalFunctions
+class AnalyticalFunctions
 {
 private:
 	/**
@@ -31,4 +31,5 @@ public:
 	 */
 	static double signFunction(double x, double t);
 };
+
 #endif

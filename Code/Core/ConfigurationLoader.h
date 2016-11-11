@@ -33,42 +33,42 @@ private:
 	/**
 	 * Lower boundary tag/key for configuration.
 	 */
-	const std::string TAG_LOWER_BOUND= "lowerBound";
+	std::string TAG_LOWER_BOUND;
 
 	/**
 	 * Upper boundary tag/key for configuration.
 	 */
-	const std::string TAG_UPPER_BOUND = "upperBound";
+	std::string TAG_UPPER_BOUND;
 
 	/**
 	 * Acceleration tag/key for configuration.
 	 */
-	const std::string TAG_ACCELERATION = "acceleration";
+	std::string TAG_ACCELERATION;
 	
 	/**
 	 * Analytical function tag/key for configuration.
 	 */
-	const std::string TAG_ANALYTICAL_FUNCTION = "analyticalFunction";
+	std::string TAG_ANALYTICAL_FUNCTION;
 	
 	/**
 	 * Schema tag/key for configuration.
 	 */
-	const std::string TAG_SCHEMA = "schema";
+	std::string TAG_SCHEMA;
 
 	/**
 	 * Time levels tag/key for configuration.
 	 */
-	const std::string TAG_TIME_LEVELS = "timeLevels";
+	std::string TAG_TIME_LEVELS;
 
 	/**
 	 * Grid size (mesh size) tag/key for configuration.
 	 */
-	const std::string TAG_GRID_SIZE = "gridSize";
+	std::string TAG_GRID_SIZE;
 	
 	/**
 	 * Delta t tag/key for configuration.
 	 */
-	const std::string TAG_DELTA_T = "deltaT";
+	std::string TAG_DELTA_T;
 
 	/**
 	 * Map of the parameters.

@@ -6,6 +6,14 @@
 
 ConfigurationLoader::ConfigurationLoader()
 {
+	TAG_LOWER_BOUND = "lowerBound";
+	TAG_UPPER_BOUND = "upperBound";
+	TAG_ACCELERATION = "acceleration";
+	TAG_ANALYTICAL_FUNCTION = "analyticalFunction";
+	TAG_SCHEMA = "schema";
+	TAG_TIME_LEVELS = "timeLevels";
+	TAG_GRID_SIZE = "gridSize";
+	TAG_DELTA_T = "deltaT";
 }
 
 ConfigurationLoader::~ConfigurationLoader()
@@ -14,7 +22,9 @@ ConfigurationLoader::~ConfigurationLoader()
 
 ConfigurationParameter ConfigurationLoader::getConfigurationParameter(std::string key)
 {
-	return { this->parametersMap[key] };
+	ConfigurationParameter p;
+	p.value = this->parametersMap[key];
+	return p;
 }
 
 void ConfigurationLoader::loadLines(Lines lines)
@@ -54,14 +64,16 @@ Configuration * ConfigurationLoader::loadFromLines(std::vector<std::string> line
 	try
 	{
 		this->loadLines(lines);
-		return new Configuration(getConfigurationParameter(TAG_LOWER_BOUND),
-			getConfigurationParameter(TAG_UPPER_BOUND),
-			getConfigurationParameter(TAG_ACCELERATION),
-			getConfigurationParameter(TAG_ANALYTICAL_FUNCTION),
-			getConfigurationParameter(TAG_SCHEMA),
-			getConfigurationParameter(TAG_GRID_SIZE),
+		return new Configuration(
+			static_cast<double>(getConfigurationParameter(TAG_LOWER_BOUND)),
+			static_cast<double>(getConfigurationParameter(TAG_UPPER_BOUND)),
+			static_cast<double>(getConfigurationParameter(TAG_ACCELERATION)),
+			static_cast<AnalyticalFunctionEnum>(getConfigurationParameter(TAG_ANALYTICAL_FUNCTION)),
+			static_cast<SchemasEnum>(getConfigurationParameter(TAG_SCHEMA)),
+			static_cast<unsigned int>(getConfigurationParameter(TAG_GRID_SIZE)),
 			getConfigurationParameter(TAG_TIME_LEVELS),
-			getConfigurationParameter(TAG_DELTA_T));
+			static_cast<double>(getConfigurationParameter(TAG_DELTA_T))
+		);
 	}
 	catch (...)
 	{

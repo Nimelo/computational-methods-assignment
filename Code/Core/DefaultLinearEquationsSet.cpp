@@ -14,7 +14,7 @@ DefaultLinearEquationsSet::~DefaultLinearEquationsSet()
 
 void DefaultLinearEquationsSet::setNewVector(Vector * vector)
 {
-	if(this->vector != nullptr)
+	if(this->vector != NULL)
 		delete this->vector;
 	this->vector = vector;
 }

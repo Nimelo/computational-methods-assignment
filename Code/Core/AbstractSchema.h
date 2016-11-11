@@ -59,4 +59,5 @@ public:
 	 */
 	virtual std::vector<double> * apply(std::vector<double> * previousWave) = 0;
 };
+
 #endif

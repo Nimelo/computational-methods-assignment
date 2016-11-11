@@ -18,15 +18,15 @@ public:
 	void setNewVector(Vector * vector);
 
 	// Inherited via AbstractLinearEquationSet
-	virtual unsigned int getAmountOfUnknowns() override;
+	virtual unsigned int getAmountOfUnknowns();
 
-	virtual unsigned int getWidthOfLinearSet() override;
+	virtual unsigned int getWidthOfLinearSet();
 
-	virtual unsigned int getHeightOfLinearSet() override;
+	virtual unsigned int getHeightOfLinearSet();
 
-	virtual double getRightSideAt(unsigned int index) override;
+	virtual double getRightSideAt(unsigned int index);
 
-	virtual double getLinearSetAt(unsigned int column, unsigned int row) override;
+	virtual double getLinearSetAt(unsigned int column, unsigned int row);
 
 };
 

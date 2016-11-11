@@ -3,7 +3,7 @@
 
 #include <string>
 #include <sstream>
-#include <exception>
+#include <stdexcept>
 #include <vector>
 
 #include "AnalyticalFunctionsEnum.h"
@@ -80,11 +80,11 @@ struct ConfigurationParameter
 	{
 		if (value == "exp")
 		{
-			return AnalyticalFunctionEnum::EXP_FUNCTION;
+			return EXP_FUNCTION;
 		}
 		else if (value == "sign")
 		{
-			return AnalyticalFunctionEnum::SIGN_FUNCTION;
+			return SIGN_FUNCTION;
 		}
 		else
 			throw std::runtime_error("Conversion failed");
@@ -104,19 +104,19 @@ struct ConfigurationParameter
 	{
 		if (value == "upwind_implicit")
 		{
-			return SchemasEnum::UPWIND_IMPLICIT;
+			return UPWIND_IMPLICIT;
 		}
 		else if (value == "upwind_explicit")
 		{
-			return SchemasEnum::UPWIND_EXPLICIT;
+			return UPWIND_EXPLICIT;
 		}
 		else if (value == "lax-wendroff")
 		{
-			return SchemasEnum::LAX_WENDROFF;
+			return LAX_WENDROFF;
 		}
 		else if (value == "richtmyer-ms")
 		{
-			return SchemasEnum::RICHTMYER_MULTI_STEP;
+			return RICHTMYER_MULTI_STEP;
 		}
 		else
 			throw std::runtime_error("Conversion failed");
