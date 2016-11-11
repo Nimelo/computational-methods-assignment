@@ -1,15 +1,17 @@
+#include <algorithm>
+#include <vector>
+
 #include "Discretizator.h"
 #include "WavePoints.h"
 #include "Exception.h"
-#include <algorithm>
 
-WavePoints * Discretizator::getAnalyticalWave(double time) const
+std::vector<double> * Discretizator::getAnalyticalWave(double time) const
 {
 	double lb = this->parameters->lowerBound;
 	double ub = this->parameters->upperBound;
 	double dx = this->parameters->deltaX;
 	unsigned int gridSize = this->parameters->meshSize;
-	WavePoints * wave = new WavePoints(gridSize);
+	std::vector<double> * wave = new std::vector<double>(gridSize);
 
 	for (unsigned int i = 0; i < (unsigned int)gridSize; i++)
 	{
@@ -21,10 +23,7 @@ WavePoints * Discretizator::getAnalyticalWave(double time) const
 
 void Discretizator::checkStabilityCondition() const
 {
-	double acceleration = this->parameters->acceleration;
-	double dt = this->parameters->deltaT;
-	double dx = this->parameters->deltaX;
-	this->parameters->schema->checkStabilityCondition(acceleration, dx, dt);
+	this->parameters->schema->checkStabilityCondition();
 }
 
 Discretizator::Discretizator(DiscretizationParameters * parameters)
@@ -47,14 +46,14 @@ DiscretizationResult * Discretizator::discretize()
 	std::vector<double> timeLevels(this->parameters->timeLevels);
 
 	double time = 0.0;
-	WavePoints * previousWave = getAnalyticalWave(time);
+	std::vector<double> * previousWave = getAnalyticalWave(time);
 
 	while (timeLevels.size() > 0)
 	{
 		while (time < timeLevels.at(0))
 		{
 			try {
-				WavePoints * currentWave = this->parameters->schema->apply(previousWave, this->parameters->deltaX, this->parameters->deltaT, this->parameters->acceleration);
+				std::vector<double> * currentWave = this->parameters->schema->apply(previousWave);
 				delete previousWave;
 				previousWave = currentWave;
 				time += this->parameters->deltaT;
@@ -67,7 +66,7 @@ DiscretizationResult * Discretizator::discretize()
 			}		
 		}
 
-		result->addWaves(time - this->parameters->deltaT, new WavePoints(*previousWave), getAnalyticalWave(time));
+		result->addWaves(time - this->parameters->deltaT, new std::vector<double>(*previousWave), getAnalyticalWave(time));
 		timeLevels.erase(timeLevels.begin());
 	}
 	

@@ -1,6 +1,8 @@
 #ifndef __H_WAVE_POINTS_SUMMARY
 #define __H_WAVE_POINTS_SUMMARY
 
+#include <vector>
+
 #include "WavePoints.h"
 
 /**
@@ -18,12 +20,12 @@ struct WavePointsSummary
 	/**
 	 * Numerical solution.
 	 */
-	WavePoints * numerical;
+	std::vector<double> * numerical;
 
 	/**
 	 * Analytical solution.
 	 */
-	WavePoints * analytical;
+	std::vector<double> * analytical;
 
 	/**
 	 * Overloaded constructor for explicitly given parameters.
@@ -31,7 +33,7 @@ struct WavePointsSummary
 	 * @param numerical Numerical solution.
 	 * @param analytical Analytical solution.
 	 */
-	WavePointsSummary(double time, WavePoints * numerical, WavePoints * analytical);
+	WavePointsSummary(double time, std::vector<double> * numerical, std::vector<double> * analytical);
 
 	/** 
 	 * Default destructor.

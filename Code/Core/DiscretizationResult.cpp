@@ -31,7 +31,7 @@ NormSummary * DiscretizationResult::getNorms()
 	return summary;
 }
 
-void DiscretizationResult::addWaves(double time, WavePoints * numerical, WavePoints * analytical)
+void DiscretizationResult::addWaves(double time, std::vector<double> * numerical, std::vector<double> * analytical)
 {
 	this->summaries->push_back(new WavePointsSummary(time, numerical, analytical));
 }

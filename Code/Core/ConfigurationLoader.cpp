@@ -61,11 +61,7 @@ Configuration * ConfigurationLoader::loadFromLines(std::vector<std::string> line
 			getConfigurationParameter(TAG_SCHEMA),
 			getConfigurationParameter(TAG_GRID_SIZE),
 			getConfigurationParameter(TAG_TIME_LEVELS),
-			getConfigurationParameter(TAG_SEARCH_OPTIMAL_DELTA_T),
-			getConfigurationParameter(TAG_DELTA_T),
-			getConfigurationParameter(TAG_MIN_DELTA_T),
-			getConfigurationParameter(TAG_MAX_DELTA_T),
-			getConfigurationParameter(TAG_DELTA_T_STEP));
+			getConfigurationParameter(TAG_DELTA_T));
 	}
 	catch (...)
 	{

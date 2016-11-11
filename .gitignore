@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Code/Core/Debug
+/Code/Core/Release/Core.tlog
+/Code/Core/x64/Debug
+/Code/CoreUnitTests/Debug
+/Code/CoreUnitTests/x64/Debug
+/Code/Main/Debug
+/Code/Main/Release/Main.tlog
+/Code/Main/x64/Debug

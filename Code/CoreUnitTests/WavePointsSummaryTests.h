@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 
 #include "WavePointsSummary.h"
-#include "WavePoints.h"
+#include <vector>
 
 class WavePointsSummaryTests : public ::testing::Test
 {	
@@ -12,8 +12,8 @@ public:
 	static WavePointsSummary * getTestSummary()
 	{
 		const unsigned int waveSize = 5;
-		WavePoints * analytical = new WavePoints(waveSize);
-		WavePoints * numerical = new WavePoints(waveSize);
+		std::vector<double> * analytical = new std::vector<double>(waveSize);
+		std::vector<double> * numerical = new std::vector<double>(waveSize);
 
 		for (unsigned int i = 0; i < waveSize; i++)
 		{

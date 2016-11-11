@@ -1,13 +1,10 @@
 #ifndef __H_DISCRETIZATION_PARAMETERS
 #define __H_DISCRETIZATION_PARAMETERS
 
-#include <functional>
 #include <vector>
 
 #include "Configuration.h"
 #include "AbstractSchema.h"
-#include "AbstractAnalyticalFunctionsResolver.h"
-#include "AbstractSchemasResolver.h"
 
 /**
  * Stores values needed to perform discretization.
@@ -32,7 +29,7 @@ struct DiscretizationParameters
 	/**
 	 * Analytical function.
 	 */
-	std::function<double(double, double)> analyticalFunction;
+	double (*analyticalFunction) (double, double);
 
 	/**
 	 * Schema.
@@ -80,21 +77,9 @@ struct DiscretizationParameters
 	 * @param dx Delta x.
 	 */
 	DiscretizationParameters(double lowerBound, double upperBound,
-		double acceleration, std::function<double(double, double)> analyticalFunction,
+		double acceleration, double(*analyticalFunction) (double, double),
 		AbstractSchema * schema, unsigned int meshSize, std::vector<double> timeLevels,
-		double dt, double dx);
-
-	/**
-	 * Overloaded constructor that bases on Configuration.
-	 * All the fields specified 
-	 * @see Configuration
-     * @configuration configuration Configuration for most of the parameters.
-	 * @param analyticalFunction Analytical function.
-	 * @param schema Schema.
-	 * @param dt Delta t.
-	*/
-	DiscretizationParameters(AbstractSchema * schema, std::function<double(double, double)> analyticalFunction,
-		Configuration * configuration, double dt);
+		double dt);
 
 	/**
 	 * Default destructor.

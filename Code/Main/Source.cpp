@@ -24,7 +24,6 @@
 #define NORM_FILE_INDEX 3
 #define OPTIMAL_DELTA_T_FILE_INDEX 4
 
-//MAIN FOR SIMPLE
 int main(int argc, char * argv[])
 {
 	try
@@ -43,26 +42,20 @@ int main(int argc, char * argv[])
 		ConfigurationLoader configurationLoader;
 		Configuration * configuration = configurationLoader.loadFromFile(configurationFile);
 
-		double deltaT = 0.0;
-		if (configuration->searchOptimalDeltaT)
-		{
-			DefaultDeltaTSearcher deltaSearcher(new Configuration(*configuration), new DefaultAnalyticalFunctionsResolver(), new DefaultSchemasResolver());
-			deltaT = deltaSearcher.find();
-		}
-		else
-		{
-			deltaT = configuration->deltaT;
-		}
-	
-		std::cout << "Delta T is equal to: " << deltaT << std::endl;
-
 		AbstractSchemasResolver * schemaResolver = new DefaultSchemasResolver();
 		AbstractAnalyticalFunctionsResolver * functionResolver = new DefaultAnalyticalFunctionsResolver();
 
-		Discretizator discretizator(new DiscretizationParameters(schemaResolver->resolve(configuration->schema),
-			functionResolver->resolve(configuration->analyticalFunction),
-			configuration,
-			deltaT)
+		Discretizator discretizator(
+			new DiscretizationParameters(
+				configuration->lowerBound,
+				configuration->upperBound,
+				configuration->acceleration,
+				functionResolver->resolve(configuration->analyticalFunction),
+				schemaResolver->resolve(configuration->schema, configuration->acceleration, configuration->deltaT, configuration->deltaT),
+				configuration->meshSize,
+				configuration->timeLevels,
+				configuration->deltaT
+			)
 		);
 
 		DiscretizationResult * result = discretizator.discretize();
@@ -81,7 +74,7 @@ int main(int argc, char * argv[])
 
 		std::fstream odts;		
 		odts.open(optimalDeltaTFile, std::fstream::out | std::fstream::trunc);
-		odts << deltaT;
+		odts << configuration->deltaT;
 		odts.close();
 
 		delete schemaResolver;

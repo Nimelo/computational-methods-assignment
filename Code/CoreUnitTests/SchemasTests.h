@@ -2,16 +2,15 @@
 #define __H_SCHEMAS_TESTS
 
 #include <gtest/gtest.h>
-#include "WavePoints.h"
 #include <vector>
 #include <math.h>
 
 class SchemasTests : public ::testing::Test
 {
 public:
-	static WavePoints * getSampleWave()
+	static std::vector<double> * getSampleWave()
 	{
-		WavePoints * wave = new WavePoints(10);
+		std::vector<double> * wave = new std::vector<double>(10);
 		for (unsigned int  i = 0; i < 10; i++)
 		{
 			wave->at(i) = (double)i;
@@ -20,9 +19,9 @@ public:
 		return wave;
 	}
 
-	static WavePoints * getCorrectWave()
+	static std::vector<double> * getCorrectWave()
 	{
-		WavePoints * wave = new WavePoints(10);
+		std::vector<double> * wave = new std::vector<double>(10);
 
 		wave->at(0) = 0;
 		wave->at(1) = 1;
@@ -38,7 +37,7 @@ public:
 		return wave;
 	}
 
-	static bool compare(WavePoints * l, WavePoints * r)
+	static bool compare(std::vector<double> * l, std::vector<double> * r)
 	{
 		for (unsigned int i = 0; i < l->size(); i++)
 		{
@@ -51,7 +50,7 @@ public:
 		return true;
 	}
 
-	static bool compare(WavePoints * l, WavePoints * r, double diff)
+	static bool compare(std::vector<double> * l, std::vector<double> * r, double diff)
 	{
 		for (unsigned int i = 0; i < l->size(); i++)
 		{

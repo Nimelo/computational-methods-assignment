@@ -5,9 +5,7 @@
 #include <sstream>
 #include <exception>
 #include <vector>
-#include <functional>
 
-#include "AbstractSchema.h"
 #include "AnalyticalFunctionsEnum.h"
 #include "SchemasEnum.h"
 

@@ -10,7 +10,35 @@
  */
 class AbstractSchema
 {
+protected:
+
+	/**
+	 * Acceleration.
+	 */
+	double accelertaion;
+
+	/**
+	 * Delta X.
+	 */
+	double deltaX;
+
+	/**
+	 * Delta T.
+	 */
+	double deltaT;
 public:
+
+	/**
+	 * Explicitly defined constructor.
+	 * @param a Acceleration.
+	 * @param dx Delta x.
+	 * @param dt Delta t.
+	 */	 
+	explicit AbstractSchema(double a, double dx, double dt)
+		: accelertaion(a), deltaT(dt), deltaX(dx)
+	{
+
+	}
 
 	/**
 	 * Default destructor.
@@ -22,21 +50,15 @@ public:
 
 	/**
 	 * Checks the stability condition for given parameters.
-	 * @param a Acceleration.
-	 * @param dx Delta x.
-	 * @param dt Delta t.
 	 * @throw StabilityConditionException if calculated coefficient (CFL) is greater than upper boundary.
 	 */
-	virtual void checkStabilityCondition(double a, double dx, double dt) = 0;
+	virtual void checkStabilityCondition() = 0;
 
 	/**
 	 * Applies schema for wave and given parameters.
 	 * @param previousWave previousWave that is base for next time step discretization.
-	 * @param dx Delta x.
-	 * @param dt Delta t.
-	 * @param a Acceleration.
 	 * @return Wave for next time step.
 	 */
-	virtual WavePoints * apply(WavePoints * previousWave, double dx, double dt, double a) = 0;
+	virtual std::vector<double> * apply(std::vector<double> * previousWave) = 0;
 };
 #endif

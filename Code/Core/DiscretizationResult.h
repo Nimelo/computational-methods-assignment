@@ -71,7 +71,7 @@ public:
 	 * @param numerical Numerical solution for given time level.
 	 * @param analytical Analytical solution for given time level.
 	 */
-	void addWaves(double time, WavePoints * numerical, WavePoints * analytical);
+	void addWaves(double time, std::vector<double> * numerical, std::vector<double> * analytical);
 };
 
 #endif

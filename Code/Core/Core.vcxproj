@@ -147,11 +147,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractDeltaTSearcher.cpp" />
     <ClCompile Include="AnalyticalFunctions.cpp" />
     <ClCompile Include="ConfigurationLoader.cpp" />
     <ClCompile Include="Configuration.cpp" />
-    <ClCompile Include="DefaultDeltaTSearcher.cpp" />
     <ClCompile Include="DefaultLinearEquationsResult.cpp" />
     <ClCompile Include="DefaultLinearEquationsSet.cpp" />
     <ClCompile Include="DefaultLinearEquationsSolver.cpp" />
@@ -161,7 +159,6 @@
     <ClCompile Include="matrix.cpp" />
     <ClCompile Include="NormSummary.cpp" />
     <ClCompile Include="vector.cpp" />
-    <ClCompile Include="WavePoints.cpp" />
     <ClCompile Include="WavePointsSummary.cpp" />
     <ClCompile Include="WavesSummary.cpp" />
   </ItemGroup>
@@ -173,7 +170,6 @@
     <ClInclude Include="AbstractSchemasResolver.h" />
     <ClInclude Include="DefaultAnalyticalFunctionsResolver.h" />
     <ClInclude Include="AbstractSchema.h" />
-    <ClInclude Include="DefaultDeltaTSearcher.h" />
     <ClInclude Include="DefaultLinearEquationsResult.h" />
     <ClInclude Include="DefaultLinearEquationsSet.h" />
     <ClInclude Include="DefaultLinearEquationsSolver.h" />
@@ -183,7 +179,6 @@
     <ClInclude Include="NormSummary.h" />
     <ClInclude Include="RichtmyerMultiStepSchema.h" />
     <ClInclude Include="DefaultSchemasResolver.h" />
-    <ClInclude Include="AbstractDeltaTSearcher.h" />
     <ClInclude Include="AnalyticalFunctions.h" />
     <ClInclude Include="AnalyticalFunctionsEnum.h" />
     <ClInclude Include="ConfigurationLoader.h" />
@@ -201,7 +196,6 @@
     <ClInclude Include="UpwindExplicitSchema.h" />
     <ClInclude Include="UpwindImplicitSchema.h" />
     <ClInclude Include="vector.h" />
-    <ClInclude Include="WavePoints.h" />
     <ClInclude Include="WavePointsSummary.h" />
     <ClInclude Include="WavesSummary.h" />
     <ClInclude Include="ZeroPivotException.h" />

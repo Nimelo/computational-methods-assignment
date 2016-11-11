@@ -1,6 +1,8 @@
 #ifndef __H_DISCRETIZATOR
 #define __H_DISCRETIZATOR
 
+#include <vector>
+
 #include "DiscretizationParameters.h"
 #include "DiscretizationResult.h"
 
@@ -22,7 +24,7 @@ private:
 	 * @param time Time for calculating analytical wave.
 	 * @return Analytical wave for given time.
 	 */
-	WavePoints * getAnalyticalWave(double time) const;
+	std::vector<double> * getAnalyticalWave(double time) const;
 
 	/**
 	 * Invokes stability condition function from schema that is in parameters.

@@ -1,6 +1,8 @@
 #ifndef __H_UPWIND_EXPLICIT_SCHEMA
 #define __H_UPWIND_EXPLICIT_SCHEMA
 
+#include <vector>
+
 #include "AbstractSchema.h"
 #include "StabilityConditionException.h"
 
@@ -13,17 +15,25 @@
 class UpwindExplicitSchema : public AbstractSchema
 {
 public:
+	/**
+	* Explicitly defined constructor.
+	* @param a Acceleration.
+	* @param dx Delta x.
+	* @param dt Delta t.
+	*/
+	UpwindExplicitSchema(double a, double dx, double dt)
+		: AbstractSchema(a, dx, dt)
+	{
+
+	}
 
 	/**
 	 * Checks the stability condition for given parameters.
-	 * @param a Acceleration.
-	 * @param dx Delta x.
-	 * @param dt Delta t.
 	 * @throw StabilityConditionException if calculated coefficient (CFL) is greater than upper boundary.
 	 */
-	void checkStabilityCondition(double a, double dx, double dt)
+	void checkStabilityCondition()
 	{
-		double coefficient = a * dt / dx;
+		double coefficient = this->accelertaion * this->deltaT / this->deltaX;
 		if (coefficient > 1.0)
 		{
 			throw StabilityConditionException("Schema is unstable!");
@@ -33,17 +43,14 @@ public:
 	/**
 	 * Applies schema for wave and given parameters.
 	 * @param previousWave previousWave that is base for next time step discretization.
-	 * @param dx Delta x.
-	 * @param dt Delta t.
-	 * @param a Acceleration.
 	 * @return Wave for next time step.
 	 */
-	WavePoints * apply(WavePoints * previousWave, double dx, double dt, double a)
+	std::vector<double> * apply(std::vector<double> * previousWave)
 	{
 		unsigned int gridSize = previousWave->size();
-		double coefficient = a * (dt / dx);
+		double coefficient = this->accelertaion * (this->deltaT / this->deltaX);
 
-		WavePoints * currentWave = new WavePoints(gridSize);
+		std::vector<double> * currentWave = new std::vector<double>(gridSize);
 		
 		currentWave->at(0) = previousWave->at(0);
 		currentWave->at(gridSize - 1) = previousWave->at(gridSize - 1);

@@ -1,7 +1,6 @@
 #ifndef __H_DEFAULT_ANALYTICAL_FUNCTIONS_RESOLVER
 #define __H_DEFAULT_ANALYTICAL_FUNCTIONS_RESOLVER
 
-#include <functional>
 #include "AnalyticalFunctionsEnum.h"
 #include "AnalyticalFunctions.h"
 
@@ -21,7 +20,7 @@ public:
 	 * @param key Key for analytical function.
 	 * @return Analytical function corresponding to the given key.
 	 */
-	std::function<double(double, double)> resolve(AnalyticalFunctionEnum key)
+	AnalyticalFunctionType resolve(AnalyticalFunctionEnum key)
 	{
 		switch (key)	
 		{

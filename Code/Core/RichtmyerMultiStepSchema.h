@@ -1,6 +1,8 @@
 #ifndef __H_RICHTMYER_MULTI_STEP_SCHEMA
 #define __H_RICHTMYER_MULTI_STEP_SCHEMA
 
+#include <vector>
+
 #include "AbstractSchema.h"
 
 /**
@@ -15,28 +17,34 @@ private:
 	/**
 	 * Calculates partial solution for time step n + half.
 	 * @param previousWave wave for which is performed calculations.
-	 * @param dx Delta x.
-	 * @param dt Delta t.
-	 * @param a Acceleration.
 	 * @param i Index for which point calculations are made.
 	 */
-	double correctionAtTimeStepHalf(WavePoints * previousWave, double dx, double dt, double a, unsigned int i)
+	double correctionAtTimeStepHalf(std::vector<double> * previousWave, unsigned int i)
 	{
 		return 0.5 * (previousWave->at(i + 1) + previousWave->at(i - 1))
-			- ((a * dt) / (4 * dx)) * (previousWave->at(i + 1) - previousWave->at(i - 1));
+			- ((this->accelertaion * this->deltaT) / (4 * this->deltaX)) * (previousWave->at(i + 1) - previousWave->at(i - 1));
 	}
 public:
+	/**
+	* Explicitly defined constructor.
+	* @param a Acceleration.
+	* @param dx Delta x.
+	* @param dt Delta t.
+	*/
+	RichtmyerMultiStepSchema(double a, double dx, double dt)
+		: AbstractSchema(a, dx, dt)
+	{
+
+	}
 
 	/**
 	 * Checks the stability condition for given parameters.
-	 * @param a Acceleration.
-	 * @param dx Delta x.
-	 * @param dt Delta t.
 	 * @throw StabilityConditionException if calculated coefficient (CFL) is greater than 2.0.
 	 */
-	void checkStabilityCondition(double a, double dx, double dt)
+	void checkStabilityCondition()
 	{
-		double coefficient = a * dt / dx;
+		double coefficient = this->accelertaion * this->deltaT / this->deltaX;
+
 		if (coefficient > 2.0)
 		{
 			throw StabilityConditionException("Schema is unstable!");
@@ -46,16 +54,13 @@ public:
 	/**
 	 * Applies schema for wave and given parameters.
 	 * @param previousWave previousWave that is base for next time step discretization.
-	 * @param dx Delta x.
-	 * @param dt Delta t.
-	 * @param a Acceleration.
 	 * @return Wave for next time step.
 	 */
-	WavePoints * apply(WavePoints * previousWave, double dx, double dt, double a)
+	std::vector<double> * apply(std::vector<double> * previousWave)
 	{
 		unsigned int gridSize = previousWave->size();
 
-		WavePoints * currentWave = new WavePoints(gridSize);
+		std::vector<double> * currentWave = new std::vector<double>(gridSize);
 
 		//inny schemat
 		currentWave->at(0) = previousWave->at(0);
@@ -65,8 +70,8 @@ public:
 
 		for (unsigned int i = 2; i < gridSize - 2; i++)
 		{
-			currentWave->at(i) = previousWave->at(i) - ((a * dt) / (2 * dx)) 
-				* (correctionAtTimeStepHalf(previousWave, dx, dt, a, i + 1) - correctionAtTimeStepHalf(previousWave, dx, dt, a, i - 1));
+			currentWave->at(i) = previousWave->at(i) - ((this->accelertaion * this->deltaT) / (2 * this->deltaX))
+				* (correctionAtTimeStepHalf(previousWave, i + 1) - correctionAtTimeStepHalf(previousWave, i - 1));
 		}
 
 		return currentWave;

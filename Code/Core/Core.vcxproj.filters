@@ -43,9 +43,6 @@
     <Filter Include="Header Files\Discretization\Schemas">
       <UniqueIdentifier>{674ec369-1375-49ce-9b8e-704f24d3e5bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Discretization\WavePoints">
-      <UniqueIdentifier>{2372258a-fa2b-4b7c-8e5b-16cfc31ea8b7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Discretization\Schemas\Detailed">
       <UniqueIdentifier>{a4a058d9-719d-4605-94d8-7e670b91ca63}</UniqueIdentifier>
     </Filter>
@@ -54,9 +51,6 @@
     </Filter>
     <Filter Include="Header Files\Discretization\Results">
       <UniqueIdentifier>{20013a43-daae-442c-b610-f385d40b8f64}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Discretization\Searchers">
-      <UniqueIdentifier>{9bbfee0c-3183-4722-b594-30c95189bb5d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Discretization\Parameters\Resolving">
       <UniqueIdentifier>{a87bb1b5-e22f-4edc-8119-f99591bc8f72}</UniqueIdentifier>
@@ -69,9 +63,6 @@
     </Filter>
     <Filter Include="Header Files\Discretization\Results\Norms">
       <UniqueIdentifier>{ef4ca1ba-bcdc-4465-bebc-bd2a5bf34928}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Discretization\Searchers\Default">
-      <UniqueIdentifier>{3267aaaf-66d8-484b-994e-d62388d061d7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Discretization\Results\WavePoints">
       <UniqueIdentifier>{50f2f775-2285-42f4-b801-c4c04dce263f}</UniqueIdentifier>
@@ -132,9 +123,6 @@
     <ClCompile Include="DiscretizationParameters.cpp">
       <Filter>Header Files\Discretization\Parameters</Filter>
     </ClCompile>
-    <ClCompile Include="WavePoints.cpp">
-      <Filter>Header Files\Discretization\WavePoints</Filter>
-    </ClCompile>
     <ClCompile Include="AnalyticalFunctions.cpp">
       <Filter>Header Files\Functions</Filter>
     </ClCompile>
@@ -143,12 +131,6 @@
     </ClCompile>
     <ClCompile Include="WavePointsSummary.cpp">
       <Filter>Header Files\Discretization\Results\WavePoints</Filter>
-    </ClCompile>
-    <ClCompile Include="AbstractDeltaTSearcher.cpp">
-      <Filter>Header Files\Discretization\Searchers</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultDeltaTSearcher.cpp">
-      <Filter>Header Files\Discretization\Searchers\Default</Filter>
     </ClCompile>
     <ClCompile Include="WavesSummary.cpp">
       <Filter>Header Files\Discretization\Results\WavePoints</Filter>
@@ -203,9 +185,6 @@
     <ClInclude Include="AbstractSchema.h">
       <Filter>Header Files\Discretization\Schemas</Filter>
     </ClInclude>
-    <ClInclude Include="WavePoints.h">
-      <Filter>Header Files\Discretization\WavePoints</Filter>
-    </ClInclude>
     <ClInclude Include="ConfigurationParameter.h">
       <Filter>Header Files\Configuration\Parameters</Filter>
     </ClInclude>
@@ -250,12 +229,6 @@
     </ClInclude>
     <ClInclude Include="WavePointsSummary.h">
       <Filter>Header Files\Discretization\Results\WavePoints</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractDeltaTSearcher.h">
-      <Filter>Header Files\Discretization\Searchers</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultDeltaTSearcher.h">
-      <Filter>Header Files\Discretization\Searchers\Default</Filter>
     </ClInclude>
     <ClInclude Include="WavesSummary.h">
       <Filter>Header Files\Discretization\Results\WavePoints</Filter>

@@ -1,6 +1,8 @@
 #ifndef __H_UPWIND_IMPLICIT_SCHEMA
 #define __H_UPWIND_IMPLICIT_SCHEMA
 
+#include <vector>
+
 #include "AbstractSchema.h"
 #include "StabilityConditionException.h"
 #include "DefaultLinearEquationsSet.h"
@@ -51,7 +53,7 @@ private:
 	 * @param wave Wave.
 	 * @return Vector of points based on wave.
 	 */
-	Vector * getVector(WavePoints * wave)
+	Vector * getVector(std::vector<double> * wave)
 	{
 		Vector * b = new Vector(wave->size() - 2);
 
@@ -65,15 +67,12 @@ private:
 	
 	/**
 	 * Creates matrix based on input parameters for solving linear equation used in upwind implicit schema. 
-	 * @param a Acceleration.
-	 * @param dx Delta x.
-	 * @param dt Delta t.
 	 * @param size Size of the return matrix.
 	 * @return Matrix based on input parameters, used for calculation of next time step of the wave.
 	 */
-	Matrix * getMatrix(double a, double dx, double dt, unsigned int size)
+	Matrix * getMatrix(unsigned int size)
 	{
-		double c = (a * dt) / dx;
+		double c = (this->accelertaion * this->deltaT) / this->deltaX;
 		double halfC = 0.5 * c;
 		Matrix * matrix = new Matrix(size, size);
 
@@ -110,14 +109,11 @@ public:
 
 	/**
 	* Checks the stability condition for given parameters.
-	* @param a Acceleration.
-	* @param dx Delta x.
-	* @param dt Delta t.
 	* @throw StabilityConditionException if calculated coefficient (CFL) is negative.
 	*/
-	void checkStabilityCondition(double a, double dx, double dt)
+	void checkStabilityCondition()
 	{
-		double coefficient = (a * dt) / dx;
+		double coefficient = (this->accelertaion * this->deltaT) / this->deltaX;
 
 		if (coefficient <= 0)
 			throw StabilityConditionException("Schema is unstable.");
@@ -131,14 +127,14 @@ public:
 	* @param a Acceleration.
 	* @return Wave for next time step.
 	*/
-	WavePoints * apply(WavePoints * previousWave, double dx, double dt, double a)
+	std::vector<double> * apply(std::vector<double> * previousWave)
 	{
 		DefaultLinearEquationsSolver solver(1.e-20);
-		double currentCoefficient = (a * dt) / dx;
+		double currentCoefficient = (this->accelertaion * this->deltaT) / this->deltaX;
 
 		if (!isInit || currentCoefficient != lastCoefficient)
 		{
-			Matrix * matrixA = this->getMatrix(a, dx, dt, previousWave->size() - 2);
+			Matrix * matrixA = this->getMatrix(previousWave->size() - 2);
 
 			if (!isInit)
 			{
@@ -164,7 +160,7 @@ public:
 		Vector newB(*p**b);
 		Vector * result = solver.solveLU(*this->l, *this->u, newB, this->u->getNcols());
 
-		WavePoints * newWave = new WavePoints(previousWave->size());
+		std::vector<double> * newWave = new std::vector<double>(previousWave->size());
 
 		newWave->at(0) = previousWave->at(0);
 		for (unsigned int i = 0; i < (unsigned int)result->getSize(); i++)
@@ -179,9 +175,13 @@ public:
 	}
 
 	/**
-	 * Default constructor.
-	 */
-	UpwindImplicitSchema() 
+	* Explicitly defined constructor.
+	* @param a Acceleration.
+	* @param dx Delta x.
+	* @param dt Delta t.
+	*/
+	UpwindImplicitSchema(double a, double dx, double dt)
+		: AbstractSchema(a, dx, dt)
 	{
 		this->l = nullptr;
 		this->u = nullptr;

@@ -64,31 +64,11 @@ private:
 	 * Grid size (mesh size) tag/key for configuration.
 	 */
 	const std::string TAG_GRID_SIZE = "gridSize";
-
-	/**
-	 * Search optimal delta t tag/key for configuration.
-	 */
-	const std::string TAG_SEARCH_OPTIMAL_DELTA_T = "searchOptimalDeltaT";
 	
 	/**
 	 * Delta t tag/key for configuration.
 	 */
 	const std::string TAG_DELTA_T = "deltaT";
-
-	/**
-	 * Minimum delta t tag/key for configuration.
-	 */
-	const std::string TAG_MIN_DELTA_T = "minDeltaT";
-
-	/**
-	 * Maximum delta t tag/key for configuration.
-	 */
-	const std::string TAG_MAX_DELTA_T = "maxDeltaT";
-
-	/**
-	 * Delta t step tag/key for configuration.
-	 */
-	const std::string TAG_DELTA_T_STEP = "deltaTStep";
 
 	/**
 	 * Map of the parameters.

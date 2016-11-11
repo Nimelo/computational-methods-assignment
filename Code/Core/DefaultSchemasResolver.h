@@ -22,20 +22,23 @@ public:
 	 * Resolves schema by given key.
 	 * @see SchemasEnum
 	 * @param key Key for schema.
+	 * @param a Acceleration.
+	 * @param dx Delta X.
+	 * @param dt Delta T.
 	 * @return Schema corresponding to the given key.
 	 */
-	AbstractSchema * resolve(SchemasEnum key)
+    AbstractSchema * resolve(SchemasEnum key, double a, double dx, double dt)
 	{
 		switch (key)
 		{
 		case UPWIND_EXPLICIT:
-			return new UpwindExplicitSchema();
+			return new UpwindExplicitSchema(a, dx, dt);
 		case UPWIND_IMPLICIT:
-			return new UpwindImplicitSchema();
+			return new UpwindImplicitSchema(a, dx, dt);
 		case LAX_WENDROFF:
-			return new LaxWendroffSchema();
+			return new LaxWendroffSchema(a, dx, dt);
 		case RICHTMYER_MULTI_STEP:
-			return new RichtmyerMultiStepSchema();
+			return new RichtmyerMultiStepSchema(a, dx, dt);
 		}
 	}
 };

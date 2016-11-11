@@ -1,7 +1,8 @@
 #include "WavePointsSummary.h"
 #include <math.h>
+#include <vector>
 
-WavePointsSummary::WavePointsSummary(double time, WavePoints * numerical, WavePoints * analytical)
+WavePointsSummary::WavePointsSummary(double time, std::vector<double> * numerical, std::vector<double> * analytical)
 	: time(time), numerical(numerical), analytical(analytical)
 {
 
