@@ -1,5 +1,7 @@
+#include <math.h>
 #include "DefaultLinearEquationsSolver.h"
 #include "ZeroPivotException.h"
+
 
 Matrix * DefaultLinearEquationsSolver::getMatrixA(AbstractLinearEquationSet * linearEquations)
 {
@@ -73,12 +75,12 @@ void DefaultLinearEquationsSolver::factorizationLU(const Matrix & a, Matrix & l,
 	// LU decomposition without pivoting
 	for (int k = 0; k < n - 1; k++) {
 		for (int i = k + 1; i < n; i++) {
-			if (fabs(temp[k][k]) < limit) throw ZeroPivotException("zero pivot found");
+			if (fabs(temp[k][k]) < limit) throw ZeroPivotException();
 			mult = temp[i][k] / temp[k][k];
 			temp[i][k] = mult;                      // entries of L are saved in temp
 			for (int j = k + 1; j < n; j++) {
 				temp[i][j] -= mult*temp[k][j];      // entries of U are saved in temp
-				if (fabs(temp[i][i]) < limit) throw ZeroPivotException("zero pivot found");
+				if (fabs(temp[i][i]) < limit) throw ZeroPivotException();
 			}
 		}
 	}
@@ -141,7 +143,7 @@ void DefaultLinearEquationsSolver::reorder(const Matrix & a, int n, Matrix & p)
 				pc = i;
 			}
 		}
-		if (fabs(aet) < limit) throw ZeroPivotException("zero pivot found");
+		if (fabs(aet) < limit) throw ZeroPivotException();
 		if (pc != k) {                      // swap pvt[k] and pvt[pc]
 			int ii = pvt[k];
 			pvt[k] = pvt[pc];

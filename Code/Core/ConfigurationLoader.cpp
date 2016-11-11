@@ -1,6 +1,8 @@
 #include "ConfigurationLoader.h"
 #include "ConfigurationLoadingException.h"
 #include "Configuration.h"
+#include "AnalyticalFunctionsEnum.h"
+#include "SchemasEnum.h"
 
 #include <fstream>
 
@@ -55,7 +57,7 @@ Configuration * ConfigurationLoader::loadFromFile(std::string path)
 	}
 	catch (...)
 	{
-		throw ConfigurationLoadingException("Cannot load configuration.");
+		throw ConfigurationLoadingException();
 	}
 }
 
@@ -65,18 +67,18 @@ Configuration * ConfigurationLoader::loadFromLines(std::vector<std::string> line
 	{
 		this->loadLines(lines);
 		return new Configuration(
-			static_cast<double>(getConfigurationParameter(TAG_LOWER_BOUND)),
-			static_cast<double>(getConfigurationParameter(TAG_UPPER_BOUND)),
-			static_cast<double>(getConfigurationParameter(TAG_ACCELERATION)),
-			static_cast<AnalyticalFunctionEnum>(getConfigurationParameter(TAG_ANALYTICAL_FUNCTION)),
-			static_cast<SchemasEnum>(getConfigurationParameter(TAG_SCHEMA)),
-			static_cast<unsigned int>(getConfigurationParameter(TAG_GRID_SIZE)),
-			getConfigurationParameter(TAG_TIME_LEVELS),
-			static_cast<double>(getConfigurationParameter(TAG_DELTA_T))
+			getConfigurationParameter(TAG_LOWER_BOUND).toDouble(),
+			getConfigurationParameter(TAG_UPPER_BOUND).toDouble(),
+			getConfigurationParameter(TAG_ACCELERATION).toDouble(),
+			getConfigurationParameter(TAG_ANALYTICAL_FUNCTION).toAnalyticalFunction(),
+			getConfigurationParameter(TAG_SCHEMA).toSchema(),
+			getConfigurationParameter(TAG_GRID_SIZE).toUnsignedInt(),
+			getConfigurationParameter(TAG_TIME_LEVELS).toVectorOfDouble(),
+			getConfigurationParameter(TAG_DELTA_T).toDouble()
 		);
 	}
 	catch (...)
 	{
-		throw ConfigurationLoadingException("");
+		throw ConfigurationLoadingException();
 	}
 }

@@ -36,7 +36,7 @@ public:
 		double coefficient = this->accelertaion * this->deltaT / this->deltaX;
 		if (coefficient > 1.0)
 		{
-			throw StabilityConditionException("Schema is unstable!");
+			throw StabilityConditionException();
 		}
 	}
 

@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "AbstractSchema.h"
+#include "StabilityConditionException.h"
 
 /**
  * Implementaion of Richtmyer multi-step method.
@@ -47,7 +48,7 @@ public:
 
 		if (coefficient > 2.0)
 		{
-			throw StabilityConditionException("Schema is unstable!");
+			throw StabilityConditionException();
 		}
 	}
 	

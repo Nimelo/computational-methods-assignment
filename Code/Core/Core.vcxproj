@@ -168,6 +168,7 @@
     <ClInclude Include="AbstractLinearEquationsResult.h" />
     <ClInclude Include="AbstractLinearEquationsSolver.h" />
     <ClInclude Include="AbstractSchemasResolver.h" />
+    <ClInclude Include="AnalyticalFunctionsEnum.h" />
     <ClInclude Include="DefaultAnalyticalFunctionsResolver.h" />
     <ClInclude Include="AbstractSchema.h" />
     <ClInclude Include="DefaultLinearEquationsResult.h" />
@@ -180,7 +181,6 @@
     <ClInclude Include="RichtmyerMultiStepSchema.h" />
     <ClInclude Include="DefaultSchemasResolver.h" />
     <ClInclude Include="AnalyticalFunctions.h" />
-    <ClInclude Include="AnalyticalFunctionsEnum.h" />
     <ClInclude Include="ConfigurationLoader.h" />
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="ConfigurationLoadingException.h" />
@@ -189,10 +189,8 @@
     <ClInclude Include="DiscretizationResult.h" />
     <ClInclude Include="Discretizator.h" />
     <ClInclude Include="Exception.h" />
-    <ClInclude Include="InvalidInputStringException.h" />
     <ClInclude Include="SchemasEnum.h" />
     <ClInclude Include="StabilityConditionException.h" />
-    <ClInclude Include="UnitializedParameterException.h" />
     <ClInclude Include="UpwindExplicitSchema.h" />
     <ClInclude Include="UpwindImplicitSchema.h" />
     <ClInclude Include="vector.h" />

@@ -1,11 +1,12 @@
 #ifndef __H_DISCRETIZATION_RESULT
 #define __H_DISCRETIZATION_RESULT
 
-#include "WavePointsSummary.h"
-#include "NormSummary.h"
-#include "WavesSummary.h"
 #include <vector>
 #include <ostream>
+
+#include "WavesSummary.h"
+#include "WavePointsSummary.h"
+#include "NormSummary.h"
 
 /**
  * Result of discretization. 

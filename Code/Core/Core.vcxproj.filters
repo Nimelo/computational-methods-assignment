@@ -22,9 +22,6 @@
     <Filter Include="Header Files\Exceptions">
       <UniqueIdentifier>{23d35f9e-22e8-46af-903b-59a043d7fe0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Exceptions\ParameterExceptions">
-      <UniqueIdentifier>{b1587069-a1ce-410a-b0eb-6bcc26684f75}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Exceptions\ConfigurationExceptions">
       <UniqueIdentifier>{ac7db440-641c-47e9-b481-810475931bac}</UniqueIdentifier>
     </Filter>
@@ -158,14 +155,8 @@
     <ClInclude Include="Exception.h">
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="InvalidInputStringException.h">
-      <Filter>Header Files\Exceptions\ParameterExceptions</Filter>
-    </ClInclude>
     <ClInclude Include="ConfigurationLoadingException.h">
       <Filter>Header Files\Exceptions\ConfigurationExceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="UnitializedParameterException.h">
-      <Filter>Header Files\Exceptions\ParameterExceptions</Filter>
     </ClInclude>
     <ClInclude Include="ConfigurationLoader.h">
       <Filter>Header Files\Configuration\Loader</Filter>
@@ -187,9 +178,6 @@
     </ClInclude>
     <ClInclude Include="ConfigurationParameter.h">
       <Filter>Header Files\Configuration\Parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="AnalyticalFunctionsEnum.h">
-      <Filter>Header Files\Configuration\Enums</Filter>
     </ClInclude>
     <ClInclude Include="SchemasEnum.h">
       <Filter>Header Files\Configuration\Enums</Filter>
@@ -262,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="ZeroPivotException.h">
       <Filter>Header Files\Exceptions\ZeroPivotExceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="AnalyticalFunctionsEnum.h">
+      <Filter>Header Files\Configuration\Enums</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

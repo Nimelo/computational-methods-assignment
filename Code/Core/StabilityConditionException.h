@@ -11,15 +11,6 @@
  */
 class StabilityConditionException : public Exception
 {
-public:
-	/**
-	 * Overriden constructor for explicitly given parameters.
-	 * @param val Message of exception.
-	 */
-	StabilityConditionException(const char * msg) : Exception(msg)
-	{
-
-	}
 };
 
 #endif

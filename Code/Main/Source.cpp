@@ -86,11 +86,11 @@ int main(int argc, char * argv[])
 	}
 	catch (ConfigurationLoadingException cle)
 	{
-		std::cout << cle.what() << std::endl;
+		
 	}
 	catch (Exception e)
 	{
-		std::cout << e.what() << std::endl;
+		
 	}
 	catch (std::exception & stde)
 	{

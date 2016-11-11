@@ -12,14 +12,5 @@
  */
 class ConfigurationLoadingException : public Exception
 {
-public:
-	/**
-	 * Overriden constructor for explicitly given parameters.
-	 * @param val Message of exception.
-	 */
-	ConfigurationLoadingException(const char * msg) : Exception(msg)
-	{
-
-	}
 };
 #endif

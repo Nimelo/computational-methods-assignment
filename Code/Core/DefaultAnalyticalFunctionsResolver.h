@@ -1,10 +1,10 @@
 #ifndef __H_DEFAULT_ANALYTICAL_FUNCTIONS_RESOLVER
 #define __H_DEFAULT_ANALYTICAL_FUNCTIONS_RESOLVER
 
+#include "AbstractAnalyticalFunctionsResolver.h"
+
 #include "AnalyticalFunctionsEnum.h"
 #include "AnalyticalFunctions.h"
-
-#include "AbstractAnalyticalFunctionsResolver.h"
 
 /**
  * Default class for resolving analytical function for discretization.

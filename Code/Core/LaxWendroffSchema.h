@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "AbstractSchema.h"
+#include "StabilityConditionException.h"
 
 /**
  * Implementaion of Lax-Wendroff method.
@@ -37,7 +38,7 @@ public:
 
 		if (coefficient > 1.0)
 		{
-			throw StabilityConditionException("Schema is unstable!");
+			throw StabilityConditionException();
 		}
 	}
 

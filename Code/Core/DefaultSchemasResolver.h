@@ -1,9 +1,9 @@
 #ifndef __H_DEFAULT_SCHEMAS_RESOLVER
 #define __H_DEFAULT_SCHEMAS_RESOLVER
 
+#include "AbstractSchemasResolver.h"
 #include "SchemasEnum.h"
 #include "AbstractSchema.h"
-#include "AbstractSchemasResolver.h"
 
 #include "UpwindExplicitSchema.h"
 #include "UpwindImplicitSchema.h"
