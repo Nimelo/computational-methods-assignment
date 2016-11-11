@@ -1,13 +1,13 @@
 #if _DEBUG
 	#include <vld.h>
 #endif
+#include "ConfigurationLoader.h"
 #include "Configuration.h"
 #include "Discretizator.h"
 #include "DiscretizationResult.h"
 #include "Exception.h"
 #include "ConfigurationLoadingException.h"
 #include "DiscretizationParameters.h"
-#include "ConfigurationLoader.h"
 #include "DefaultAnalyticalFunctionsResolver.h"
 #include "AbstractAnalyticalFunctionsResolver.h"
 #include "AbstractSchemasResolver.h"

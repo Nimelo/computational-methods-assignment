@@ -1,6 +1,6 @@
 #ifndef __H_CONFIGURATION
 #define __H_CONFIGURATION
-#include <functional>
+
 #include <vector>
 #include "SchemasEnum.h"
 #include "AnalyticalFunctionsEnum.h"
