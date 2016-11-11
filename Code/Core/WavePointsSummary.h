@@ -3,8 +3,6 @@
 
 #include <vector>
 
-#include "WavePoints.h"
-
 /**
  * Structure stores analytical and numerical solutions for given time step.
  * Provides 3 methods for calculation of norms.

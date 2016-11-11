@@ -3,10 +3,9 @@ param(
 [string]$confExtension="conf",
 [string]$resultDirectory="..\Debug\results",
 [string]$appDirectory="..\Debug",
-[string]$appName = "Main.exe"
+[string]$appName = "Main.exe",
+[string]$regex = "*.$confExtension"
 )
-
-$regex = "*.$confExtension"
 
 #Write-Host $regex
 

@@ -2,7 +2,6 @@
 #include <vector>
 
 #include "Discretizator.h"
-#include "WavePoints.h"
 #include "Exception.h"
 
 std::vector<double> * Discretizator::getAnalyticalWave(double time) const

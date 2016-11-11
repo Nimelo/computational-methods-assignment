@@ -2,7 +2,7 @@
 #define __H_WAVE_POINTS_SUMMARY_TESTS
 
 #include <gtest/gtest.h>
-
+#include "..\Core\WavePointsSummary.h"
 #include "WavePointsSummary.h"
 #include <vector>
 

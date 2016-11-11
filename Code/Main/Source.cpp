@@ -11,8 +11,6 @@
 #include "AbstractSchemasResolver.h"
 #include "DefaultSchemasResolver.h"
 #include "WavePointsSummary.h"
-#include "AbstractDeltaTSearcher.h"
-#include "DefaultDeltaTSearcher.h"
 
 #include <iostream>
 #include <fstream>

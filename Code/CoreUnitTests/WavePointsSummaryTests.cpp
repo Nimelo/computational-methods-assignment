@@ -1,6 +1,5 @@
 #include "WavePointsSummaryTests.h"
 #include "WavePointsSummary.h"
-#include "WavePoints.h"
 
 TEST_F(WavePointsSummaryTests, ErrorInfinity)
 {

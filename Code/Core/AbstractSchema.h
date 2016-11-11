@@ -1,8 +1,6 @@
 #ifndef __H_ABSTRACT_SCHEMA
 #define __H_ABSTRACT_SCHEMA
 
-#include "WavePoints.h"
-
 /**
  * Abstraction for schema.
  * Provides all methods that have to be used by discretizator.

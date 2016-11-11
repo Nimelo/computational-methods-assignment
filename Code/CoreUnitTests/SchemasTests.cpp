@@ -10,7 +10,7 @@
 
 TEST_F(SchemasTests, UpwindExplicitSchema)
 {
-	AbstractSchema * s = new UpwindExplicitSchema(4, 1, 1);
+	AbstractSchema * s = new UpwindExplicitSchema(1, 4, 1);
 
 	std::vector<double> * prev = new std::vector<double>(5);
 	std::vector<double> * c = new std::vector<double>(5);
@@ -38,7 +38,7 @@ TEST_F(SchemasTests, UpwindExplicitSchema)
 
 TEST_F(SchemasTests, LaxWendroffSchema)
 {
-	AbstractSchema * s = new LaxWendroffSchema(2, 1, 1);
+	AbstractSchema * s = new LaxWendroffSchema(1, 2, 1);
 
 	std::vector<double> * prev = new std::vector<double>(5);
 	std::vector<double> * c = new std::vector<double>(5);
@@ -54,7 +54,7 @@ TEST_F(SchemasTests, LaxWendroffSchema)
 			c->at(i) = i - 0.5;
 		}
 	}
-	std::vector<double> * p = s->apply(prev, 2, 1, 1);
+	std::vector<double> * p = s->apply(prev);
 
 	ASSERT_EQ(true, SchemasTests::compare(p, c));
 	delete s;
@@ -65,10 +65,10 @@ TEST_F(SchemasTests, LaxWendroffSchema)
 
 TEST_F(SchemasTests, UpwindImplicitSchema)
 {
-	AbstractSchema * s = new UpwindImplicitSchema(1, 10, 1);
+	AbstractSchema * s = new UpwindImplicitSchema(10, 1, 1);
 
-	WavePoints * prev = new WavePoints(5);
-	WavePoints * c = new WavePoints(5);
+	std::vector<double> * prev = new std::vector<double>(5);
+	std::vector<double> * c = new std::vector<double>(5);
 
 	for (unsigned int i = 0; i < 5; i++)
 	{
@@ -82,7 +82,7 @@ TEST_F(SchemasTests, UpwindImplicitSchema)
 	(*c)[4] = (*prev)[4];
 
 	std::vector<double> * p = s->apply(prev);
-	delete s->apply(prev, 1, 10, 1);
+	delete s->apply(prev);
 	ASSERT_EQ(true, SchemasTests::compare(p, c, 0.01));
 	delete s;
 	delete prev;
@@ -92,7 +92,7 @@ TEST_F(SchemasTests, UpwindImplicitSchema)
 
 TEST_F(SchemasTests, UpwindImplicitSchema2)
 {
-	AbstractSchema * s = new UpwindImplicitSchema((50.0 + 50.0) / 400.0, 0.58, 1.75);
+	AbstractSchema * s = new UpwindImplicitSchema(0.58, (50.0 + 50.0) / 400.0, 1.75);
 
 	std::vector<double> * prev = new std::vector<double>(10);
 
@@ -116,7 +116,7 @@ TEST_F(SchemasTests, UpwindImplicitSchema2)
 
 TEST_F(SchemasTests, RichtmyerMultiStepSchema)
 {
-	AbstractSchema * s = new RichtmyerMultiStepSchema(3, 1, 1);
+	AbstractSchema * s = new RichtmyerMultiStepSchema(1, 3, 1);
 
 	std::vector<double> * prev = new std::vector<double>(5);
 	std::vector<double> * c = new std::vector<double>(5);

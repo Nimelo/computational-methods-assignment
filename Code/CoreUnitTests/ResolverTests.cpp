@@ -10,7 +10,7 @@ TEST_F(ResolverTests, ShouldReturnSignFunction)
 {
 	DefaultAnalyticalFunctionsResolver r;
 
-	std::function<double(double, double)> f = r.resolve(AnalyticalFunctionEnum::EXP_FUNCTION);
+	double (*f)(double, double) = r.resolve(AnalyticalFunctionEnum::EXP_FUNCTION);
 
 	SUCCEED();
 }
@@ -19,7 +19,7 @@ TEST_F(ResolverTests, ShouldReturnExpFunction)
 {
 	DefaultAnalyticalFunctionsResolver r;
 
-	std::function<double(double, double)> f = r.resolve(AnalyticalFunctionEnum::SIGN_FUNCTION);
+	double(*f)(double, double) = r.resolve(AnalyticalFunctionEnum::SIGN_FUNCTION);
 
 	SUCCEED();
 }
@@ -28,7 +28,7 @@ TEST_F(ResolverTests, ShouldReturnUpwindImplicit)
 {
 	DefaultSchemasResolver r;
 
-	AbstractSchema * s = r.resolve(SchemasEnum::UPWIND_IMPLICIT);
+	AbstractSchema * s = r.resolve(SchemasEnum::UPWIND_IMPLICIT, 0, 0, 0);
 
 	ASSERT_EQ(typeid(*s), typeid(UpwindImplicitSchema));
 
@@ -39,7 +39,7 @@ TEST_F(ResolverTests, ShouldReturnUpwindExplicit)
 {
 	DefaultSchemasResolver r;
 
-	AbstractSchema * s = r.resolve(SchemasEnum::UPWIND_EXPLICIT);
+	AbstractSchema * s = r.resolve(SchemasEnum::UPWIND_EXPLICIT, 0, 0, 0);
 
 	ASSERT_EQ(typeid(*s), typeid(UpwindExplicitSchema));
 
@@ -50,7 +50,7 @@ TEST_F(ResolverTests, ShouldReturnLaxWendroff)
 {
 	DefaultSchemasResolver r;
 
-	AbstractSchema * s = r.resolve(SchemasEnum::LAX_WENDROFF);
+	AbstractSchema * s = r.resolve(SchemasEnum::LAX_WENDROFF, 0, 0, 0);
 
 	ASSERT_EQ(typeid(*s), typeid(LaxWendroffSchema));
 
@@ -61,7 +61,7 @@ TEST_F(ResolverTests, ShouldReturnRichtmyerMultiStep)
 {
 	DefaultSchemasResolver r;
 
-	AbstractSchema * s = r.resolve(SchemasEnum::RICHTMYER_MULTI_STEP);
+	AbstractSchema * s = r.resolve(SchemasEnum::RICHTMYER_MULTI_STEP, 0, 0, 0);
 
 	ASSERT_EQ(typeid(*s), typeid(RichtmyerMultiStepSchema));
 

@@ -33,11 +33,7 @@ TEST_F(ConfigurationTests, ShouldLoadConfiguration)
 	ASSERT_EQ(1.0, configuration->acceleration) << "Acceleration: Values are not equal!";
 	ASSERT_EQ(100.0, configuration->meshSize) << "MeshSize: Values are not equal!";
 	ASSERT_NO_THROW(configuration->analyticalFunction) << "AnalyticalFunction throwed!";
-	ASSERT_EQ(true, configuration->searchOptimalDeltaT) << "SearchOptimalDeltaT: Values are not equal!";
 	ASSERT_EQ(0.01, configuration->deltaT) << "DeltaT: Values are not equal!";
-	ASSERT_EQ(0.0, configuration->minDeltaT) << "MinDeltaT: Values are not equal!";
-	ASSERT_EQ(1.0, configuration->maxDeltaT) << "MaxDeltaT: Values are not equal!";
-	ASSERT_EQ(23.2, configuration->deltaTStep) << "DeltaTStep: Values are not equal!";
 
 	delete configuration;
 }
@@ -59,7 +55,18 @@ TEST_F(ConfigurationTests, ShouldPerformUpwindImplicit400)
 	ConfigurationLoader configurationLoader;
 
 	Configuration * configuration = configurationLoader.loadFromLines(lines);
-	Discretizator d(new DiscretizationParameters(new UpwindImplicitSchema(), AnalyticalFunctions::expFunction, configuration, configuration->deltaT));
+	Discretizator d(
+		new DiscretizationParameters(
+			1,
+			2,
+			3,
+			AnalyticalFunctions::expFunction,
+			new UpwindImplicitSchema(1,0,0),
+			123,
+			std::vector<double>(),
+			0
+		)
+	);
 
 	delete d.discretize();
 
