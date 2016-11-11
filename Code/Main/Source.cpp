@@ -34,7 +34,7 @@ int main(int argc, char * argv[])
 			return -1;
 		}
 
-		char * configurationFile = argv[CONFIGURATION_FILE_INDEX];
+		char * configurationFile =argv[CONFIGURATION_FILE_INDEX];
 		char * wavesFile = argv[WAVE_FILE_INDEX];
 		char * normsFile = argv[NORM_FILE_INDEX];
 		char * optimalDeltaTFile = argv[OPTIMAL_DELTA_T_FILE_INDEX];
@@ -44,6 +44,8 @@ int main(int argc, char * argv[])
 
 		AbstractSchemasResolver * schemaResolver = new DefaultSchemasResolver();
 		AbstractAnalyticalFunctionsResolver * functionResolver = new DefaultAnalyticalFunctionsResolver();
+		
+		double deltaX = (configuration->upperBound - configuration->lowerBound) / configuration->meshSize;
 
 		Discretizator discretizator(
 			new DiscretizationParameters(
@@ -51,7 +53,7 @@ int main(int argc, char * argv[])
 				configuration->upperBound,
 				configuration->acceleration,
 				functionResolver->resolve(configuration->analyticalFunction),
-				schemaResolver->resolve(configuration->schema, configuration->acceleration, configuration->deltaT, configuration->deltaT),
+				schemaResolver->resolve(configuration->schema, configuration->acceleration, deltaX, configuration->deltaT),
 				configuration->meshSize,
 				configuration->timeLevels,
 				configuration->deltaT
@@ -86,11 +88,11 @@ int main(int argc, char * argv[])
 	}
 	catch (ConfigurationLoadingException cle)
 	{
-		
+		std::cout << "ConfigurationLoadingException" << std::endl;
 	}
 	catch (Exception e)
 	{
-		
+		std::cout << "Exception" << std::endl;
 	}
 	catch (std::exception & stde)
 	{
