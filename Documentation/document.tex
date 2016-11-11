@@ -1,0 +1,169 @@
+\documentclass[a4paper]{article}
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+\usepackage{listings}
+\lstset{language=C++} 
+\usepackage{tikz}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\input{commands.tex}
+
+\begin{document}
+	\pagenumbering{gobble}
+	
+	%----------------------------------------------------------------------------------------
+	%	TITLE PAGE
+	%----------------------------------------------------------------------------------------
+	\begin{titlepage}
+		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+		
+		\center
+		
+		%----------------------------------------------------------------------------------------
+		%	HEADING SECTIONS
+		\textsc{\LARGE Cranfield University}\\[1.5cm]
+		\textsc{\Large MSc in Computational and Software Techniques in Engineering 2016/2017}\\[0.5cm]
+		\textsc{\large Subject}\\[0.5cm]
+		
+		%----------------------------------------------------------------------------------------
+		%	TITLE SECTION
+		\HRule \\[0.4cm]
+		{ \huge \bfseries Topic}\\[0.4cm]
+		\HRule \\[1.5cm]
+		
+		%----------------------------------------------------------------------------------------
+		%	LOGO SECTION
+		\includegraphics[width=8cm]{img/cranfield-logo}\\[1cm]
+		
+		%----------------------------------------------------------------------------------------
+		%	AUTHOR SECTION
+		\vfill
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushleft} \large
+				\emph{Author:}\\
+				Mateusz \textsc{Gasior}
+			\end{flushleft}
+		\end{minipage}
+		~
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushright} \large
+				\emph{Supervisor:} \\
+				NAME \textsc{SURNAME}
+			\end{flushright}
+		\end{minipage}\\[2cm]
+		
+		%----------------------------------------------------------------------------------------
+		%	DATE SECTION
+		\vfill
+		{\large \today}
+		\clearpage
+	\end{titlepage}
+
+	%----------------------------------------------------------------------------------------
+	%	TABLE OF CONTENTS
+	%----------------------------------------------------------------------------------------
+	\tableofcontents
+	\newpage
+	
+	%----------------------------------------------------------------------------------------
+	%	LIST OF FIGURES
+	%----------------------------------------------------------------------------------------
+	\listoffigures
+	
+	%----------------------------------------------------------------------------------------
+	%	LIST OF TABLES
+	%----------------------------------------------------------------------------------------
+	\listoftables
+	\newpage
+	
+	% ABSTRACT 
+	\input{abstract.tex}
+
+	%----------------------------------------------------------------------------------------
+	%	INTRODUCTION
+	% • Statement of the problem investigated.
+	% • Background information.
+	% • Concise introduction to theory or concepts used.
+	% • Subsections.
+	%----------------------------------------------------------------------------------------
+	
+	\input{introduction.tex}
+
+	%----------------------------------------------------------------------------------------
+	%	METHODS AND PROCEDURES
+	% • The experimental design, methods of gathering data.
+    % • Subsections.
+	%----------------------------------------------------------------------------------------
+	\input{methodsAndProcedures.tex}
+	
+	%----------------------------------------------------------------------------------------
+	%	RESULTS
+	% • Heart of the report.
+	% • Actual results, implications, errors.
+	% • Combine Results and Discussions when the discussion of first result is needed to
+	% understand second result.
+	% • Tables, figures, Graphs APPROPRIATELY REFERENCED IN THE TEXT.
+	% • Figure legends -- below the figure; table legends -- above the table.
+	%----------------------------------------------------------------------------------------
+	\input{results.tex}
+	
+	%----------------------------------------------------------------------------------------
+	%	DISCUSSION
+	% • Interpretation
+	% • Any patterns/relationships/correlations that were observed that were important.
+	%----------------------------------------------------------------------------------------
+	\input{discussion.tex}
+	
+	%----------------------------------------------------------------------------------------
+	%	FUTURE WORK
+	% If the results are not definitive, specific future work that may be needed can be
+	% (briefly) described.
+	%----------------------------------------------------------------------------------------
+	
+	\input{futureWork.tex}
+	
+	%----------------------------------------------------------------------------------------
+	%	CONCLUSIONS
+	% • What the author thinks the results mean based on the observations.
+	% • Should relate directly back to the problem/question stated in the introduction.
+	% • DO NOT INTRODUCE SURPRISES HERE
+	%----------------------------------------------------------------------------------------
+	
+	\input{conclusion.tex}
+
+	%----------------------------------------------------------------------------------------
+	%	ACKNOWLEGEMENTS
+	%----------------------------------------------------------------------------------------
+	
+	\input{acknowledments.tex}
+	
+	%----------------------------------------------------------------------------------------
+	%	ADDITIONAL FEATURES
+	%----------------------------------------------------------------------------------------
+	\input{graphTest.tex}
+		
+	%----------------------------------------------------------------------------------------
+	%	REFERENCES
+	%----------------------------------------------------------------------------------------
+	\begin{thebibliography}{9}
+		
+		\bibitem{intro}
+		S. Scott Collis,
+		\emph{An Introduction to Numerical Analysis for Computational Fluid Mechanics}.
+		Sandia National Laboratories,
+		April 26, 2005.
+		
+	\end{thebibliography}
+
+	%----------------------------------------------------------------------------------------
+	%	APPENDICES
+	% • Pseudocode
+	% • Program listing
+	% • Information that is too detailed to be placed into the report's text.
+	% • Information that does not directly concern the experiment's objectives.
+	%----------------------------------------------------------------------------------------
+	
+	\input{appendices.tex }
+	
+\end{document}  

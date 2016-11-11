@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Configuration">
+      <UniqueIdentifier>{94ce511c-acba-43aa-b5fa-df8fa6a01aef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Configuration\Parameters">
+      <UniqueIdentifier>{614df8c2-501c-42ab-b743-de01628e54ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions">
+      <UniqueIdentifier>{23d35f9e-22e8-46af-903b-59a043d7fe0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions\ParameterExceptions">
+      <UniqueIdentifier>{b1587069-a1ce-410a-b0eb-6bcc26684f75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions\ConfigurationExceptions">
+      <UniqueIdentifier>{ac7db440-641c-47e9-b481-810475931bac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Configuration\Loader">
+      <UniqueIdentifier>{265013b6-2b19-4f76-90d1-acc58e558fe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Functions">
+      <UniqueIdentifier>{e5fc0e71-196d-41bb-a6ce-bb9cd45c4fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization">
+      <UniqueIdentifier>{7b4150ec-b73e-4a69-adc9-a892c2b00962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Parameters">
+      <UniqueIdentifier>{3670376c-6dae-4dd5-8f5c-7be2e107d7a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Schemas">
+      <UniqueIdentifier>{674ec369-1375-49ce-9b8e-704f24d3e5bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\WavePoints">
+      <UniqueIdentifier>{2372258a-fa2b-4b7c-8e5b-16cfc31ea8b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Schemas\Detailed">
+      <UniqueIdentifier>{a4a058d9-719d-4605-94d8-7e670b91ca63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Configuration\Enums">
+      <UniqueIdentifier>{b8d54118-a168-4a84-ac71-678b58d166d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Results">
+      <UniqueIdentifier>{20013a43-daae-442c-b610-f385d40b8f64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Searchers">
+      <UniqueIdentifier>{9bbfee0c-3183-4722-b594-30c95189bb5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Parameters\Resolving">
+      <UniqueIdentifier>{a87bb1b5-e22f-4edc-8119-f99591bc8f72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Parameters\Resolving\Schemas">
+      <UniqueIdentifier>{2426f739-b132-49ea-94f8-a0b1f607067c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Parameters\Resolving\AnalyticalFunctions">
+      <UniqueIdentifier>{fe9515d6-eb32-4436-9dc5-adfe31d211fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Results\Norms">
+      <UniqueIdentifier>{ef4ca1ba-bcdc-4465-bebc-bd2a5bf34928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Searchers\Default">
+      <UniqueIdentifier>{3267aaaf-66d8-484b-994e-d62388d061d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Discretization\Results\WavePoints">
+      <UniqueIdentifier>{50f2f775-2285-42f4-b801-c4c04dce263f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions\StabilityCondition">
+      <UniqueIdentifier>{672efc25-3193-41fe-9559-aafbc4727bd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine">
+      <UniqueIdentifier>{d5c72a4b-55e7-4548-83f8-0ebde72d7cb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\SolvingRoutines">
+      <UniqueIdentifier>{a9eb3e22-8932-4205-a2a3-8f062d3e52a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\LinearEquations">
+      <UniqueIdentifier>{5195701f-f95b-45aa-825d-e4dc4829383d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract">
+      <UniqueIdentifier>{eab95cf5-29f7-4fca-8acc-8d5b7198e925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract\Default">
+      <UniqueIdentifier>{3fe8c5ef-cbb1-4202-8f04-b2a02cdfec5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Abstract">
+      <UniqueIdentifier>{c9f17d6e-e456-4638-ab03-d79cb9f898cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\Results">
+      <UniqueIdentifier>{10a19bff-e73e-4deb-a90a-e12b69e3226c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\Results\Default">
+      <UniqueIdentifier>{5c078d0d-78a9-419d-9e5b-cf7df9718bf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\StoringObjects">
+      <UniqueIdentifier>{9e0e952b-37f0-4fb2-87df-7213d4a6c474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\StoringObjects\Matrix">
+      <UniqueIdentifier>{ecacf08a-f248-49a6-9423-3aa5ba4ff5a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\StoringObjects\Vector">
+      <UniqueIdentifier>{72599cb3-84c8-456a-9040-6b09c341f5eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Default">
+      <UniqueIdentifier>{df8b05d5-210a-4258-ac64-aade44e42029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions\ZeroPivotExceptions">
+      <UniqueIdentifier>{5cd5d4cf-f139-41ce-87fc-fedb99fa66cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConfigurationLoader.cpp">
+      <Filter>Header Files\Configuration\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Configuration.cpp">
+      <Filter>Header Files\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="Discretizator.cpp">
+      <Filter>Header Files\Discretization</Filter>
+    </ClCompile>
+    <ClCompile Include="DiscretizationParameters.cpp">
+      <Filter>Header Files\Discretization\Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="WavePoints.cpp">
+      <Filter>Header Files\Discretization\WavePoints</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalyticalFunctions.cpp">
+      <Filter>Header Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="DiscretizationResult.cpp">
+      <Filter>Header Files\Discretization\Results</Filter>
+    </ClCompile>
+    <ClCompile Include="WavePointsSummary.cpp">
+      <Filter>Header Files\Discretization\Results\WavePoints</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractDeltaTSearcher.cpp">
+      <Filter>Header Files\Discretization\Searchers</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultDeltaTSearcher.cpp">
+      <Filter>Header Files\Discretization\Searchers\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="WavesSummary.cpp">
+      <Filter>Header Files\Discretization\Results\WavePoints</Filter>
+    </ClCompile>
+    <ClCompile Include="NormSummary.cpp">
+      <Filter>Header Files\Discretization\Results\Norms</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultLinearEquationsSet.cpp">
+      <Filter>Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix.cpp">
+      <Filter>Header Files\LinearEquationSolvingRoutine\StoringObjects\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cpp">
+      <Filter>Header Files\LinearEquationSolvingRoutine\StoringObjects\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultLinearEquationsResult.cpp">
+      <Filter>Header Files\LinearEquationSolvingRoutine\Results\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultLinearEquationsSolver.cpp">
+      <Filter>Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Default</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Exception.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="InvalidInputStringException.h">
+      <Filter>Header Files\Exceptions\ParameterExceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationLoadingException.h">
+      <Filter>Header Files\Exceptions\ConfigurationExceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitializedParameterException.h">
+      <Filter>Header Files\Exceptions\ParameterExceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationLoader.h">
+      <Filter>Header Files\Configuration\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="Configuration.h">
+      <Filter>Header Files\Configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="AnalyticalFunctions.h">
+      <Filter>Header Files\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Discretizator.h">
+      <Filter>Header Files\Discretization</Filter>
+    </ClInclude>
+    <ClInclude Include="DiscretizationParameters.h">
+      <Filter>Header Files\Discretization\Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractSchema.h">
+      <Filter>Header Files\Discretization\Schemas</Filter>
+    </ClInclude>
+    <ClInclude Include="WavePoints.h">
+      <Filter>Header Files\Discretization\WavePoints</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationParameter.h">
+      <Filter>Header Files\Configuration\Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="AnalyticalFunctionsEnum.h">
+      <Filter>Header Files\Configuration\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="SchemasEnum.h">
+      <Filter>Header Files\Configuration\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="DiscretizationResult.h">
+      <Filter>Header Files\Discretization\Results</Filter>
+    </ClInclude>
+    <ClInclude Include="UpwindExplicitSchema.h">
+      <Filter>Header Files\Discretization\Schemas\Detailed</Filter>
+    </ClInclude>
+    <ClInclude Include="UpwindImplicitSchema.h">
+      <Filter>Header Files\Discretization\Schemas\Detailed</Filter>
+    </ClInclude>
+    <ClInclude Include="LaxWendroffSchema.h">
+      <Filter>Header Files\Discretization\Schemas\Detailed</Filter>
+    </ClInclude>
+    <ClInclude Include="RichtmyerMultiStepSchema.h">
+      <Filter>Header Files\Discretization\Schemas\Detailed</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractSchemasResolver.h">
+      <Filter>Header Files\Discretization\Parameters\Resolving\Schemas</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractAnalyticalFunctionsResolver.h">
+      <Filter>Header Files\Discretization\Parameters\Resolving\AnalyticalFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultAnalyticalFunctionsResolver.h">
+      <Filter>Header Files\Discretization\Parameters\Resolving\AnalyticalFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultSchemasResolver.h">
+      <Filter>Header Files\Discretization\Parameters\Resolving\Schemas</Filter>
+    </ClInclude>
+    <ClInclude Include="NormSummary.h">
+      <Filter>Header Files\Discretization\Results\Norms</Filter>
+    </ClInclude>
+    <ClInclude Include="NormsPerTimeLevel.h">
+      <Filter>Header Files\Discretization\Results\Norms</Filter>
+    </ClInclude>
+    <ClInclude Include="WavePointsSummary.h">
+      <Filter>Header Files\Discretization\Results\WavePoints</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractDeltaTSearcher.h">
+      <Filter>Header Files\Discretization\Searchers</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultDeltaTSearcher.h">
+      <Filter>Header Files\Discretization\Searchers\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="WavesSummary.h">
+      <Filter>Header Files\Discretization\Results\WavePoints</Filter>
+    </ClInclude>
+    <ClInclude Include="StabilityConditionException.h">
+      <Filter>Header Files\Exceptions\StabilityCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractLinearEquationSet.h">
+      <Filter>Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultLinearEquationsSet.h">
+      <Filter>Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix.h">
+      <Filter>Header Files\LinearEquationSolvingRoutine\StoringObjects\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Header Files\LinearEquationSolvingRoutine\StoringObjects\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractLinearEquationsSolver.h">
+      <Filter>Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractLinearEquationsResult.h">
+      <Filter>Header Files\LinearEquationSolvingRoutine\Results</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultLinearEquationsResult.h">
+      <Filter>Header Files\LinearEquationSolvingRoutine\Results\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultLinearEquationsSolver.h">
+      <Filter>Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="ZeroPivotException.h">
+      <Filter>Header Files\Exceptions\ZeroPivotExceptions</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

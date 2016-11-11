@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\ParameterTests">
+      <UniqueIdentifier>{83cedbd5-36dd-44a3-a048-623931f1b2e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConfigurationTests">
+      <UniqueIdentifier>{fd94b98b-a6b3-4e52-928f-a488912ca86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ResolverTests">
+      <UniqueIdentifier>{a55624b0-07f0-4e45-8670-87d5981059a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Schemas">
+      <UniqueIdentifier>{4d0accfb-2f0e-488c-aa46-32da04ec96c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WavePointsSummaryTests">
+      <UniqueIdentifier>{0731cc92-5b47-46ed-8b03-026ad013b090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearEquationsSolvingRoutineTests">
+      <UniqueIdentifier>{210f6b1a-faeb-43b3-aeb3-d5ec3d71778c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurationTests.cpp">
+      <Filter>Header Files\ConfigurationTests</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurationParameterTests.cpp">
+      <Filter>Header Files\ParameterTests</Filter>
+    </ClCompile>
+    <ClCompile Include="ResolverTests.cpp">
+      <Filter>Header Files\ResolverTests</Filter>
+    </ClCompile>
+    <ClCompile Include="WavePointsSummaryTests.cpp">
+      <Filter>Header Files\WavePointsSummaryTests</Filter>
+    </ClCompile>
+    <ClCompile Include="SchemasTests.cpp">
+      <Filter>Header Files\Schemas</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearEquationsSolvingRoutineTests.cpp">
+      <Filter>Header Files\LinearEquationsSolvingRoutineTests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConfigurationTests.h">
+      <Filter>Header Files\ConfigurationTests</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationParameterTests.h">
+      <Filter>Header Files\ParameterTests</Filter>
+    </ClInclude>
+    <ClInclude Include="ResolverTests.h">
+      <Filter>Header Files\ResolverTests</Filter>
+    </ClInclude>
+    <ClInclude Include="WavePointsSummaryTests.h">
+      <Filter>Header Files\WavePointsSummaryTests</Filter>
+    </ClInclude>
+    <ClInclude Include="SchemasTests.h">
+      <Filter>Header Files\Schemas</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearEquationsSolvingRoutineTests.h">
+      <Filter>Header Files\LinearEquationsSolvingRoutineTests</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
