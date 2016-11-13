@@ -67,42 +67,6 @@
     <Filter Include="Header Files\Exceptions\StabilityCondition">
       <UniqueIdentifier>{672efc25-3193-41fe-9559-aafbc4727bd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine">
-      <UniqueIdentifier>{d5c72a4b-55e7-4548-83f8-0ebde72d7cb8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\SolvingRoutines">
-      <UniqueIdentifier>{a9eb3e22-8932-4205-a2a3-8f062d3e52a7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\LinearEquations">
-      <UniqueIdentifier>{5195701f-f95b-45aa-825d-e4dc4829383d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract">
-      <UniqueIdentifier>{eab95cf5-29f7-4fca-8acc-8d5b7198e925}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract\Default">
-      <UniqueIdentifier>{3fe8c5ef-cbb1-4202-8f04-b2a02cdfec5e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Abstract">
-      <UniqueIdentifier>{c9f17d6e-e456-4638-ab03-d79cb9f898cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\Results">
-      <UniqueIdentifier>{10a19bff-e73e-4deb-a90a-e12b69e3226c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\Results\Default">
-      <UniqueIdentifier>{5c078d0d-78a9-419d-9e5b-cf7df9718bf5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\StoringObjects">
-      <UniqueIdentifier>{9e0e952b-37f0-4fb2-87df-7213d4a6c474}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\StoringObjects\Matrix">
-      <UniqueIdentifier>{ecacf08a-f248-49a6-9423-3aa5ba4ff5a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\StoringObjects\Vector">
-      <UniqueIdentifier>{72599cb3-84c8-456a-9040-6b09c341f5eb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Default">
-      <UniqueIdentifier>{df8b05d5-210a-4258-ac64-aade44e42029}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Exceptions\ZeroPivotExceptions">
       <UniqueIdentifier>{5cd5d4cf-f139-41ce-87fc-fedb99fa66cf}</UniqueIdentifier>
     </Filter>
@@ -134,21 +98,6 @@
     </ClCompile>
     <ClCompile Include="NormSummary.cpp">
       <Filter>Header Files\Discretization\Results\Norms</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultLinearEquationsSet.cpp">
-      <Filter>Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract\Default</Filter>
-    </ClCompile>
-    <ClCompile Include="matrix.cpp">
-      <Filter>Header Files\LinearEquationSolvingRoutine\StoringObjects\Matrix</Filter>
-    </ClCompile>
-    <ClCompile Include="vector.cpp">
-      <Filter>Header Files\LinearEquationSolvingRoutine\StoringObjects\Vector</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultLinearEquationsResult.cpp">
-      <Filter>Header Files\LinearEquationSolvingRoutine\Results\Default</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultLinearEquationsSolver.cpp">
-      <Filter>Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Default</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -223,30 +172,6 @@
     </ClInclude>
     <ClInclude Include="StabilityConditionException.h">
       <Filter>Header Files\Exceptions\StabilityCondition</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractLinearEquationSet.h">
-      <Filter>Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultLinearEquationsSet.h">
-      <Filter>Header Files\LinearEquationSolvingRoutine\LinearEquations\Abstract\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="matrix.h">
-      <Filter>Header Files\LinearEquationSolvingRoutine\StoringObjects\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="vector.h">
-      <Filter>Header Files\LinearEquationSolvingRoutine\StoringObjects\Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractLinearEquationsSolver.h">
-      <Filter>Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractLinearEquationsResult.h">
-      <Filter>Header Files\LinearEquationSolvingRoutine\Results</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultLinearEquationsResult.h">
-      <Filter>Header Files\LinearEquationSolvingRoutine\Results\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultLinearEquationsSolver.h">
-      <Filter>Header Files\LinearEquationSolvingRoutine\SolvingRoutines\Default</Filter>
     </ClInclude>
     <ClInclude Include="ZeroPivotException.h">
       <Filter>Header Files\Exceptions\ZeroPivotExceptions</Filter>

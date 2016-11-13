@@ -28,9 +28,6 @@
     <Filter Include="Header Files\WavePointsSummaryTests">
       <UniqueIdentifier>{0731cc92-5b47-46ed-8b03-026ad013b090}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\LinearEquationsSolvingRoutineTests">
-      <UniqueIdentifier>{210f6b1a-faeb-43b3-aeb3-d5ec3d71778c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -51,9 +48,6 @@
     <ClCompile Include="SchemasTests.cpp">
       <Filter>Header Files\Schemas</Filter>
     </ClCompile>
-    <ClCompile Include="LinearEquationsSolvingRoutineTests.cpp">
-      <Filter>Header Files\LinearEquationsSolvingRoutineTests</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConfigurationTests.h">
@@ -70,9 +64,6 @@
     </ClInclude>
     <ClInclude Include="SchemasTests.h">
       <Filter>Header Files\Schemas</Filter>
-    </ClInclude>
-    <ClInclude Include="LinearEquationsSolvingRoutineTests.h">
-      <Filter>Header Files\LinearEquationsSolvingRoutineTests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

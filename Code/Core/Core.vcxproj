@@ -150,32 +150,20 @@
     <ClCompile Include="AnalyticalFunctions.cpp" />
     <ClCompile Include="ConfigurationLoader.cpp" />
     <ClCompile Include="Configuration.cpp" />
-    <ClCompile Include="DefaultLinearEquationsResult.cpp" />
-    <ClCompile Include="DefaultLinearEquationsSet.cpp" />
-    <ClCompile Include="DefaultLinearEquationsSolver.cpp" />
     <ClCompile Include="DiscretizationParameters.cpp" />
     <ClCompile Include="DiscretizationResult.cpp" />
     <ClCompile Include="Discretizator.cpp" />
-    <ClCompile Include="matrix.cpp" />
     <ClCompile Include="NormSummary.cpp" />
-    <ClCompile Include="vector.cpp" />
     <ClCompile Include="WavePointsSummary.cpp" />
     <ClCompile Include="WavesSummary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractAnalyticalFunctionsResolver.h" />
-    <ClInclude Include="AbstractLinearEquationSet.h" />
-    <ClInclude Include="AbstractLinearEquationsResult.h" />
-    <ClInclude Include="AbstractLinearEquationsSolver.h" />
     <ClInclude Include="AbstractSchemasResolver.h" />
     <ClInclude Include="AnalyticalFunctionsEnum.h" />
     <ClInclude Include="DefaultAnalyticalFunctionsResolver.h" />
     <ClInclude Include="AbstractSchema.h" />
-    <ClInclude Include="DefaultLinearEquationsResult.h" />
-    <ClInclude Include="DefaultLinearEquationsSet.h" />
-    <ClInclude Include="DefaultLinearEquationsSolver.h" />
     <ClInclude Include="LaxWendroffSchema.h" />
-    <ClInclude Include="matrix.h" />
     <ClInclude Include="NormsPerTimeLevel.h" />
     <ClInclude Include="NormSummary.h" />
     <ClInclude Include="RichtmyerMultiStepSchema.h" />
@@ -193,7 +181,6 @@
     <ClInclude Include="StabilityConditionException.h" />
     <ClInclude Include="UpwindExplicitSchema.h" />
     <ClInclude Include="UpwindImplicitSchema.h" />
-    <ClInclude Include="vector.h" />
     <ClInclude Include="WavePointsSummary.h" />
     <ClInclude Include="WavesSummary.h" />
     <ClInclude Include="ZeroPivotException.h" />

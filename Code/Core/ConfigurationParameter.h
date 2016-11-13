@@ -10,7 +10,7 @@
 #include "SchemasEnum.h"
 
 /**
- * ConfigurationParameter provides bunch of overloaded cast operators.
+ * ConfigurationParameter provides bunch of methods used to reinterprate string to other types..
  * It is used in order to cast generic string value of parameter to more complex types.
  * @author Mateusz Gasior
  */
@@ -22,8 +22,8 @@ struct ConfigurationParameter
 	std::string value;
 
 	/**
-	 * Overloaded generic cast operator.
-	 * @param <T> Generic typename.
+	 * Casts value to double.
+	 * @return Value as a double.
 	 * @throws std::runtime_error if conversion cannot be performed using std::stringstream.
 	 */
 	double toDouble()
@@ -36,6 +36,11 @@ struct ConfigurationParameter
 			throw std::runtime_error("Conversion failed");
 	}
 
+	/**
+	 * Casts value to unsigned int.
+	 * @return Value as an unsigned int.
+	 * @throws std::runtime_error if conversion cannot be performed using std::stringstream.
+	 */
 	unsigned int toUnsignedInt()
 	{
 		std::stringstream ss(value);
@@ -46,6 +51,12 @@ struct ConfigurationParameter
 			throw std::runtime_error("Conversion failed");
 	}
 
+	/**
+	 * Casts value to std::vector of doubles.
+	 * Each of a values is separated by ',' character.
+	 * @return Value as an std::vector of doubles.
+	 * @throws std::runtime_error if conversion cannot be performed using std::stringstream.
+	 */
 	std::vector<double> toVectorOfDouble()
 	{
 		std::stringstream ss(value);
@@ -63,7 +74,7 @@ struct ConfigurationParameter
 	}
 
 	/**
-	 * Specialized overloaded cast operator for AnalyticalFunctionEnum.
+	 * Casts value to AnalyticalFunctionEnum.
 	 * @see AnalyticalFunctionEnum
 	 * Correct values are: "exp" for EXP_FUNCTION and "sign" for SIGN_FUNCTION.
 	 * @throws std::runtime_error if value to convert is not in a set of correct values.
@@ -82,7 +93,7 @@ struct ConfigurationParameter
 			throw std::runtime_error("Conversion failed");
 	}
 	/**
-	 * Specialized overloaded cast operator for SchemasEnum.
+	 * Casts value to SchemasEnum.
 	 * @see SchemasEnum
 	 * Correct values are: "upwind_implicit" for UPWIND_IMPLICIT,
 	 *                     "upwind_explicit" for UPWIND_EXPLICIT,

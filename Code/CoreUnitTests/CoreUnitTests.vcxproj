@@ -154,7 +154,6 @@
   <ItemGroup>
     <ClCompile Include="ConfigurationTests.cpp" />
     <ClCompile Include="ConfigurationParameterTests.cpp" />
-    <ClCompile Include="LinearEquationsSolvingRoutineTests.cpp" />
     <ClCompile Include="ResolverTests.cpp" />
     <ClCompile Include="SchemasTests.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -168,7 +167,6 @@
   <ItemGroup>
     <ClInclude Include="ConfigurationTests.h" />
     <ClInclude Include="ConfigurationParameterTests.h" />
-    <ClInclude Include="LinearEquationsSolvingRoutineTests.h" />
     <ClInclude Include="ResolverTests.h" />
     <ClInclude Include="SchemasTests.h" />
     <ClInclude Include="WavePointsSummaryTests.h" />
