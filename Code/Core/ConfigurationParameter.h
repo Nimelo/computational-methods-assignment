@@ -44,7 +44,7 @@ struct ConfigurationParameter
 	unsigned int toUnsignedInt()
 	{
 		std::stringstream ss(value);
-		double convertedValue;
+		unsigned int convertedValue;
 		if (std::stringstream(value) >> convertedValue)
 			return convertedValue;
 		else
@@ -92,6 +92,7 @@ struct ConfigurationParameter
 		else
 			throw std::runtime_error("Conversion failed");
 	}
+
 	/**
 	 * Casts value to SchemasEnum.
 	 * @see SchemasEnum

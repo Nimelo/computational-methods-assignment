@@ -17,6 +17,7 @@ private:
 public:
 	/**
 	 * Function that uses exponential mathematical function.
+	 * \f$ f(x,t) = 0.5 * exp (-(x - 1.75t)) \f$
 	 * @param x Space dimension.
 	 * @param t Time dimension.
 	 * @return Calculated value.
@@ -25,6 +26,7 @@ public:
 
 	/**
 	 * Function that uses sign mathematical function.
+	 * \f$ f(x,t) = 0.5 * sign((x - 1.75t) + 1) \f$
 	 * @param x Space dimension.
 	 * @param t Time dimension.
 	 * @return Calculated value.
