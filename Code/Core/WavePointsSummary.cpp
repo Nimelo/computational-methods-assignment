@@ -37,7 +37,7 @@ double WavePointsSummary::errorNormOne() const
 		norm += fabs(analytical->at(i) - numerical->at(i));
 	}
 
-	return norm;
+	return norm / this->analytical->size();
 }
 
 double WavePointsSummary::errorNormTwo() const
@@ -49,5 +49,5 @@ double WavePointsSummary::errorNormTwo() const
 		norm += pow(analytical->at(i) - numerical->at(i), 2);
 	}
 
-	return sqrt(norm);
+	return sqrt(norm / this->analytical->size());
 }
