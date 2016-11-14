@@ -44,10 +44,10 @@ public:
 
 		std::vector<double> * currentWave = new std::vector<double>(gridSize);
 
-		currentWave->at(0) = previousWave->at(0);
-		currentWave->at(gridSize - 1) = previousWave->at(gridSize - 1);
-
 		double coefficient = this->accelertaion * this->deltaT / this->deltaX;
+
+		currentWave->at(0) = previousWave->at(0) + coefficient * previousWave->at(0);
+		currentWave->at(gridSize - 1) = previousWave->at(gridSize - 1);
 
 		for (unsigned int i = 1; i < gridSize - 1; i++)
 		{
