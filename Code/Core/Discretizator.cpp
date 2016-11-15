@@ -65,7 +65,7 @@ DiscretizationResult * Discretizator::discretize()
 			}		
 		}
 
-		result->addWaves(time - this->parameters->deltaT, new std::vector<double>((*previousWave).begin(), (*previousWave).end()), getAnalyticalWave(time));
+		result->addWaves(time - this->parameters->deltaT, new std::vector<double>((*previousWave).begin(), (*previousWave).end()), getAnalyticalWave(time - this->parameters->deltaT));
 		timeLevels.erase(timeLevels.begin());
 	}
 	

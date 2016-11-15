@@ -60,9 +60,11 @@ double DefaultDeltaTSearcher::find()
 				currentError += normSummary->at(i).normTwo;
 			}
 
-			if (currentError / 2.0 < optimalError)
+			currentError /= normSummary->size();
+
+			if (currentError < optimalError)
 			{
-				optimalError = currentError / 2.0;
+				optimalError = currentError;
 				optimalDeltaT = currentDeltaT;
 			}
 
