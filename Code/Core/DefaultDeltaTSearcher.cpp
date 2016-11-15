@@ -60,9 +60,9 @@ double DefaultDeltaTSearcher::find()
 				currentError += normSummary->at(i).normTwo;
 			}
 
-			if (currentError < optimalError)
+			if (currentError / 2.0 < optimalError)
 			{
-				optimalError = currentError;
+				optimalError = currentError / 2.0;
 				optimalDeltaT = currentDeltaT;
 			}
 
@@ -71,7 +71,7 @@ double DefaultDeltaTSearcher::find()
 		}
 		catch (StabilityConditionException & sc)
 		{
-			std::cout << "StabilityConditionException at dt: " << currentDeltaT << std::endl;
+			//std::cout << "StabilityConditionException at dt: " << currentDeltaT << std::endl;
 		}
 		catch (Exception & e)
 		{

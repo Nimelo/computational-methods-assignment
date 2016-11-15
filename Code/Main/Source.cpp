@@ -86,13 +86,16 @@ int main(int argc, char * argv[])
 		std::fstream ns;
 		ns.open(normsFile, std::fstream::out | std::fstream::trunc);
 		NormSummary * norms = result->getNorms();
+		std::cout << *norms;
 		ns << *norms;
 		ns.close();
 
 		std::fstream odts;		
 		odts.open(optimalDeltaTFile, std::fstream::out | std::fstream::trunc);
-		odts << configuration->deltaT;
-		std::cout << configuration->deltaT << std::endl;
+		odts << "Delta T," << configuration->deltaT << std::endl;
+		odts << "CFL, " << configuration->acceleration * configuration->deltaT / deltaX << std::endl;;
+		std::cout << "Delta T," << configuration->deltaT << std::endl;
+		std::cout << "CFL, " << configuration->acceleration * configuration->deltaT / deltaX << std::endl;
 		odts.close();
 
 		delete schemaResolver;
