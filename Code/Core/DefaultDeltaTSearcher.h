@@ -2,10 +2,9 @@
 #define __H_DEFAULT_DELTA_T_SEARCHER
 
 #include "AbstractDeltaTSearcher.h"
-
-#include "AbstractAnalyticalFunctionsResolver.h"
 #include "AbstractSchemasResolver.h"
 #include "Configuration.h"
+#include "AbstractAnalyticalFunctionsResolver.h"
 
 /**
 * Default delta t searcher, which decision making base on norm two.

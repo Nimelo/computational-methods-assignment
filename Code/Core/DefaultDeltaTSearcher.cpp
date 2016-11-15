@@ -1,10 +1,12 @@
-#include "AbstractDeltaTSearcher.h"
 #include "DefaultDeltaTSearcher.h"
+
+#include "AbstractDeltaTSearcher.h"
 #include "DiscretizationParameters.h"
 #include "Discretizator.h"
 #include "StabilityConditionException.h"
+#include "Exception.h"
 
-#include <limits>
+#include <cfloat>
 #include <iostream>
 
 DefaultDeltaTSearcher::DefaultDeltaTSearcher(Configuration * parameters,
