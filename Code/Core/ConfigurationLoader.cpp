@@ -16,6 +16,10 @@ ConfigurationLoader::ConfigurationLoader()
 	TAG_TIME_LEVELS = "timeLevels";
 	TAG_GRID_SIZE = "gridSize";
 	TAG_DELTA_T = "deltaT";
+	TAG_SEARCH_OPTIMAL_DELTA_T = "searchOptimalDeltaT";
+	TAG_MIN_DELTA_T = "minDeltaT";
+	TAG_MAX_DELTA_T = "maxDeltaT";
+	TAG_DELTA_T_STEP = "deltaTStep";
 }
 
 ConfigurationLoader::~ConfigurationLoader()
@@ -74,7 +78,11 @@ Configuration * ConfigurationLoader::loadFromLines(std::vector<std::string> line
 			getConfigurationParameter(TAG_SCHEMA).toSchema(),
 			getConfigurationParameter(TAG_GRID_SIZE).toUnsignedInt(),
 			getConfigurationParameter(TAG_TIME_LEVELS).toVectorOfDouble(),
-			getConfigurationParameter(TAG_DELTA_T).toDouble()
+			getConfigurationParameter(TAG_SEARCH_OPTIMAL_DELTA_T).toBool(),
+			getConfigurationParameter(TAG_DELTA_T).toDouble(),
+			getConfigurationParameter(TAG_MIN_DELTA_T).toDouble(),
+			getConfigurationParameter(TAG_MAX_DELTA_T).toDouble(),
+			getConfigurationParameter(TAG_DELTA_T_STEP).toDouble()
 		);
 	}
 	catch (...)

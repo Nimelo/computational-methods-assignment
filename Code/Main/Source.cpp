@@ -6,6 +6,8 @@
 #include "Discretizator.h"
 #include "DiscretizationResult.h"
 #include "Exception.h"
+#include "AbstractDeltaTSearcher.h"
+#include "DefaultDeltaTSearcher.h"
 #include "ConfigurationLoadingException.h"
 #include "DiscretizationParameters.h"
 #include "DefaultAnalyticalFunctionsResolver.h"
@@ -31,20 +33,33 @@ int main(int argc, char * argv[])
 		if (argc != PARAMETER_COUNT)
 		{
 			std::cout << "Invalid amount of parameters." << std::endl;
-			return -1;
+		//	return -1;
 		}
 
-		char * configurationFile =argv[CONFIGURATION_FILE_INDEX];
+#if _DEBUG
+		char * configurationFile = "C:\\Users\\mrnim\\Desktop\\Repos\\numerical-methods-assignment\\Code\\Configurations\\implicit-upwind-400-sign.conf";
+		char * wavesFile = "1";
+		char * normsFile = "2";
+		char * optimalDeltaTFile = "3";
+#else
+		char * configurationFile = argv[CONFIGURATION_FILE_INDEX];
 		char * wavesFile = argv[WAVE_FILE_INDEX];
 		char * normsFile = argv[NORM_FILE_INDEX];
 		char * optimalDeltaTFile = argv[OPTIMAL_DELTA_T_FILE_INDEX];
-		
+#endif
+				
 		ConfigurationLoader configurationLoader;
 		Configuration * configuration = configurationLoader.loadFromFile(configurationFile);
 
 		AbstractSchemasResolver * schemaResolver = new DefaultSchemasResolver();
 		AbstractAnalyticalFunctionsResolver * functionResolver = new DefaultAnalyticalFunctionsResolver();
 		
+		if (configuration->searchOptimalDeltaT)
+		{
+			DefaultDeltaTSearcher deltaSearcher(new Configuration(*configuration), new DefaultAnalyticalFunctionsResolver(), new DefaultSchemasResolver());
+			configuration->deltaT = deltaSearcher.find();
+		}
+
 		double deltaX = (configuration->upperBound - configuration->lowerBound) / configuration->meshSize;
 
 		Discretizator discretizator(
@@ -77,6 +92,7 @@ int main(int argc, char * argv[])
 		std::fstream odts;		
 		odts.open(optimalDeltaTFile, std::fstream::out | std::fstream::trunc);
 		odts << configuration->deltaT;
+		std::cout << configuration->deltaT << std::endl;
 		odts.close();
 
 		delete schemaResolver;

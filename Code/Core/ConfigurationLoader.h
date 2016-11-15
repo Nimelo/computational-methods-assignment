@@ -72,6 +72,26 @@ private:
 	std::string TAG_DELTA_T;
 
 	/**
+	 * Search optimal delta t tag/key for configuration.
+	 */
+	std::string TAG_SEARCH_OPTIMAL_DELTA_T;
+
+	/**
+	 * Minimum delta t tag/key for configuration.
+	 */
+	std::string TAG_MIN_DELTA_T;
+
+	/**
+	 * Maximum delta t tag/key for configuration.
+	 */
+	std::string TAG_MAX_DELTA_T;
+
+	/**
+	 * Delta t step tag/key for configuration.
+	 */
+	std::string TAG_DELTA_T_STEP;
+
+	/**
 	 * Map of the parameters.
 	 * Keys and values are temporary stored as strings.
 	 */

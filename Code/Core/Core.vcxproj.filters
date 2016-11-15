@@ -70,6 +70,12 @@
     <Filter Include="Header Files\Exceptions\ZeroPivotExceptions">
       <UniqueIdentifier>{5cd5d4cf-f139-41ce-87fc-fedb99fa66cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\OptimalDeltaTSearcher">
+      <UniqueIdentifier>{4d238079-e589-4bda-b0dd-8e8d65aefc4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OptimalDeltaTSearcher\Default">
+      <UniqueIdentifier>{e77f112e-64e8-46fd-882d-db0888caa477}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConfigurationLoader.cpp">
@@ -98,6 +104,12 @@
     </ClCompile>
     <ClCompile Include="NormSummary.cpp">
       <Filter>Header Files\Discretization\Results\Norms</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultDeltaTSearcher.cpp">
+      <Filter>Header Files\OptimalDeltaTSearcher\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractDeltaTSearcher.cpp">
+      <Filter>Header Files\OptimalDeltaTSearcher</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +190,12 @@
     </ClInclude>
     <ClInclude Include="AnalyticalFunctionsEnum.h">
       <Filter>Header Files\Configuration\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractDeltaTSearcher.h">
+      <Filter>Header Files\OptimalDeltaTSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultDeltaTSearcher.h">
+      <Filter>Header Files\OptimalDeltaTSearcher\Default</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

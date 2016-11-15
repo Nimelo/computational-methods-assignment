@@ -77,6 +77,7 @@ struct ConfigurationParameter
 	 * Casts value to AnalyticalFunctionEnum.
 	 * @see AnalyticalFunctionEnum
 	 * Correct values are: "exp" for EXP_FUNCTION and "sign" for SIGN_FUNCTION.
+	 * @return Value as an AnalyticalFunctionEnum.
 	 * @throws std::runtime_error if value to convert is not in a set of correct values.
 	 */
 	AnalyticalFunctionEnum toAnalyticalFunction()
@@ -100,6 +101,7 @@ struct ConfigurationParameter
 	 *                     "upwind_explicit" for UPWIND_EXPLICIT,
 	 *                     "lax-wendroff" for LAX_WENDROFF and
 	 *					   "richtmyer-ms" for RICHTMYER_MULTI_STEP.
+	 * @return Value as an SchemasEnum.
 	 * @throws std::runtime_error if value to convert is not in a set of correct values.
 	 */
 	SchemasEnum toSchema()
@@ -122,6 +124,21 @@ struct ConfigurationParameter
 		}
 		else
 			throw std::runtime_error("Conversion failed");
+	}
+
+	/**
+	 * Casts value to bool.
+	 * Correct values are: "true" and "1" for true and "false and "0" for false.
+	 * @return Value casted to bool.
+	 * @throws std::runtime_error if value to convert is not in a set of correct values.
+	 */
+	bool toBool()
+	{
+		if (value == "true" || value == "1")
+			return true;
+		else if (value == "false" || value == "0")
+			return false;
+		else throw std::runtime_error("Conversion failed");
 	}
 };
 

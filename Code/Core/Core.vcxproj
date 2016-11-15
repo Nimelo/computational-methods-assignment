@@ -147,9 +147,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractDeltaTSearcher.cpp" />
     <ClCompile Include="AnalyticalFunctions.cpp" />
     <ClCompile Include="ConfigurationLoader.cpp" />
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="DefaultDeltaTSearcher.cpp" />
     <ClCompile Include="DiscretizationParameters.cpp" />
     <ClCompile Include="DiscretizationResult.cpp" />
     <ClCompile Include="Discretizator.cpp" />
@@ -159,10 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractAnalyticalFunctionsResolver.h" />
+    <ClInclude Include="AbstractDeltaTSearcher.h" />
     <ClInclude Include="AbstractSchemasResolver.h" />
     <ClInclude Include="AnalyticalFunctionsEnum.h" />
     <ClInclude Include="DefaultAnalyticalFunctionsResolver.h" />
     <ClInclude Include="AbstractSchema.h" />
+    <ClInclude Include="DefaultDeltaTSearcher.h" />
     <ClInclude Include="LaxWendroffSchema.h" />
     <ClInclude Include="NormsPerTimeLevel.h" />
     <ClInclude Include="NormSummary.h" />
