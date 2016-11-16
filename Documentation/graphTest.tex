@@ -158,7 +158,7 @@
 	xlabel = {$x$},
 	ylabel = {$y$},
 	%ymin = -1, ymax = 1,
-	xmin = -0, xmax = 40,
+	xmin = -40, xmax = 40,
 	minor y tick num = 1,
 	ymajorgrids=true,
 	xmajorgrids=true,
@@ -168,8 +168,8 @@
 	\addcustomplot{../Code/Release/results/implicit-upwind-100-exp.conf-chart.csv}{blue}{1}{Numerical t = 4.8}
 	\addcustomplot{../Code/Release/results/implicit-upwind-100-exp.conf-chart.csv}{red}{2}{Analytical t = 4.8}
 	
-	\addcustomplot{../Code/Release/results/implicit-upwind-100-exp-Copy.conf-chart.csv}{green}{1}{Numerical t = 4.8}
-	\addcustomplot{../Code/Release/results/implicit-upwind-100-exp-Copy.conf-chart.csv}{black}{2}{Analytical t = 4.8}
+	\addcustomplot{../Code/Release/results/implicit-upwind-100-exp-Copy.conf-chart.csv}{green}{1}{copy t = 4.8}
+	\addcustomplot{../Code/Release/results/implicit-upwind-100-exp-Copy.conf-chart.csv}{black}{2}{copy t = 4.8}
 	\end{axis}
 	\end{tikzpicture}
 \end{figure}
@@ -219,6 +219,8 @@
 	\addcustomplot{../Code/Release/results/implicit-upwind-400-exp.conf-chart.csv}{purple}{1}{Analytical t = 4.8}
 	\addcustomplot{../Code/Release/results/implicit-upwind-400-exp.conf-chart.csv}{gray}{2}{Analytical t = 4.8}
 	
+		\addcustomplot{../Code/Release/results/implicit-upwind-400-exp.conf-chart.csv}{red}{3}{Analytical t = 4.8}
+	\addcustomplot{../Code/Release/results/implicit-upwind-400-exp.conf-chart.csv}{blue}{4}{Analytical t = 4.8}
 	\end{axis}
 	\end{tikzpicture}
 \end{figure}
@@ -245,6 +247,9 @@
 	
 	\addcustomplot{../Code/Release/results/explicit-upwind-100-exp.conf-chart.csv}{blue}{1}{Numerical t = 4.8}
 	\addcustomplot{../Code/Release/results/explicit-upwind-100-exp.conf-chart.csv}{red}{2}{Analytical t = 4.8}
+	
+	\addcustomplot{../Code/Release/results/explicit-upwind-100-exp.conf-chart.csv}{orange}{3}{Numerical t = 4.8}
+	\addcustomplot{../Code/Release/results/explicit-upwind-100-exp.conf-chart.csv}{black}{4}{Analytical t = 4.8}
 	\end{axis}
 	\end{tikzpicture}
 \end{figure}
@@ -294,6 +299,9 @@
 		
 		\addcustomplot{../Code/Release/results/explicit-upwind-400-exp.conf-chart.csv}{purple}{1}{Analytical t = 4.8}
 		\addcustomplot{../Code/Release/results/explicit-upwind-400-exp.conf-chart.csv}{gray}{2}{Analytical t = 4.8}
+		
+		\addcustomplot{../Code/Release/results/explicit-upwind-400-exp.conf-chart.csv}{red}{3}{Analytical t = 4.8}
+		\addcustomplot{../Code/Release/results/explicit-upwind-400-exp.conf-chart.csv}{blue}{4}{Analytical t = 4.8}
 		
 		\end{axis}
 		\end{tikzpicture}
