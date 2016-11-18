@@ -4,4 +4,51 @@
 % • Subsections.
 %----------------------------------------------------------------------------------------
 \section{General approach}
+	Different approaches have been proposed to describe finite difference method in many books. In case of this report I will base on explanation in chapter 3.5 in Computational Techniques for Fluid Dynamics\cite{bib:fletcher} written by C. A. J. Fletcher. The basis for the finite difference method is the construction of a discrete grid, the replacement of the continuous derivatives in the governing partial equations with equivalent finite difference expressions. Mentioned transformation is presented in Figure \ref{fig:schematicOfFDM}\cite{bib:fletcher}[p. 64--65].
 	
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}%[node distance = 3cm, auto]
+			% Place nodes
+			\node [block] (setUpGrid) {Set up grid};
+			\node [block, right of=setUpGrid, align=center] (initDependentVars) 
+			{
+				Initialise \\ 
+				dependent \\ 
+				vairables
+			};
+			\node [block, right =1cm of initDependentVars, align=center] (construct)
+			{
+				Construct finite difference \\
+				analogue of P.D.E and B.C.s
+			};			
+			\node [block, below of=construct, align=center] (forEach)
+			{
+					 For each interior grid point (j, n) \\
+					 evaluate algorithm to give $T_j^{n+1}$
+			};			
+			\node [block, left=1cm of forEach, below of=initDependentVars] (timeStep) 
+			{
+					$t_{n+1} = t_n + \Delta t$
+			};
+			\node [block, below of=timeStep, align=center] (adjust) 
+			{
+					Adjust (if necessary) \\
+					boundary values \\
+					$T_1^{n+1}$ and $T_j^{n+1}$
+			};
+			\node [decision, left=1cm of adjust] (final) {Final time reached};
+			\node [block, below of=final] (solution) {Solution};
+			% Draw edges
+			\path [line] (setUpGrid) -- (initDependentVars);
+			\path [line] (initDependentVars) -- (construct);
+			\path [line] (construct) -- (forEach);
+			\path [line] (timeStep) -- (forEach);
+			\path [line] (forEach) |- (adjust);
+			\path [line] (adjust) -- (final);
+			\path [line] (final) |- node {no} (timeStep);
+			\path [line] (final) -- node {yes} (solution);
+		\end{tikzpicture}
+		\caption{Schemataic of the finite difference solution process.}
+		\label{fig:schematicOfFDM}
+	\end{figure}
