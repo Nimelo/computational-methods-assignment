@@ -8,7 +8,7 @@
 	
 	\begin{figure}
 		\centering
-		\begin{tikzpicture}%[node distance = 3cm, auto]
+		\begin{tikzpicture}
 			% Place nodes
 			\node [block] (setUpGrid) {Set up grid};
 			\node [block, right of=setUpGrid, align=center] (initDependentVars) 
@@ -204,3 +204,56 @@
 			The analysis carried out in appendix \ref{app:implicitUpwind} showed that in general schema is stable for $C \in (-\infty, -1) \cup (0, \infty)$, so in terms of assignment ($C>0$) scheme is unconditionally stable. 
 			
 			% Should I Mention something about negative CFL?
+			
+		\subsection{Lax-Wendroff scheme}
+			In section 6.2.1.6. in \cite{bib:hoffman}[p. 187] there are considerations about Lax-Wendroff scheme considering problem described by \ref{for:advection}. The finite difference representation of the PDE is derived from Taylor series expansion of the dependent variable as follows: 
+			
+			\begin{align}
+				\begin{split}
+					f(x, t + \Delta t) = u(x, t) + u\frac{\partial f}{\partial t}\Delta t + u^2\frac{\partial ^2 f}{\partial t^2}\frac{(\Delta t)^2}{2!} + \mathcal{O}(\Delta t)^3
+				\end{split}
+			\end{align}		
+			
+			Considering \ref{for:advection} and calculations provided in \ref{app:lax-wendroff} final formula \ref{for:lax-wenndroffFinal} looks as following, while stencil for Lax-Wendroff scheme is shown in Figure \ref{fig:lax-wendroff}.
+			
+			\begin{align}
+				\label{for:lax-wenndroffFinal}
+				\begin{split}
+					f_i^{n+1} = f_i^n - \frac{C}{2}(f_{i+1} - f_{i-1}^n) + \frac{C^2}{2}(f_{i+1}^n - 2f_i^n + f_{i-1}^n) + \mathcal{O}(\Delta t^2, \Delta x^2)
+				\end{split}
+			\end{align}						
+			
+			\begin{figure}[!htbp]
+				\centering
+				\begin{tikzpicture}[scale=1.5]
+				\draw[dotted] (-4,0.5) -- (4,0.5);
+				\draw[dotted] (-4,-0.5) -- (4,-0.5);
+				\node[black] at (-4.5,1) {$n+1$};
+				\node[black] at (-4.5,0) {$n$};
+				
+				\node[black] at (-1,-1) {$i-1$};
+				\node[black] at (0,-1) {$i$};
+				\node[black] at (1,-1) {$i+1$};
+				
+				\stencilpt[fill=blue]{0,0}{ij}{};
+				\stencilpt[fill=blue]{-1,0}{i-1j}{};			
+				\stencilpt[fill=blue]{1,0}{i+1j}{};
+				
+				\stencilpt[fill=green]{0,1}{ij+1}{};
+				\stencilpt{-1,1}{i-1j+1}{};			
+				\stencilpt{1,1}{i+1j+1}{};
+				\draw (ij) -- (i-1j);
+				\draw (ij) -- (i+1j);
+				\draw [->](i-1j) -- (ij+1);
+				\draw [->](ij) -- (ij+1);
+				\draw [->](i+1j) -- (ij+1);
+				
+				\end{tikzpicture}
+				\caption{Graphical representation of the Lax-Wendroff scheme dependencies.}
+				\label{fig:lax-wendroff}
+			\end{figure}
+				
+			This method is compared to implicit upwind scheme is also second-order accurate both in time and space. Stability analysis in \ref{app:lax-wendroff} shows that this explicit method is stable in symmetric function for $C \in (-1, 0) \cup (0, 1)$. However in case of assignment only positive part will be considered.
+			
+		\subsection{Richtmyer multi-step scheme}
+			
