@@ -1,7 +1,8 @@
 \documentclass[a4paper]{article}
 \usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
 \usepackage{listings}
-\lstset{language=C++} 
+\usepackage{cite}
+\usepackage{xcolor} 
 \usepackage{tikz}
 \usepackage{pgfplots, pgfplotstable}
 \usepackage{graphicx}
@@ -142,19 +143,22 @@
 	%	ADDITIONAL FEATURES
 	%----------------------------------------------------------------------------------------
 	%\input{graphTest.tex}
-	\input{stencils.tex}
+	%\input{stencils.tex}
 	%----------------------------------------------------------------------------------------
 	%	REFERENCES
 	%----------------------------------------------------------------------------------------
-	\begin{thebibliography}{9}
+	\bibliographystyle{plain}
+	\bibliography{bibliography}
+	\nocite{*}
+	%\begin{thebibliography}{9}
 		
-		\bibitem{intro}
-		S. Scott Collis,
-		\emph{An Introduction to Numerical Analysis for Computational Fluid Mechanics}.
-		Sandia National Laboratories,
-		April 26, 2005.
+	%	\bibitem{intro}
+	%	S. Scott Collis,
+	%	\emph{An Introduction to Numerical Analysis for Computational Fluid Mechanics}.
+	%	Sandia National Laboratories,
+	%	April 26, 2005.
 		
-	\end{thebibliography}
+	%\end{thebibliography}
 
 	%----------------------------------------------------------------------------------------
 	%	APPENDICES

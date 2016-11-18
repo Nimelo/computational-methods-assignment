@@ -28,9 +28,13 @@
 	\centering
 	\begin{tikzpicture}
 	\stencilpt{0,0}{i}{$middle$};
+	\draw[dotted] (-4,0.5) -- (4,0.5);
+	\node[purple] at (-4.5,0.5) {n+1};
+	\draw[dotted] (-4,-0.5) -- (4,-0.5);
+	\node[purple] at (-4.5,-0.5) {n};
 	\stencilpt{0,1}{i+1}{$top$};
-	\stencilpt{-1,-1}{j-1}{$bottom_left$};
-	\stencilpt{1,-1}{j+1}{$bottom_right$};
+	\stencilpt{-1,-1}{j-1}{$b_left$};
+	\stencilpt{1,-1}{j+1}{$b_right$};
 	\draw[red,] 
 	(j+1) -- (i)
 	;
