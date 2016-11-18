@@ -65,6 +65,17 @@
 		
 		where $C$ is the CFL number. In initial parameters of advection function \ref{for:advection} give us $u > 0$ and $\Delta X$ is also greater than $0$ because it refers to amount of points in the grid, which cannot be negative and solution for zero points doesn't make sense. The last important parameter is $\Delta t$ which also should be greater than zero, because it is impossible to go back in time. The conclusion from equation \ref{for:cfl} is that the CFL should always be positive in conditions of considered in this report problem. There is a possibility to change this assumptions but, we will lose the ability to use the following equation $\Delta t = \frac{C\Delta x}{u}$.
 		
+		For all graphical, geometric arrangement of a nodal group that relate to the point of interest by using a numerical approximation routine in this report used is following notations:
+		
+		\begin{itemize}
+			\item blue nodes are points at time step $n$,
+			\item green nodes are points at time step $n+1$,
+			\item purple nodes are points at time step $n+const$, where $const$ is a number,
+			\item directed lines show how relations between points of different time steps,
+			\item undirected lines show relations between points of same time step,
+			\item if scheme is multi-step there will be number corresponding to the step above directed line.
+		\end{itemize}
+		
 	\subsection{Explicit upwind scheme} \label{sec:explicitUpwind}
 		Formula that gives first-order accurate method for our problem is described in book\cite{bib:hoffman} on pages 191 -- 192 in section 6.5 titled Applications to a Linear Problem, which looks as follows:
 		
@@ -92,11 +103,11 @@
 			
 			\stencilpt[fill=blue]{0,0}{ij}{};
 			\stencilpt[fill=blue]{-1,0}{i-1j}{};			
-			\stencilpt{1,0}{i+1j}{};
+			\stencilpt[dotted]{1,0}{i+1j}{};
 			
 			\stencilpt[fill=green]{0,1}{ij+1}{};
-			\stencilpt{-1,1}{i-1j+1}{};			
-			\stencilpt{1,1}{i+1j+1}{};
+			\stencilpt[dotted]{-1,1}{i-1j+1}{};			
+			\stencilpt[dotted]{1,1}{i+1j+1}{};
 			\draw (ij) -- (i-1j);
 			\draw [->](i-1j) -- (ij+1);
 			\draw [->](ij) -- (ij+1);
@@ -175,19 +186,19 @@
 					\node[black] at (2,-1) {$i$};
 					\node[black] at (3,-1) {$i+1$};
 					
-					\stencilpt[]{-2,0}{i-2j}{};
+					\stencilpt[dotted]{-2,0}{i-2j}{};
 					\stencilpt[fill=blue]{-1,0}{i-1j}{};
-					\stencilpt[]{0,0}{ij}{};
-					\stencilpt[]{1,0}{i+1j}{};	
+					\stencilpt[dotted]{0,0}{ij}{};
+					\stencilpt[dotted]{1,0}{i+1j}{};	
 					\stencilpt[fill=blue]{2,0}{i+2j}{};
-					\stencilpt[]{3,0}{i+3j}{};
+					\stencilpt[dotted]{3,0}{i+3j}{};
 					
 					\stencilpt[fill=blue]{-2,1}{i-2j+1}{};
 					\stencilpt[fill=green]{-1,1}{i-1j+1}{};
-					\stencilpt[]{0,1}{ij+1}{};
+					\stencilpt[dotted]{0,1}{ij+1}{};
 					\stencilpt[fill=green]{1,1}{i+1j+1}{};
 					\stencilpt[fill=blue]{2,1}{i+2j+1}{};
-					\stencilpt[]{3,1}{i+3j+1}{};
+					\stencilpt[dotted]{3,1}{i+3j+1}{};
 					
 					\draw (i-2j+1) -- (i-1j);
 					\draw [->](i-2j+1) -- (i-1j+1);
@@ -240,8 +251,8 @@
 				\stencilpt[fill=blue]{1,0}{i+1j}{};
 				
 				\stencilpt[fill=green]{0,1}{ij+1}{};
-				\stencilpt{-1,1}{i-1j+1}{};			
-				\stencilpt{1,1}{i+1j+1}{};
+				\stencilpt[dotted]{-1,1}{i-1j+1}{};			
+				\stencilpt[dotted]{1,1}{i+1j+1}{};
 				\draw (ij) -- (i-1j);
 				\draw (ij) -- (i+1j);
 				\draw [->](i-1j) -- (ij+1);
@@ -256,4 +267,69 @@
 			This method is compared to implicit upwind scheme is also second-order accurate both in time and space. Stability analysis in \ref{app:lax-wendroff} shows that this explicit method is stable in symmetric function for $C \in (-1, 0) \cup (0, 1)$. However in case of assignment only positive part will be considered.
 			
 		\subsection{Richtmyer multi-step scheme}
+			In Computation fluid dynamics vol I\cite{bib:hoffman} we can find formulation for each point of a grid on page 190. This method is multi-step because in first step we predict value to the time level $n + \frac{1}{2}$ and using Lax-Fredrich predictor \ref{for:lax-friedrichPredictor}. Next predicted values are used in order to get value for time level $n+1$ by applying it to formula \ref{for:richtmyer-multi-step}.
 			
+			\begin{equation}
+				\label{for:lax-friedrichPredictor}
+				f_{i}^{n+\frac{1}{2}} = \frac{1}{2} (f_{i+1}^n - f_{i-1}^n) - \frac{C}{4}(f_{i+1}^n - f_{i-1}^n) + \mathcal{O}(\Delta t^2, \Delta x^2\Delta t)
+			\end{equation}
+			
+			\begin{equation}
+				\label{for:richtmyer-multi-step}
+				f_i^{n+1} = f_i^n - C(u_{i+1}^{n+\frac{1}{2}} - u_{n-1}^{n+\frac{1}{2}}) + \mathcal{O} (\Delta t^3, \Delta x^2\Delta t)
+			\end{equation}
+			
+			This method is stable for $C \in (-2, 0) \cup (0, 2)$. For the same reason as in Lax-Wendroff scheme in terms of assignment only postivie part will be considered. Also this scheme is second-order accurate in space and time. Stencil for this scheme is shown in Figure \ref{fig:richtmyer-multi-step}.
+			
+			\begin{figure}[!htbp]
+				\centering
+				\begin{tikzpicture}[scale=1.5]
+				\draw[dotted] (-4,0.5) -- (4,0.5);
+				\draw[dotted] (-4,-0.5) -- (4,-0.5);
+				\draw[dotted] (-4, 1.5) -- (4, 1.5);
+				\node[black] at (-4.5,1) {$n+\frac{1}{2}$};
+				\node[black] at (-4.5,0) {$n$};
+				\node[black] at (-4.5,2) {$n + 1$};
+				
+				\node[black] at (-2,-1) {$i-2$};
+				\node[black] at (-1,-1) {$i-1$};
+				\node[black] at (0,-1) {$i$};
+				\node[black] at (1,-1) {$i+1$};
+				\node[black] at (2,-1) {$i+2$};
+				
+				\stencilpt[fill=blue]{-2,0}{i-2j}{};
+				\stencilpt[dotted]{-1,0}{i-1j}{};
+				\stencilpt[fill=blue]{0,0}{ij}{};
+				\stencilpt[dotted]{1,0}{i+1j}{};
+				\stencilpt[fill=blue]{2,0}{i+2j}{};
+				
+				\stencilpt[dotted]{-2,1}{i-2j+1}{};
+				\stencilpt[fill=purple]{-1,1}{i-1j+1}{};
+				\stencilpt[dotted]{0,1}{ij+1}{};
+				\stencilpt[fill=purple]{1,1}{i+1j+1}{};
+				\stencilpt[dotted]{2,1}{i+2j+1}{};
+				
+				\stencilpt[dotted]{-2,2}{i-2j+2}{};
+				\stencilpt[dotted]{-1,2}{i-1j+2}{};
+				\stencilpt[fill=green]{0,2}{ij+2}{};
+				\stencilpt[dotted]{1,2}{i+1j+2}{};
+				\stencilpt[dotted]{2,2}{i+2j+2}{};
+				
+				\draw (i-2j) -- (ij);				
+				\draw (ij) -- (i+2j);			
+				\draw (i-1j+1) -- (i+1j+1);
+
+				\draw [->] (i-2j) -- node [midway, above, sloped] {1} (i-1j+1);
+				\draw [->] (ij) -- node [midway, above, sloped] {1} (i-1j+1);
+				\draw [->] (ij) -- node [midway, above, sloped] {1} (i+1j+1);
+				\draw [->] (i+2j) -- node [midway, above, sloped] {1} (i+1j+1);
+				
+				\draw [->] (i-1j+1) -- node [midway, above, sloped] {2} (ij+2);
+				\draw [->] (i+1j+1) -- node [midway, above, sloped] {2} (ij+2);
+				
+				\end{tikzpicture}
+				\caption{Graphical representation of the Lax-Wendroff scheme dependencies.}
+				\label{fig:richtmyer-multi-step}
+			\end{figure}
+		
+		
