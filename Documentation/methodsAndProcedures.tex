@@ -70,7 +70,7 @@
 		\begin{itemize}
 			\item blue nodes are points at time step $n$,
 			\item green nodes are points at time step $n+1$,
-			\item purple nodes are points at time step $n+const$, where $const$ is a number,
+			\item red nodes are points at time step $n+const$, where $const$ is a number,
 			\item directed lines show how relations between points of different time steps,
 			\item undirected lines show relations between points of same time step,
 			\item if scheme is multi-step there will be number corresponding to the step above directed line.
@@ -304,9 +304,9 @@
 				\stencilpt[fill=blue]{2,0}{i+2j}{};
 				
 				\stencilpt[dotted]{-2,1}{i-2j+1}{};
-				\stencilpt[fill=purple]{-1,1}{i-1j+1}{};
+				\stencilpt[fill=red]{-1,1}{i-1j+1}{};
 				\stencilpt[dotted]{0,1}{ij+1}{};
-				\stencilpt[fill=purple]{1,1}{i+1j+1}{};
+				\stencilpt[fill=red]{1,1}{i+1j+1}{};
 				\stencilpt[dotted]{2,1}{i+2j+1}{};
 				
 				\stencilpt[dotted]{-2,2}{i-2j+2}{};
