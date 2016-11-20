@@ -1,10 +1,28 @@
-	%----------------------------------------------------------------------------------------
-	%	RESULTS
-	% • Heart of the report.
-	% • Actual results, implications, errors.
-	% • Combine Results and Discussions when the discussion of first result is needed to
-	% understand second result.
-	% • Tables, figures, Graphs APPROPRIATELY REFERENCED IN THE TEXT.
-	% • Figure legends -- below the figure; table legends -- above the table.
-	%----------------------------------------------------------------------------------------
-	\section{Results}
+%----------------------------------------------------------------------------------------
+%	RESULTS
+% • Heart of the report.
+% • Actual results, implications, errors.
+% • Combine Results and Discussions when the discussion of first result is needed to
+% understand second result.
+% • Tables, figures, Graphs APPROPRIATELY REFERENCED IN THE TEXT.
+% • Figure legends -- below the figure; table legends -- above the table.
+%----------------------------------------------------------------------------------------
+\section{Results} \label{sec:results}
+	Each of the schemes works differently, although all of them aspire to give the best numerical solution. In order to compare them for each of mentioned further questions there will be some preset values for discretization parameters.
+	This section gives answer for following queries:
+	
+	\begin{itemize}
+		\item How do the numerical solutions vary with the Courant number?
+		\item How does the numerical solution change in time?
+		\item Examination of grid convergence of numerical solutions at $t=5$.
+		\item Explanation of the numerical solutions in terms of the expected properties of the schemes involved.
+	\end{itemize}
+
+	\subsection{Impact of the Courant–Friedrichs–Lewy number} \label{sec:impactCFL}
+		For all the conducted experiments in this section grid size is equal to $100$. Each of the scheme are described in individual subsection. Therefore quantitative summary of all results is in table \ref{tab:impactCFL}.
+		
+		\input{impactExplicitUpwind.tex}
+		\input{impactImplicitUpwind.tex}
+		\input{impactLax-Wendroff.tex}
+		\input{impactRichtmyer-multi-step.tex}
+	

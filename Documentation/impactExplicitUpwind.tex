@@ -1,0 +1,51 @@
+\subsection{Explicit upwind}
+	\begin{figure}
+		\centering	
+		\begin{tikzpicture}
+		
+		\pgfplotsset{width=\textwidth}
+		\begin{axis}[
+		xlabel = {$x$},
+		ylabel = {$y$},
+		%ymin = -1, ymax = 1,
+		xmin = 14, xmax = 22,
+		minor y tick num = 1,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		legend pos=north west
+		]
+		
+		\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign.conf-chart.csv}{red}{4}{Analytical}
+		\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign.conf-chart.csv}{green}{3}{$CFL=0.9625$}
+		\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
+		\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign-CFL-0.2.conf-chart.csv}{blue}{3}{$CFL=0.2$}
+		\end{axis}
+		\end{tikzpicture}
+		\caption{Explicit upwind scheme solutions for the initial set \ref{for:firstSet} and various CFL numbers.}
+	\end{figure}
+
+	\begin{figure}
+	\centering	
+	\begin{tikzpicture}
+	
+	\pgfplotsset{width=\textwidth}
+	\begin{axis}[
+	xlabel = {$x$},
+	ylabel = {$y$},
+	%ymin = -1, ymax = 1,
+	xmin = 14, xmax = 21,
+	minor y tick num = 1,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed
+	]
+	
+	\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp.conf-chart.csv}{red}{4}{Analytical}
+	\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp.conf-chart.csv}{green}{3}{$CFL=0.9975$}
+	\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
+	\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp-CFL-0.2.conf-chart.csv}{blue}{3}{$CFL=0.2$}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Explicit upwind scheme solutions for the initial set \ref{for:secondSet} and various CFL numbers.}
+\end{figure}
