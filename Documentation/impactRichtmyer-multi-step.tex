@@ -1,0 +1,51 @@
+\subsection{Richtmyer multi-step}
+\begin{figure}
+	\centering	
+	\begin{tikzpicture}
+	
+	\pgfplotsset{width=\textwidth}
+	\begin{axis}[
+	xlabel = {$x$},
+	ylabel = {$y$},
+	%ymin = -1, ymax = 1,
+	xmin = 2, xmax = 32,
+	minor y tick num = 1,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	legend pos=north west
+	]
+	
+	\addcustomplot{../Code/results/impactRichtmyer-Multi-Step/richtmyer-ms-100-sign.conf-chart.csv}{red}{4}{Analytical}
+	\addcustomplot{../Code/results/impactRichtmyer-Multi-Step/richtmyer-ms-100-sign.conf-chart.csv}{green}{3}{$CFL=1.96$}
+	\addcustomplot{../Code/results/impactRichtmyer-Multi-Step/richtmyer-ms-100-sign-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
+	\addcustomplot{../Code/results/impactRichtmyer-Multi-Step/richtmyer-ms-100-sign-CFL-1.9.conf-chart.csv}{blue}{3}{$CFL=1.9$}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Richtmyer multi-step scheme solutions for the initial set \ref{for:firstSet} and various CFL numbers.}
+\end{figure}
+
+\begin{figure}
+	\centering	
+	\begin{tikzpicture}
+	
+	\pgfplotsset{width=\textwidth}
+	\begin{axis}[
+	xlabel = {$x$},
+	ylabel = {$y$},
+	%ymin = -1, ymax = 1,
+	xmin = 2, xmax = 32,
+	minor y tick num = 1,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed
+	]
+	
+	\addcustomplot{../Code/results/impactRichtmyer-Multi-Step/richtmyer-ms-100-exp.conf-chart.csv}{red}{4}{Analytical}
+	\addcustomplot{../Code/results/impactRichtmyer-Multi-Step/richtmyer-ms-100-exp.conf-chart.csv}{green}{3}{$CFL=1.995$}
+	\addcustomplot{../Code/results/impactRichtmyer-Multi-Step/richtmyer-ms-100-exp-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
+	\addcustomplot{../Code/results/impactRichtmyer-Multi-Step/richtmyer-ms-100-exp-CFL-1.9.conf-chart.csv}{blue}{3}{$CFL=1.9$}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Richtmyer multi-step scheme solutions for the initial set \ref{for:secondSet} and various CFL numbers.}
+\end{figure}
