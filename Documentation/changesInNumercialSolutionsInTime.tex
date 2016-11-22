@@ -1,0 +1,119 @@
+\subsection{Changes in numerical solutions in time}
+	This section discuss how numerical solutions accuracy changes in time. For each of the schemes grid size is equal to $400$ in order to decrease quantization errors.
+	
+	
+	\begin{figure}
+		\centering
+	 	\begin{tikzpicture}[scale=0.7]	 	
+		 	\pgfplotsset{width=\textwidth}
+		 	\begin{axis}[
+			 	xlabel = {$x$},
+			 	ylabel = {$y$},
+			 	%ymin = -1, ymax = 1,
+			 	xmin = 0, xmax = 50,
+			 	minor y tick num = 1,
+			 	ymajorgrids=true,
+			 	xmajorgrids=true,
+			 	grid style=dashed,
+			 	legend pos=north east
+			 	]
+	 	
+			 	\addcustomplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-chart.csv}{red}{7}{$t=19.88$}
+			 	
+			 	\addcustomplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-chart.csv}{blue}{5}{$t=14.98$}
+			 	
+			 	\addcustomplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-chart.csv}{purple}{3}{$t=9.94$}
+			 	
+			 	\addcustomplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-chart.csv}{black}{1}{$t=4.9$}
+
+		 	\end{axis}
+	 	\end{tikzpicture}
+	 	\caption{Explicit upwind scheme solutions for the initial set \ref{for:secondSet} and various time levels, $CFL=0.98$.}
+	\end{figure}
+ 
+	\begin{figure}
+		\centering
+	 	\begin{tikzpicture}[scale=0.7]
+		 	\pgfplotsset{width=\textwidth}
+			 	\begin{axis}[
+			 	xlabel = {$x$},
+			 	ylabel = {$y$},
+			 	%ymin = -1, ymax = 1,
+			 	xmin = 0, xmax = 50,
+			 	minor y tick num = 1,
+			 	ymajorgrids=true,
+			 	xmajorgrids=true,
+			 	grid style=dashed,
+			 	legend pos=north east
+			 	]
+	 	
+			 	\addcustomplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-chart.csv}{red}{7}{$t=20$}
+			 	
+			 	\addcustomplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-chart.csv}{blue}{5}{$t=15$}
+			 	
+			 	\addcustomplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-chart.csv}{purple}{3}{$t=10$}
+			 	
+			 	\addcustomplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-chart.csv}{black}{1}{$t=5$}
+	 	
+		 	\end{axis}
+	 	\end{tikzpicture}
+	 	\caption{Implicit upwind scheme solutions for the initial set \ref{for:secondSet} and various time levels, $CFL=0.07$.} 	
+	\end{figure}
+
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[scale=0.7]
+		\pgfplotsset{width=\textwidth}
+		\begin{axis}[
+		xlabel = {$x$},
+		ylabel = {$y$},
+		%ymin = -1, ymax = 1,
+		xmin = 0, xmax = 50,
+		minor y tick num = 1,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		legend pos=north east
+		]
+		
+		\addcustomplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-chart.csv}{red}{7}{$t=19.88$}
+		
+		\addcustomplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-chart.csv}{blue}{5}{$t=14.98$}
+		
+		\addcustomplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-chart.csv}{purple}{3}{$t=9.94$}
+		
+		\addcustomplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-chart.csv}{black}{1}{$t=4.9$}
+		
+		\end{axis}
+		\end{tikzpicture}
+		\caption{Lax-Wendroff scheme solutions for the initial set \ref{for:secondSet} and various time levels, $CFL=0.98$.} 	
+	\end{figure}
+
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[scale=0.7]
+		\pgfplotsset{width=\textwidth}
+		\begin{axis}[
+		xlabel = {$x$},
+		ylabel = {$y$},
+		%ymin = -1, ymax = 1,
+		xmin = 0, xmax = 50,
+		minor y tick num = 1,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		legend pos=north east
+		]
+		
+		\addcustomplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-chart.csv}{red}{7}{$t=19.88$}
+		
+		\addcustomplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-chart.csv}{blue}{5}{$t=14.84$}
+		
+		\addcustomplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-chart.csv}{purple}{3}{$t=9.8$}
+		
+		\addcustomplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-chart.csv}{black}{1}{$t=4.76$}
+		
+		\end{axis}
+		\end{tikzpicture}
+		\caption{Richtmyer multi-step scheme solutions for the initial set \ref{for:secondSet} and various time levels, $CFL=1.96$.} 	
+	\end{figure}
