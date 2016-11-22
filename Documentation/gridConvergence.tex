@@ -1,0 +1,116 @@
+\subsection{Grid convergence}
+	
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[scale=0.7]	 	
+			\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 5, xmax = 13,
+				minor y tick num = 1,
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north east
+				]
+		
+			\addcustomplot{../Code/results/gridConvergence/explicit-upwind-100-exp.conf-chart.csv}{red}{2}{Analytical}			 	
+			\addcustomplot{../Code/results/gridConvergence/explicit-upwind-100-exp.conf-chart.csv}{blue}{1}{$\Delta x=1$}			 	
+			\addcustomplot{../Code/results/gridConvergence/explicit-upwind-200-exp.conf-chart.csv}{purple}{1}{$\Delta x=0.5$}	
+			\addcustomplot{../Code/results/gridConvergence/explicit-upwind-400-exp.conf-chart.csv}{black}{1}{$\Delta x=0.25$}
+		\end{axis}
+		\end{tikzpicture}
+		\caption{Explicit upwind scheme solutions for the initial set \ref{for:secondSet} and various time grid sizes.}
+	\end{figure}
+
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[scale=0.7]	 	
+			\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 2, xmax = 16,
+				minor y tick num = 1,
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north east
+				]
+	
+				\addcustomplot{../Code/results/gridConvergence/implicit-upwind-100-exp.conf-chart.csv}{red}{2}{Analytical}			 	
+				\addcustomplot{../Code/results/gridConvergence/implicit-upwind-100-exp.conf-chart.csv}{blue}{1}{$\Delta x=1$}			 	
+				\addcustomplot{../Code/results/gridConvergence/implicit-upwind-200-exp.conf-chart.csv}{purple}{1}{$\Delta x=0.5$}	
+				\addcustomplot{../Code/results/gridConvergence/implicit-upwind-400-exp.conf-chart.csv}{black}{1}{$\Delta x=0.25$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Implicit upwind scheme solutions for the initial set \ref{for:secondSet} and various time grid sizes.}
+	\end{figure}
+
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[scale=0.7]	 	
+			\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 2, xmax = 16,
+				minor y tick num = 1,
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north east
+				]
+			
+				\addcustomplot{../Code/results/gridConvergence/lax-wendroff-100-exp.conf-chart.csv}{red}{2}{Analytical}			 	
+				\addcustomplot{../Code/results/gridConvergence/lax-wendroff-100-exp.conf-chart.csv}{blue}{1}{$\Delta x=1$}			 	
+				\addcustomplot{../Code/results/gridConvergence/lax-wendroff-200-exp.conf-chart.csv}{purple}{1}{$\Delta x=0.5$}	
+				\addcustomplot{../Code/results/gridConvergence/lax-wendroff-400-exp.conf-chart.csv}{black}{1}{$\Delta x=0.25$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Lax-Wendroff scheme solutions for the initial set \ref{for:secondSet} and various time grid sizes.}
+	\end{figure}
+
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[scale=0.7]	 	
+			\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 2, xmax = 16,
+				minor y tick num = 1,
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north east
+				]
+		
+				\addcustomplot{../Code/results/gridConvergence/richtmyer-multi-step-100-exp.conf-chart.csv}{red}{2}{Analytical}			 	
+				\addcustomplot{../Code/results/gridConvergence/richtmyer-multi-step-100-exp.conf-chart.csv}{blue}{1}{$\Delta x=1$}			 	
+				\addcustomplot{../Code/results/gridConvergence/richtmyer-multi-step-200-exp.conf-chart.csv}{purple}{1}{$\Delta x=0.5$}	
+				\addcustomplot{../Code/results/gridConvergence/richtmyer-multi-step-400-exp.conf-chart.csv}{black}{1}{$\Delta x=0.25$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Richtmyer multi-step scheme solutions for the initial set \ref{for:secondSet} and various time grid sizes.}
+	\end{figure}
+
+	\begin{table}[]
+		\centering
+		\caption{Norm-one errors for different schemes and grid sizes.}
+		\label{tab:gridConvergence}
+		\begin{tabular}{c|c|c|c|}
+			\cline{2-4}
+			\textit{\textbf{}} & \multicolumn{3}{c|}{{\textit{\textbf{$\Delta x$}}}} \\ \hline
+			\multicolumn{1}{|c|}{{\ul \textit{\textbf{Schema}}}} & \textit{\textbf{1}} & \textit{\textbf{0.5}} & \textit{\textbf{0.25}} \\ \hline
+			\multicolumn{1}{|c|}{\textit{\textbf{Explicit upwind}}} & 0.000164515 & 0.000673134 & 0.000357989 \\ \hline
+			\multicolumn{1}{|c|}{\textit{\textbf{Implicit upwind}}} & 0.0106573 & 0.00898661 & 0.00700899 \\ \hline
+			\multicolumn{1}{|c|}{\textit{\textbf{Lax-Wendroff}}} & 0.000204585 & 0.000465857 & 0.000134623 \\ \hline
+			\multicolumn{1}{|c|}{\textit{\textbf{Richtmyer multi-step}}} & 0.00758462 & 0.000197187 & 0.000467489 \\ \hline
+		\end{tabular}
+	\end{table}

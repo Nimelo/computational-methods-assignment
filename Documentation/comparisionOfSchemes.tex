@@ -1,0 +1,52 @@
+\subsection{Comparison of schemes}
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[scale=0.7]	 	
+			\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 5, xmax = 13,
+				minor y tick num = 1,
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=south east
+				]
+		
+				\addcustomplot{../Code/results/comparision/implicit-upwind-400-sign.conf-chart.csv}{red}{2}{Analytical}			 	
+				\addcustomplot{../Code/results/comparision/implicit-upwind-400-sign.conf-chart.csv}{green}{1}{Implicit upwind $CFL=0.07$}			
+				\addcustomplot{../Code/results/comparision/explicit-upwind-400-sign.conf-chart.csv}{blue}{1}{Explicit upwind $CFL=0.98$}			 	
+				\addcustomplot{../Code/results/comparision/lax-wendroff-400-sign.conf-chart.csv}{purple}{1}{Lax-Wendroff $CFL=0.98$}	
+				\addcustomplot{../Code/results/comparision/richtmyer-multi-step-400-sign.conf-chart.csv}{black}{1}{Richtmyer multi-step $CFL=1.96$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Comparison of schemes for initial set \ref{for:firstSet}, 400 grid size, time level 5, and different CFLs.}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[scale=0.7]	 	
+			\pgfplotsset{width=\textwidth}
+				\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 5, xmax = 13,
+				minor y tick num = 1,
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north east
+				]
+			
+				\addcustomplot{../Code/results/comparision/implicit-upwind-400-exp.conf-chart.csv}{red}{2}{Analytical}			 	
+				\addcustomplot{../Code/results/comparision/implicit-upwind-400-exp.conf-chart.csv}{green}{1}{Implicit upwind $CFL=0.07$}			
+				\addcustomplot{../Code/results/comparision/explicit-upwind-400-exp.conf-chart.csv}{blue}{1}{Explicit upwind $CFL=0.98$}			 	
+				\addcustomplot{../Code/results/comparision/lax-wendroff-400-exp.conf-chart.csv}{purple}{1}{Lax-Wendroff $CFL=0.98$}	
+				\addcustomplot{../Code/results/comparision/richtmyer-multi-step-400-exp.conf-chart.csv}{black}{1}{Richtmyer multi-step $CFL=1.96$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Comparison of schemes for initial set \ref{for:secondSet}, 400 grid size, time level 5, and different CFLs.}
+	\end{figure}
