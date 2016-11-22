@@ -22,7 +22,7 @@
 			\addcustomplot{../Code/results/gridConvergence/explicit-upwind-400-exp.conf-chart.csv}{black}{1}{$\Delta x=0.25$}
 		\end{axis}
 		\end{tikzpicture}
-		\caption{Explicit upwind scheme solutions for the initial set \ref{for:secondSet} for different grid sizes and time step 5.}
+		\caption{Explicit upwind scheme solutions for the initial set \ref{for:secondSet} for different, time step 5, $CFL=1.9$.}
 	\end{figure}
 
 	\begin{figure}
@@ -47,7 +47,7 @@
 				\addcustomplot{../Code/results/gridConvergence/implicit-upwind-400-exp.conf-chart.csv}{black}{1}{$\Delta x=0.25$}
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Implicit upwind scheme solutions for the initial set \ref{for:secondSet} for different grid sizes and time step 5.}
+		\caption{Implicit upwind scheme solutions for the initial set \ref{for:secondSet} for different grid sizes, time step 5, $CFL=0.4$5.}
 	\end{figure}
 
 	\begin{figure}
@@ -72,7 +72,7 @@
 				\addcustomplot{../Code/results/gridConvergence/lax-wendroff-400-exp.conf-chart.csv}{black}{1}{$\Delta x=0.25$}
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Lax-Wendroff scheme solutions for the initial set \ref{for:secondSet} for different grid sizes and time step 5.}
+		\caption{Lax-Wendroff scheme solutions for the initial set \ref{for:secondSet} for different grid sizes, time step 5, $CFL=0.8$.}
 	\end{figure}
 
 	\begin{figure}
@@ -97,7 +97,7 @@
 				\addcustomplot{../Code/results/gridConvergence/richtmyer-multi-step-400-exp.conf-chart.csv}{black}{1}{$\Delta x=0.25$}
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Richtmyer multi-step scheme solutions for the initial set \ref{for:secondSet} for different grid sizes and time step 5.}
+		\caption{Richtmyer multi-step scheme solutions for the initial set \ref{for:secondSet} for different grid sizes, time step 5, $CFL=1.9$.}
 	\end{figure}
 
 	\begin{table}[]
@@ -108,9 +108,9 @@
 			\cline{2-4}
 			\textit{\textbf{}} & \multicolumn{3}{c|}{{\textit{\textbf{$\Delta x$}}}} \\ \hline
 			\multicolumn{1}{|c|}{{\ul \textit{\textbf{Schema}}}} & \textit{\textbf{1}} & \textit{\textbf{0.5}} & \textit{\textbf{0.25}} \\ \hline
-			\multicolumn{1}{|c|}{\textit{\textbf{Explicit upwind}}} & 0.000164515 & 0.000673134 & 0.000357989 \\ \hline
-			\multicolumn{1}{|c|}{\textit{\textbf{Implicit upwind}}} & 0.0106573 & 0.00898661 & 0.00700899 \\ \hline
-			\multicolumn{1}{|c|}{\textit{\textbf{Lax-Wendroff}}} & 0.000204585 & 0.000465857 & 0.000134623 \\ \hline
-			\multicolumn{1}{|c|}{\textit{\textbf{Richtmyer multi-step}}} & 0.00758462 & 0.000197187 & 0.000467489 \\ \hline
+			\multicolumn{1}{|c|}{{\textbf{Explicit upwind}}} & 0.000164515 & 0.000673134 & 0.000357989 \\ \hline
+			\multicolumn{1}{|c|}{{\textbf{Implicit upwind}}} & 0.0106573 & 0.00898661 & 0.00700899 \\ \hline
+			\multicolumn{1}{|c|}{{\textbf{Lax-Wendroff}}} & 0.000204585 & 0.000465857 & 0.000134623 \\ \hline
+			\multicolumn{1}{|c|}{{\textbf{Richtmyer multi-step}}} & 0.00758462 & 0.000197187 & 0.000467489 \\ \hline
 		\end{tabular}
 	\end{table}
