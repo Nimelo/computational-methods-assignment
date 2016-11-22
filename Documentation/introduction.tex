@@ -20,46 +20,34 @@
 		
 		in a domain $x \in [-50,50]$ with $u = 1.75$ and two initial/boundary conditions:
 		
-		\begin{itemize}
-			\item First set
-			{
-				\begin{equation}
+		\begin{subequations}
+			\begin{align}
+				\begin{split}
 					\label{for:firstSet}
-					\begin{split}
-						f(x, 0) = \frac{1}{2} (sign(x) + 1) \\
-						f(-50, t) = 0 \\
-						f(50, t) = 1
-					\end{split}
-				\end{equation}
-			}
-			\item Second set
-			{
-				\begin{equation}
+					f(x, 0) &= \frac{1}{2} (sign(x) + 1) \\
+					f(-50, t) &= 0 \\
+					f(50, t) &= 1
+				\end{split} \\
+				\begin{split}
 					\label{for:secondSet}
-					\begin{split}
-						f(x, 0) = \frac{1}{2} exp(-x^2) \\
-						f(-50, t) = 0 \\
-						f(50, t) = 0.
-					\end{split}
-				\end{equation}
-			}
-		\end{itemize}
-		
+					f(x, 0) &= \frac{1}{2} exp(-x^2) \\
+					f(-50, t) &= 0 \\
+					f(50, t) &= 0
+				\end{split}
+			\end{align}
+		\end{subequations}
+	
 		The analytical solutions for these initial conditions are given respectively:
 		
-		\begin{itemize}
-			\item First set
-			{
-				\begin{equation}
-					f(x, t) = \frac{1}{2} (sign(x - 1.75t) + 1)
-				\end{equation}
-			}
-			\item Second set
-			{
-				\begin{equation}
-					f(x, t) = \frac{1}{2} exp(-(x - 1.75t)^2).
-				\end{equation}
-			}
-		\end{itemize}
+		\begin{subequations}
+			\begin{align}
+			\begin{split}
+				f(x, t) = \frac{1}{2} (sign(x - 1.75t) + 1)
+			\end{split} \\
+			\begin{split}
+				f(x, t) = \frac{1}{2} exp(-(x - 1.75t)^2).
+			\end{split}
+			\end{align}
+		\end{subequations}
 	
 		Mentioned before analytical solutions and known are will be used in order to the calculate an error. Further analyses will compare errors of each scheme to determine the best numerical solution between them.
