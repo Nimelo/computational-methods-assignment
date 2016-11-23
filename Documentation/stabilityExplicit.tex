@@ -72,13 +72,13 @@
 		\end{split}
 	\end{align} 
 	
-	The method is table if $|\sigma|^2 < 1$, our equation is presented in a following way:
+	The method is table if $|\sigma|^2 \leq 1$, our equation is presented in a following way:
 	
 	\begin{align}
 		\begin{split}
-			1-2C\Big(1-\cos(k\Delta x)\Big)(1-C) &< 1 \\
-			-2C\Big(1-\cos(k\Delta x)\Big)(1-C) &< 0 \\
-			2C\Big(1-\cos(k\Delta x)\Big)(1-C) &>0 \\
+			1-2C\Big(1-\cos(k\Delta x)\Big)(1-C) &\leq 1 \\
+			-2C\Big(1-\cos(k\Delta x)\Big)(1-C) &\leq 0 \\
+			2C\Big(1-\cos(k\Delta x)\Big)(1-C) &\leq0 \\
 		\end{split}
 	\end{align} 
 	
@@ -87,13 +87,13 @@
 	\begin{align}
 		\begin{split}
 			\begin{cases}
-				(1-C) <0 \implies C < 1 \\
-				C > 0
+				(1-C) \leq 0 \implies C \leq 1 \\
+				C \geq 0
 			\end{cases}
 		\end{split}
 	\end{align} 
 	
-	Summarizing this scheme is conditionally stable with following condition $C \in (0, 1)$.
+	Summarizing this scheme is conditionally stable with following condition $C \in \left(0, 1\right)$.
 	
 	
 	
