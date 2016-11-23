@@ -1,4 +1,6 @@
 \section{Stability of explicit upwind scheme}
+
+	Explicit upwind scheme can be represented as formula \ref{app:for:explicit}, which is first order method both in time and space.
 	\begin{equation}
 		\label{app:for:explicit}
 		u_j^{(n+1)} = u_i^{(n)} - C\Big(u_j^{(n)} - u_{j-1}^{(n)}\Big)
@@ -91,7 +93,7 @@
 		\end{split}
 	\end{align} 
 	
-	Summarizing $C \in (0, 1)$.
+	Summarizing this scheme is conditionally stable with following condition $C \in (0, 1)$.
 	
 	
 	
