@@ -1,0 +1,56 @@
+\section{Stability of explicit upwind scheme}
+	\begin{equation}
+		\label{app:for:explicit}
+		u_j^{(n+1)} = u_i^{(n)} - C\Big(u_j^{(n)} - u_{j-1}^{(n)}\Big)
+	\end{equation}
+	Key to the von Neumann's analysis is assuming that the solution to the difference equation is of the form:
+	\begin{equation}
+		\label{app:for:vnkey}
+		u_j^{(n)} = \sigma^ne^{ikx_j}
+	\end{equation}
+	
+	Recall that $e^{ikx_j} = cos(kx_j) + isin(kx_j)$. Substituting \ref{app:for:vnkey} into \ref{app:for:explicit} results in:
+	
+	\begin{align}
+		\begin{split}
+			\sigma ^{n+1}e^{ikx_j} = \sigma^{n}{e^{ikx_j}} - C(\sigma ^{n}e^{ikx_j} - \sigma ^{n}e^{ikx_{j-1}}) \\
+		\end{split}
+	\end{align}
+	
+	Noting that
+	
+	\begin{align}
+		\begin{split}
+			x_{j+1} &= x_j + \Delta x \\
+			x_{j-1} &= x_j - \Delta x
+		\end{split}
+	\end{align}
+	
+	and dividing through by $u_j^{(n)} = \sigma^ne^{ikx_j}$ we obtain
+	
+	\begin{align}
+		\begin{split}
+			\sigma &= 1 - C\Big(1 - \frac{e^{ikx_{j-1}}}{e^{ikx_j}}\Big) \\
+			\sigma &= 1 - C\Big(1 - \frac{e^{ik (x_j - \Delta x)}}{e^{ikx_j}}\Big) \\
+			\sigma &= 1 - C\Big(1 - \frac{\frac{e^{ikx_j}}{e^{ik\Delta x}}}{e^{ikx_j}}\Big) \\
+			\sigma &= 1 - C\Big(1 - \frac{e^{ikx_j}}{e^{ikx_j}e^{ik\Delta x}}\Big) \\
+			\sigma &= 1 - C\Big(1 - e^{-ik\Delta x}\Big) \\
+		\end{split}
+	\end{align}
+	
+	The stability condition for explicit Euler is $|\sigma| \leq 1$ which means that
+	
+	\begin{equation}
+		\Big|1 - C\Big(1 - e^{-ik\Delta x}\Big)\Big| \leq 1
+	\end{equation} 
+	
+	This inequality can be written as 
+	
+	\begin{align}
+		\begin{split}
+			-1 \leq 1 - C\Big(1 - e^{-ik\Delta x}\Big) \leq 1 \\
+			-2 \leq - C\Big(1 - e^{-ik\Delta x}\Big) \leq 2 \\
+			2 \geq C\Big(1 - e^{-ik\Delta x}\Big) \geq -2 \\
+		\end{split}
+	\end{align} 
+	
