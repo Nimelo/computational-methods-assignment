@@ -1,0 +1,194 @@
+\section{Appendices}
+
+\subsection{Formulation of Explicit Upwind Scheme}
+
+Using the Forward-Time Backward-Space (FTBS) scheme to discretize the given PDE, this is represented as;
+\begin{equation}
+\frac{f^{n+1}_{i} - f^{n}_{i}}{\Delta t} + u \frac{f^{n}_{i} - f^{n}_{i-1}}{\Delta x} = 0 \label{eq:2}
+\end{equation}
+The unknown variable in \eqref{eq:2} is $ f^{n+1}_{i} $,since its an explicit scheme with future time in the discretized domain unknown. solving for the unknown gives;
+\begin{equation*}
+f^{n+1}_{i} - f^{n} = - \frac{u\Delta t}{\Delta x}(f^{n}_{i} - f^{n}_{i-1})
+\end{equation*}
+\begin{equation*}
+f^{n+1}_{i} = f^{n} - \frac{u\Delta t}{\Delta x}(f^{n}_{i} - f^{n}_{i-1})
+\end{equation*}
+Let $ c = \frac{u\Delta t}{\Delta x} $, where $ c $ is the Courant–Friedrichs–Lewy(CFL) number. Substituting $ c $ and grouping like terms;
+\begin{equation}
+\boxed{f^{n+1}_{i} = (1-c)f^{n}_{i} + (c)f^{n}_{i-1}} \label{eq:3}
+\end{equation}
+This formulation according to \cite{Hoffmann} is the first explicit upwind differencing scheme of order $ O(\Delta t, \Delta x) $
+
+\subsection{Formulation of Lax Wendroff Scheme}
+This formulation is derived from the expansion of the Taylor series of the given continuous problem in equation \eqref{eq:1}. The Taylor series is given by;
+\begin{equation*}
+f(x + \Delta x) = \sum^{\infty}_{n=0}\frac{\partial^n f}{\partial x^n}\frac{(\Delta x)^n}{n!} = 0
+\end{equation*}
+Applying Taylor series expansion to the PDE gives;
+\begin{equation*}
+f(x,t + \Delta t) = f(x,t) + \frac{\partial f}{\partial t}\Delta t + \frac{\partial^2 f}{\partial t^2}\frac{(\Delta t)^2}{2!} + O(\Delta t)^3
+\end{equation*}
+Respresenting this in the discretized domain produces;
+\begin{equation}
+f^{n+1}_{i} = f^{n}_{i} + \frac{\partial f}{\partial t}\Delta t + \frac{\partial^2 f}{\partial t^2}\frac{(\Delta t)^2}{2!} + O(\Delta t)^3 \label{eq:4}
+\end{equation}
+Now expressing the time derivatives in terms of space derivatives, consider the given PDE in \eqref{eq:1};
+\begin{equation}
+\frac{\partial f}{\partial t} = - u \frac{\partial f}{\partial x} \label{eq:5}
+\end{equation}
+Differentiating equation \eqref{eq:5} with respect to time yields;
+\begin{equation}
+\frac{\partial^2 f}{\partial t^2} = -u\frac{\partial}{\partial t}\left(\frac{\partial f}{\partial x}\right) = -u\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial t}\right) \label{eq:6}
+\end{equation}
+Substituting equation \eqref{eq:5} into \eqref{eq:6} results in;
+\begin{equation}
+\frac{\partial^2 f}{\partial t^2} = u^2\frac{\partial^2 f}{\partial x^2} \label{eq:7}
+\end{equation}
+Now, substituting equations \eqref{eq:7} and \eqref{eq:5} into \eqref{eq:4} gives;
+\begin{equation}
+f^{n+1}_{i} = f^{n}_{i} + \left(- u \frac{\partial f}{\partial x}\right) \Delta t + \frac{(\Delta t)^2}{2}\left(u^2\frac{\partial^2 f}{\partial x^2}\right) \label{eq:8}
+\end{equation}
+The central differencing for both the first and second order spatial derivatives are respectively given as;
+\begin{equation*}
+\left(\frac{\partial f}{\partial x}\right)_{i} = \frac{f_{i+1} - f_{i-1}}{2\Delta x} + O(\Delta x)^2 
+\end{equation*}
+ \begin{equation*}
+ \left(\frac{\partial^2 f}{\partial x^2}\right)_{i} = \frac{f_{i+1} - 2f_{i} + f_{i-1}}{(\Delta x)^2} + O(\Delta x)^2 
+ \end{equation*} 
+Applying the central differencing to equation \eqref{eq:8} gives;
+ \begin{equation*}
+ f^{n+1}_{i} = f^{n}_{i} - u\Delta t\left(\frac{f^{n}_{i+1} - f^{n}_{i-1}}{2\Delta x}\right) + \frac{u^2(\Delta t)^2}{2}\left(\frac{f^{n}_{i+1} - 2f^{n}_{i} + f^{n}_{i-1}}{(\Delta x)^2}\right)
+ \end{equation*}
+ This can be re-written as;
+ \begin{equation*}
+ f^{n+1}_{i} = f^{n}_{i} -\frac{1}{2}\left(\frac{u\Delta t}{\Delta x}\right)\left(f^{n}_{i+1} - f^{n}_{i-1}\right) + \frac{1}{2}\left(\frac{u\Delta t}{\Delta x}\right)^2\left(f^{n}_{i+1} - 2f^{n}_{i} + f^{n}_{i-1}\right)
+ \end{equation*}
+ Let $c = \frac{u\Delta t}{\Delta x} $, where $c$ is the Courant–Friedrichs–Lewy(CFL) number. The equation now becomes;
+ \begin{equation}
+ \boxed{f^{n+1}_{i} = (1-c^2)f^{n}_{i} + \frac{c}{2}(c-1)f^{n}_{i+1} + \frac{c}{2}(c+1)f^{n}_{i-1}} \label{eq:9}
+ \end{equation}
+This formulation according to \cite{Hoffmann} is referred to as the Lax-Wendroff method of the order $ \left[(\Delta t)^2, (\Delta x)^2 \right] $.  
+
+\subsection{Formulation of Implicit Upwind Scheme}
+This formulation uses the FTCS method of finite differencing in the approximation of the PDE in \eqref{eq:1}, therefore givin;
+\begin{equation}
+\frac{f^{n+1}_{i} - f^{n}_{i}}{\Delta t} + u \frac{f^{n+1}_{i} - f^{n+1}_{i-1}}{\Delta x} = 0 \label{eq:10}
+\end{equation}
+The only known value of f at $i$ is at $n$. Therefore evaluating the equation with the unknowns on one side results in;
+\begin{equation}
+f^{n}_{i} = -\left(\frac{u\Delta t}{\Delta x}\right)f^{n+1}_{i-1} +\left(1 + \frac{u\Delta t}{\Delta x}\right) f^{n+1}_{i} \label{eq:11}
+\end{equation}
+Let $c = \frac{u\Delta t}{\Delta x} $, where $c$ is the Courant–Friedrichs–Lewy(CFL) number. The equation now becomes;
+\begin{equation}
+\boxed{f^{n}_{i} = -cf^{n+1}_{i-1} +\left(1 + c\right) f^{n+1}_{i} } \label{eq:12}
+\end{equation} 
+The resulting FDE has three unknowns hence the use of the matrix method to evaluate this equation. This when written in a matrix form $Af^{n+1} = f^n$ where $N$ represents the grid size given the boundary conditions becomes;
+
+$A = 
+\begin{bmatrix}
+(1+c) &  \\
+-c  & (1+c)  \\ 
+  & -c  & (1+c)  \\ 
+  &   & \ddots & \ddots &  \\
+  &  &   & \ddots & \ddots & \\
+   &  & &  & -c  & (1+c) & \\
+\end{bmatrix}$
+$ f^{n+1} = 
+\begin{bmatrix}
+f^{n+1}_{1}+c \\
+f^{n+1}_{2} \\
+\vdots \\
+\vdots \\
+\vdots \\
+f^{n+1}_{N-1} \\
+\end{bmatrix}$
+
+The Von Neumann stability requirement according to Hoffman \cite{Hoffmann} analysis assuming a Fourier component for $u^n_{i}$ is represented as
+\begin{equation}
+u^n_{i} = U^ne^{IP(\Delta x)i}
+\end{equation}
+where $I=\sqrt{-1}$, $U^n$ is the amplitude at the time level $n$, and $P$ is the wave numberin the $x$-direction, if a phase angle $\theta = P\Delta x$ is defined, then the following can be derived based on the discretization in \eqref{eq:12};
+\begin{equation}
+f^n_{i} = F^ne^{I\theta i} \label{eq:14}
+\end{equation}
+\begin{equation}
+f^{n+1}_{i} = F^{n+1}e^{I\theta i} \label{eq:15}
+\end{equation}
+\begin{equation}
+f^{n+1}_{i-1} = F^{n+1}e^{I\theta (i-1)} \label{eq:16}
+\end{equation}
+Now substituting \eqref{eq:14}, \eqref{eq:15}, \eqref{eq:16} into the FDE in \eqref{eq:12}, it becomes;
+\begin{equation}
+ F^{n}e^{I\theta i} = -cF^{n+1}e^{I\theta (i-1)} + (1 + c)F^{n+1}e^{I\theta i} \label{eq:17}
+\end{equation}
+After cancelling the common factor $e^{I\theta i}$ in \eqref{eq:17}, it becomes
+\begin{equation}
+F^{n} = -cF^{n+1}e^{-I\theta} + (1 + c)F^{n+1} \label{eq:18}
+\end{equation}
+Factorizing equation \eqref{eq:18} becomes
+\begin{equation}
+F^{n} = F^{n+1}(1 + c - ce^{-I\theta i}) \label{eq:19}
+\end{equation}
+but $e^{-I\theta i} = cos \theta - Isin \theta $, therefore;
+\begin{equation*}
+F^{n} = F^{n+1}\left(1 + c - c(cos \theta - I\sin \theta) \right)
+\end{equation*}
+\begin{equation*}
+F^{n+1} = F^{n}\left(\frac{1}{\left(1 + c(1 - cos \theta + I\sin \theta) \right)} \right)
+\end{equation*}
+If the amplification factor is such that $ F^{n+1} = GF^{n} $, then
+\begin{equation}
+G = \frac{1}{1 + c(1 - cos \theta + I\sin \theta)} \label{eq:20}
+\end{equation}
+The general Von Neumann stability requirement which is
+
+\begin{equation*} \mid G \mid \leq 1 \end{equation*}  or  \begin{equation*} \mid \frac{1}{1 + c(1 - cos \theta + I\sin \theta)} \mid \leq 1  \end{equation*}
+so that 
+\begin{equation} \frac{1}{1 + c(1 - cos \theta + I\sin \theta)} \leq 1 \label{eq:21}
+\end{equation}
+and
+\begin{equation} \frac{1}{1 + c(1 - cos \theta + I\sin \theta)} \geq -1 \label{eq:22}
+\end{equation}
+Considering $ \mid G \mid^{2} \leq 1$, it implies that; equation \eqref{eq:21} becomes;
+\begin{equation} \frac{1}{1 + c^{2}(1 + cos^{2} \theta + sin^{2} \theta)} \leq 1 \label{eq:23}
+\end{equation}
+and
+\begin{equation} \frac{1}{1 + c^{2}(1 + cos^{2} \theta + sin^{2} \theta)} \geq -1 \label{eq:24}
+\end{equation}
+ that With the maximum value of $ cos^{2} \theta$ and $sin^{2} \theta$ been $1$, it implies that the inequality in \eqref{eq:23} becomes: $1 \leq 1 + 3c^2$, therefore $c \geq 0$, hence uncondtionally stable since the value of $c$ will always be positive. Whilst the inequality in \eqref{eq:24} becomes: $c \geq \sqrt{-2}$ which is undefined. Hence the stability condition for the implicit upwind scheme is $ \boxed{c \geq 0} $.
+
+\subsection{Formulation of Richtmyer multi-step Scheme}
+This scheme according to \cite{Hoffmann}, utilizes both the Lax method at time level $n+\frac{1}{2}$ and midpoint leapfrog method at $n+1$.
+
+The Lax method (predictor method) is given as;
+\begin{equation}
+f^{n+1}_{i} = \frac{1}{2}(f^{n}_{i+1} + f^{n}_{i-1}) - \frac{a\Delta t}{2\Delta x}(f^{n}_{i+1} - f^{n}_{i-1}) \label{eq:25}
+\end{equation}
+The midpoint leapfrog method (corrector method) is given as;
+\begin{equation}
+\frac{f^{n+1}_{i} - f^{n-1}_{i}}{2\Delta t} = -a \frac{f^{n}_{i+1} - f^{n}_{i-1}}{2 \Delta x} \label{eq:26}
+\end{equation}
+Applying the predictor method at time step $ n+\frac{1}{2} $, the formulation becomes;
+\begin{equation}
+\frac{f^{n+\frac{1}{2}}_{i} - \frac{1}{2}(f^{n}_{i+1}+f^{n}_{i-1})}{\frac{\Delta t}{2}} = -a \frac{f^{n}_{i+1} - f^{n}_{i-1}}{2 \Delta x} \label{eq:27}
+\end{equation}
+Simplifying the resulting equation yields;
+\begin{equation}
+\boxed{ f^{n+\frac{1}{2}}_{i} = \frac{1}{2} \left(f^{n}_{i+1} + f^{n}_{i-1}\right) - \frac{1}{4}c\left(f^{n}_{i+1} - f^{n}_{i-1}\right) } \label{eq:28}
+\end{equation}
+Now Applying the corrector method at time step $n+1$ gives;
+\begin{equation}
+\frac{f^{n+1}_{i} - f^{n}_{i}}{\Delta t} = -a \frac{f^{n+\frac{1}{2}}_{i+1} - f^{n+\frac{1}{2}}_{i-1}}{2 \Delta x} \label{eq:29}
+\end{equation}
+Simplifying this results in;
+\begin{equation}
+\boxed{f^{n+1}_{i} = f^{n}_{i} - \frac{c}{2}\left(f^{n+\frac{1}{2}}_{i+1} - f^{n+\frac{1}{2}}_{i-1}\right)} \label{eq:30}
+\end{equation}
+The equations \eqref{eq:27} and \eqref{eq:29} represents the Richtmyer multi-step formulation, but from \eqref{eq:26}, it implies that;
+\begin{equation}
+ f^{n+\frac{1}{2}}_{i+1} = \frac{1}{2} \left(f^{n}_{i+2} + f^{n}_{i}\right) - \frac{1}{4}c\left(f^{n}_{i+2} - f^{n}_{i}\right) \label{eq:31}
+\end{equation}
+and
+\begin{equation}
+f^{n+\frac{1}{2}}_{i-1} = \frac{1}{2} \left(f^{n}_{i-2} + f^{n}_{i}\right) - \frac{1}{4}c\left(f^{n}_{i} - f^{n}_{i-2}\right) \label{eq:32}
+\end{equation}
