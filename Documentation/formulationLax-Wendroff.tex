@@ -1,1 +1,93 @@
-\section{Formulation LW}
+\section{Formulation and stability analysis of Lax-Wendroff scheme}
+	In section 6.2.1.6. in Klaus A. Hoffman and Steve T. Chiang \cite{bib:hoffman}[p. 187] there are considerations about Lax-Wendroff scheme considering problem described by (\ref{for:advection}). The finite difference representation of the PDE is derived from Taylor series expansion of the dependent variable as follows: 	
+	\begin{align}
+		\begin{split}
+			f(x, t + \Delta t) = u(x, t) + u\frac{\partial f}{\partial t}\Delta t + u^2\frac{\partial ^2 f}{\partial t^2}\frac{(\Delta t)^2}{2!} + \mathcal{O}(\Delta t)^3
+		\end{split}
+	\end{align}	
+	Respresenting this in the discretized domain produces;
+	\begin{equation}
+		f^{n+1}_{i} = f^{n}_{i} + \frac{\partial f}{\partial t}\Delta t + \frac{\partial^2 f}{\partial t^2}\frac{(\Delta t)^2}{2!} + O(\Delta t)^3 \label{eq:4}
+	\end{equation}
+	Now expressing the time derivatives in terms of space derivatives, consider the given PDE in (\ref{for:advection});
+	\begin{equation}
+		\frac{\partial f}{\partial t} = - u \frac{\partial f}{\partial x} \label{eq:5}
+	\end{equation}
+	Differentiating equation \eqref{eq:5} with respect to time yields;
+	\begin{equation}
+		\frac{\partial^2 f}{\partial t^2} = -u\frac{\partial}{\partial t}\left(\frac{\partial f}{\partial x}\right) = -u\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial t}\right) \label{eq:6}
+	\end{equation}
+	Substituting equation \eqref{eq:5} into \eqref{eq:6} results in;
+	\begin{equation}
+		\frac{\partial^2 f}{\partial t^2} = u^2\frac{\partial^2 f}{\partial x^2} \label{eq:7}
+	\end{equation}
+	Now, substituting equations \eqref{eq:7} and \eqref{eq:5} into \eqref{eq:4} gives;
+	\begin{equation}
+		f^{n+1}_{i} = f^{n}_{i} + \left(- u \frac{\partial f}{\partial x}\right) \Delta t + \frac{(\Delta t)^2}{2}\left(u^2\frac{\partial^2 f}{\partial x^2}\right) \label{eq:8}
+	\end{equation}
+	The central differencing for both the first and second order spatial derivatives are respectively given as;
+	\begin{equation}
+		\left(\frac{\partial f}{\partial x}\right)_{i} = \frac{f_{i+1} - f_{i-1}}{2\Delta x} + O(\Delta x)^2 
+	\end{equation}
+	\begin{equation}
+		\left(\frac{\partial^2 f}{\partial x^2}\right)_{i} = \frac{f_{i+1} - 2f_{i} + f_{i-1}}{(\Delta x)^2} + O(\Delta x)^2 
+	\end{equation} 
+	Applying the central differencing to equation \eqref{eq:8} gives;
+	\begin{equation}
+		f^{n+1}_{i} = f^{n}_{i} - u\Delta t\left(\frac{f^{n}_{i+1} - f^{n}_{i-1}}{2\Delta x}\right) + \frac{u^2(\Delta t)^2}{2}\left(\frac{f^{n}_{i+1} - 2f^{n}_{i} + f^{n}_{i-1}}{(\Delta x)^2}\right)
+	\end{equation}
+	This can be re-written as;
+	\begin{equation}
+		\label{app:for:lwSolution}
+		f^{n+1}_{i} = f^{n}_{i} -\frac{1}{2}C\left(f^{n}_{i+1} - f^{n}_{i-1}\right) + \frac{1}{2}C^2\left(f^{n}_{i+1} - 2f^{n}_{i} + f^{n}_{i-1}\right)
+	\end{equation}
+	where $C = \frac{u\Delta t}{\Delta x} $ is the Courant-Friedrichs-Lewy (CFL) number.
+	Before starting with von Neumman stability analysis let's rewrite (\ref{app:for:lwSolution}) in a following manner:
+	\begin{equation}
+		u_j^{n+1} = f_i^{n+1}
+	\end{equation}
+	which results in
+	\begin{equation}
+	\label{app:for:lwSolutionU}
+		u^{n+1}_{j} = u^{n}_{j} -\frac{1}{2}C\left(u^{n}_{j+1} - u^{n}_{j-1}\right) + \frac{1}{2}C^2\left(u^{n}_{j+1} - 2u^{n}_{j} + u^{n}_{j-1}\right)
+	\end{equation}
+	Key to the von Neumann's analysis is assuming that the solution to the difference equation is of the form:
+	\begin{equation}
+		\label{app:for:vnkeyLW}
+		u_j^{(n)} = \sigma^ne^{ikx_j}
+	\end{equation}	
+	Recall that $e^{ikx_j} = cos(kx_j) + isin(kx_j)$. Substituting (\ref{app:for:vnkeyLW}) into (\ref{app:for:lwSolutionU}) results in:
+	
+	\begin{align}
+		\begin{split}
+			\sigma ^{n+1}e^{ikx_j} = \sigma^ne^{ikx_j} - \frac{1}{2}C(\sigma^ne^{ikx_{j+1}} - \sigma^ne^{ikx_{j-1}}) + \\ \frac{1}{2}C^2(\sigma^ne^{ikx_{j+1}} - 2\sigma ^{n}e^{ikx_j} + \sigma^ne^{ikx_{j-1}})
+		\end{split}
+	\end{align}
+	Noting that	
+	\begin{align}
+		\begin{split}
+			x_{j+1} &= x_j + \Delta x \\
+			x_{j-1} &= x_j - \Delta x
+		\end{split}
+	\end{align}	
+	and dividing through by $u_j^{(n)} = \sigma^ne^{ikx_j}$ we obtain
+	\begin{align}
+		\begin{split}
+			\sigma = 1 - \frac{1}{2}C\big(2i\sin(k\Delta x)\big) + \frac{1}{2}C^2\big(2 \cos(x) - 2\big)
+		\end{split}
+	\end{align}
+	The method is stable if the amplification factor is less or equal to 1. The magnitude of the amplification factor is:
+	\begin{align}
+		\begin{split}
+			\label{app:for:sigmaLW}
+			|\sigma|^2 &= \Big|1 - \frac{1}{2}C\big(2i\sin(k\Delta x)\big) + \frac{1}{2}C^2\big(2 \cos(k\Delta x) - 2\big)\Big|^2 \\
+			&= \Big|1 - C\big(i\sin(k\Delta x)\big) - C^2\big(1- \cos(k\Delta x) \big)\Big|^2
+		\end{split}
+	\end{align} 
+	The method is stable if $|\sigma|^2 \leq 1$, our equation is presented in a following way:	
+	\begin{align}
+		\begin{split}
+			%\frac{1}{1 + 2C(1+C)(1-\cos(k\Delta x))} &\leq 1 \\
+			%2C(1+C)(1-\cos(k\Delta x)) &\geq 0 \\
+		\end{split}
+	\end{align} 	
