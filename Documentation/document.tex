@@ -2,6 +2,7 @@
 \usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
 \usepackage{listings}
 \usepackage{cite}
+
 \usepackage{xcolor} 
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
@@ -16,7 +17,7 @@
 \usepgfplotslibrary{external} 
 \usepackage{multirow}
 \tikzexternalize
-
+\usetikzlibrary{patterns}
 \useunder{\uline}{\ul}{}
 \input{commands.tex}
 
@@ -89,7 +90,7 @@
 	\newpage
 	
 	% ABSTRACT 
-%	\input{abstract.tex}
+	\input{abstract.tex}
 
 	%----------------------------------------------------------------------------------------
 	%	INTRODUCTION
@@ -116,7 +117,7 @@
 	% • Tables, figures, Graphs APPROPRIATELY REFERENCED IN THE TEXT.
 	% • Figure legends -- below the figure; table legends -- above the table.
 	%----------------------------------------------------------------------------------------
-%	\input{results.tex}
+	\input{results.tex}
 	
 	%----------------------------------------------------------------------------------------
 	%	DISCUSSION
@@ -131,7 +132,7 @@
 	% (briefly) described.
 	%----------------------------------------------------------------------------------------
 	
-%	\input{futureWork.tex}
+	\input{futureWork.tex}
 	
 	%----------------------------------------------------------------------------------------
 	%	CONCLUSIONS
@@ -140,18 +141,18 @@
 	% • DO NOT INTRODUCE SURPRISES HERE
 	%----------------------------------------------------------------------------------------
 	
-%	\input{conclusion.tex}
+	\input{conclusion.tex}
 
 	%----------------------------------------------------------------------------------------
 	%	ACKNOWLEGEMENTS
 	%----------------------------------------------------------------------------------------
 	
-	%\input{acknowledments.tex}
+	\input{acknowledments.tex}
 	
 	%----------------------------------------------------------------------------------------
 	%	ADDITIONAL FEATURES
 	%----------------------------------------------------------------------------------------
-	%\input{graphTest.tex}
+	\input{graphTest.tex}
 	%\input{stencils.tex}
 	%----------------------------------------------------------------------------------------
 	%	REFERENCES

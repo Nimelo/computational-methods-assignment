@@ -77,7 +77,7 @@
 		\end{itemize}
 		
 	\subsection{Explicit upwind scheme} \label{sec:explicitUpwind}
-		Formula that gives first-order accurate method for our problem is described in book\cite{bib:hoffman} on pages 191 -- 192 in section 6.5 titled Applications to a Linear Problem, which looks as follows:
+		Formula that gives first-order accurate method for our problem is described by Klaus A. Hoffman and Steve T. Chiang in \cite{bib:hoffman}[p. 191 - 192] in section 6.5 titled Applications to a Linear Problem, which looks as follows:
 		
 		\begin{align}
 			\label{for:explicitUpwind}
@@ -117,7 +117,7 @@
 			\label{fig:explicitUpwind}
 		\end{figure}
 		
-		Described earlier scheme is first-order accurate both in space and time. Stability analysis in appendix \ref{app:explicitUpwind} shows that this method is conditionally stable for: $C \in (0,1)$.
+		Described earlier scheme is first-order accurate both in space and time. Stability analysis in appendix \ref{app:explicit} shows that this method is conditionally stable for: $C \in (0,1)$.
 		
 		\subsection{Implicit upwind scheme}
 			This formulation uses the FTBS method of finite differencing in the approximation of the PDE in \ref{for:advection}, therefore givin:
@@ -212,7 +212,7 @@
 				\label{fig:implicitUpwind}
 			\end{figure}
 			
-			The analysis carried out in appendix \ref{app:implicitUpwind} showed that in general schema is stable for $C \in (-\infty, -1) \cup (0, \infty)$, so in terms of assignment ($C>0$) scheme is unconditionally stable. 
+			The analysis carried out in appendix \ref{app:implicit} showed that in general schema is stable for $C \in (-\infty, -1) \cup (0, \infty)$, so in terms of assignment ($C>0$) scheme is unconditionally stable. 
 			
 			% Should I Mention something about negative CFL?
 			
