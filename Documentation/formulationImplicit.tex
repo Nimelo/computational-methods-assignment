@@ -1,1 +1,106 @@
-\section{Formualation and stability analysis of explicit upwind scheme}
+\section{Formulation and stability analysis of implicit upwind scheme}
+	This formulation uses the FTBS method of finite differencing in the approximation of the PDE in \ref{for:advection}, therefore giving:
+	
+	\begin{equation}
+		\label{app:for:implicitUpwind_first}
+		\frac{u_j^{n+1} - u_j^n}{\Delta t} + a\frac{u_j^{n+1} - u_{j-1}^{n+1}}{\Delta x} = \mathcal{O}(\Delta t, \Delta x)
+	\end{equation}	
+	The only known value of $u$ at point $j$ is at time $n$. Evaluating (\ref{app:for:implicitUpwind_first}) with the unknowns on right side give:
+	
+	\begin{equation}
+		\label{app:for:implicitUpwind_solution}
+		u_j^n = -Cu_{j-1}^{n+1} + (1+C)u_j^{n+1}
+	\end{equation}
+	where $C=a\frac{\Delta t}{\Delta x}$ is Courant-Friedrichs-Lewy (CFL) number.
+	Mentioned dependency drives us to solve following linear equation set of form $Au^{n+1} = u^n$.
+	
+	\begin{equation}
+		\begin{bmatrix}
+			1+C & & & \\
+			-C & 1+C & & \\ 
+			& \ddots & \ddots \\
+			& & -C & 1+C \\					
+		\end{bmatrix} 
+		\times
+		\begin{bmatrix}
+			u_1^{n+1} \\
+			u_2^{n+1} \\
+			\vdots	\\
+			u_N^{n+1}\\
+		\end{bmatrix}
+			=
+		\begin{bmatrix}
+			u_1^{n} + C u_0^{n+1}\\
+			u_2^{n} \\
+			\vdots	\\
+			u_N^{n}\\
+		\end{bmatrix}
+	\end{equation} 	
+	where $N$ is number of grid points.	
+	Explicit upwind method is second-order accurate both in time and space. We can observe that we do not have to solve it by using complicated algorithm. Matrix $A$ is bidiagonal diagonally-dominant, so although this schema is implicit we can solve it using forward or backward substitution described using formula (\ref{app:for:implicitSubstitution}). This equation assumes that we know the boundary conditions for next time step - $u_0^{n+1}$ and $u_N^{n+1}$.
+	
+	\begin{align}
+		\label{app:for:implicitSubstitution}
+		\begin{split}
+			u_j^{n+1} &= \frac{u_j^n + Cu_{j-1}^{n+1}}{1+C}\text{, for $j = 1,2,3,\ldots,N-1$ and $C>0$} \\
+			u_{j-1}^{n+1}&= \frac{(1+C)u_j^{n+1} - u_j^{n+1}}{C}\text{, for $j = N, N-1, \ldots, 2$ and $C < 0$}
+		\end{split}
+	\end{align}
+	
+	Key to the von Neumann's analysis is assuming that the solution to the difference equation is of the form:
+	\begin{equation}
+		\label{app:for:vnkeyImp}
+		u_j^{(n)} = \sigma^ne^{ikx_j}
+	\end{equation}	
+	Recall that $e^{ikx_j} = cos(kx_j) + isin(kx_j)$. Substituting (\ref{app:for:vnkeyImp}) into (\ref{app:for:implicitUpwind_solution}) results in:
+	
+	\begin{align}
+		\begin{split}
+			\sigma ^{n+1}e^{ikx_j} =  -C\sigma^{n+1}e^{ikx_{j-1}} + (1+C)\sigma^{n+1}e^{ikx_j}
+		\end{split}
+	\end{align}
+	Noting that	
+	\begin{align}
+		\begin{split}
+			x_{j+1} &= x_j + \Delta x \\
+			x_{j-1} &= x_j - \Delta x
+		\end{split}
+	\end{align}	
+	and dividing through by $u_j^{(n)} = \sigma^ne^{ikx_j}$ we obtain
+	\begin{align}
+		\begin{split}
+			1 &= -C\sigma e^{-ik \Delta x} + (1+C)\sigma\\ 
+			1 &= \sigma \big(-Ce^{-ik \Delta x} + 1 + C\big)\\
+			1 &= \sigma \big(1 + C(1 -e^{-ik \Delta x})\big)\\	
+			1 &= \sigma \Big(1 + C\big(1- \cos(k\Delta x) + i\sin(k\Delta x)\big)\Big) \\
+			1 &= \sigma \Big(1 + C\big(1- \cos(k\Delta x)\big)+ iC\sin(k\Delta x)\Big) \\	
+		\end{split}
+	\end{align}
+	The method is stable if the amplification factor is less or equal to 1. The magnitude of the amplification factor is:
+	\begin{align}
+		\begin{split}
+		\label{app:for:sigmaImplicit}
+			|\sigma|^2 &= \Bigg|\frac{1}{\Big(1 + C\big(1- \cos(k\Delta x)\big)+ iC\sin(k\Delta x)\Big)}\Bigg|^2 \\	
+			&= \frac{1}{1 + 2C -2C\cos(k\Delta x) + C^2 - 2C^2\cos(k\Delta x) + C^2\cos(k\Delta x) + C^2\sin(k\Delta x)} \\
+			&= \frac{1}{1 + 2C(1+C)(1-\cos(k\Delta x))}
+		\end{split}
+	\end{align} 
+	The method is stable if $|\sigma|^2 \leq 1$, our equation is presented in a following way:	
+	\begin{align}
+		\begin{split}
+			\frac{1}{1 + 2C(1+C)(1-\cos(k\Delta x))} &\leq 1 \\
+			2C(1+C)(1-\cos(k\Delta x)) &\geq 0 \\
+		\end{split}
+	\end{align} 	
+	Knowing that $ \forall k,  1 \geq \cos(k\Delta x) \geq -1$, we can obtain final result:	
+	\begin{align}
+		\begin{split}			
+			2C(1+C)\geq 0 \implies 
+			\begin{cases}
+			C \geq 0 \\
+			C \leq -1
+			\end{cases}
+		\end{split}
+	\end{align} 	
+	Summarizing this scheme is conditionally stable with following condition $C \in \left(-\infty, -1\right)\cup \left(0, \infty \right)$.
+		
