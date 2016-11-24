@@ -1,15 +1,25 @@
+\begin{figure}
 	\centering
-\begin{tikzpicture}
-	\begin{axis}[
-		ybar,
-		%symbolic x coords={0--2,2--5,5--10,10--20,20--50,50+},
-		xtick=data,
-		ymajorgrids=true,
-		xmajorgrids=true,
-		grid style=dashed,
-		legend pos=north west
-		]
-		\addcustomybarplot{lax-wendroff-400-exp.conf-norms.csv}{2}{yellow}{Legend};
-		\addcustomybarplot{explicit-upwind-400-exp.conf-norms.csv}{2}{blue}{Legend}	
-	\end{axis}
-\end{tikzpicture}
+	\begin{tikzpicture}[scale=0.7]
+		\pgfplotsset{width=\textwidth}
+		\begin{axis}[
+			ybar,
+			%symbolic x coords={5,10,15,20},
+			xticklabels={$t=5$,$t=10$,$t=15$,$t=20$},
+			xtick=data,
+			ymajorgrids=true,
+			xmajorgrids=true,
+			grid style=dashed,
+			legend pos=north west
+			%nodes near coords,
+			%every node near coord/.append style={rotate=90, anchor=west},
+			]
+			\addcustomybarplot{lax-wendroff-400-exp.conf-norms.csv}{2}{yellow}{Legen1d};
+			\addcustomybarplot{explicit-upwind-400-exp.conf-norms.csv}{2}{red}{Lege3nd};
+			\addcustomybarplot{lax-wendroff-400-exp.conf-norms.csv}{2}{blue}{Legen2d};
+			\addcustomybarplot{implicit-upwind-200-exp.conf-norms.csv}{2}{green}{Leg4end};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Super CaPTION}
+\end{figure}
+	
