@@ -1,51 +1,120 @@
 \subsection{Explicit upwind}
+	
 	\begin{figure}
 		\centering	
+		\label{fig:explicitSignCFL}
 		\begin{tikzpicture}[scale=0.7]
 		
 		\pgfplotsset{width=\textwidth}
 		\begin{axis}[
-		xlabel = {$x$},
-		ylabel = {$y$},
-		%ymin = -1, ymax = 1,
-		xmin = 2, xmax = 32,
-		minor y tick num = 1,
-		ymajorgrids=true,
-		xmajorgrids=true,
-		grid style=dashed,
-		legend pos=north west
-		]
-		
-		\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign.conf-chart.csv}{red}{4}{Analytical}
-		\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign.conf-chart.csv}{green}{3}{$CFL=0.9625$}
-		\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
-		\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
+			xlabel = {$x$},
+			ylabel = {$y$},
+			%ymin = -1, ymax = 1,
+			xmin = 2, xmax = 32,
+			minor y tick num = 1,
+			ymajorgrids=true,
+			xmajorgrids=true,
+			grid style=dashed,
+			ticklabel style={
+				/pgf/number format/fixed,
+				/pgf/number format/precision=2
+			},
+			legend pos=north west
+			]
+			
+			\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign.conf-chart.csv}{red}{4}{Analytical}
+			\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign.conf-chart.csv}{green}{3}{$CFL=0.9625$}
+			\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
+			\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-sign-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
 		\end{axis}
 		\end{tikzpicture}
-		\caption{Explicit upwind scheme solutions for the initial set \ref{for:firstSet} and various CFL numbers.}
+		\caption{Explicit upwind scheme solutions for the initial set (\ref{for:firstSet}) and various CFL numbers.}
 	\end{figure}
 
 	\begin{figure}
-	\centering	
-	\begin{tikzpicture}[scale=0.7]
-	
-	\pgfplotsset{width=\textwidth}
-	\begin{axis}[
-	xlabel = {$x$},
-	ylabel = {$y$},
-	%ymin = -1, ymax = 1,
-	xmin = 2, xmax = 32,
-	minor y tick num = 1,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed
-	]
-	
-	\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp.conf-chart.csv}{red}{4}{Analytical}
-	\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp.conf-chart.csv}{green}{3}{$CFL=0.9975$}
-	\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
-	\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Explicit upwind scheme solutions for the initial set \ref{for:secondSet} and various CFL numbers.}
+		\label{fig:explicitExpCFL}
+		\centering	
+		\begin{tikzpicture}[scale=0.7]
+		
+			\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 2, xmax = 32,
+				minor y tick num = 1,
+				ticklabel style={
+					/pgf/number format/fixed,
+					/pgf/number format/precision=2
+				},
+				ymajorgrids=true,
+				xmajorgrids=true,
+				ticklabel style={
+					/pgf/number format/fixed,
+					/pgf/number format/precision=2
+				},
+				grid style=dashed
+				]
+			
+				\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp.conf-chart.csv}{red}{4}{Analytical}
+				\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp.conf-chart.csv}{green}{3}{$CFL=0.9975$}
+				\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
+				\addcustomplot{../Code/results/impactExplicit/explicit-upwind-100-exp-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Explicit upwind scheme solutions for the initial set (\ref{for:secondSet}) and various CFL numbers.}
+\end{figure}
+
+\begin{figure}
+	%\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\begin{tikzpicture}
+			%\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				ybar,
+				%symbolic x coords={5,10,15,20},
+				xticklabels={$t=5$,$t=10$},
+				xtick=data,
+				enlarge x limits={abs=2cm},
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				%legend pos=north west
+				legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left}
+				%nodes near coords,
+				%every node near coord/.append style={rotate=90, anchor=west},
+				]
+				\addcustomybarplot{../Code/results/impactExplicit/explicit-upwind-100-exp.conf-norms.csv}{2}{green}{$CFL=0.9975$};
+				\addcustomybarplot{../Code/results/impactExplicit/explicit-upwind-100-exp-CFL-0.8.conf-norms.csv}{2}{purple}{$CFL=0.8$};
+				\addcustomybarplot{../Code/results/impactExplicit/explicit-upwind-100-exp-CFL-0.4.conf-norms.csv}{2}{blue}{$CFL=0.4$};
+			
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Initial set (\ref{for:secondSet}).}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar,
+				%symbolic x coords={5,10,15,20},
+				xticklabels={$t=5$,$t=10$},
+				xtick=data,
+				enlarge x limits={abs=2cm},
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				%legend pos=north west
+				legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
+				%nodes near coords,
+				%every node near coord/.append style={rotate=90, anchor=west},
+				]
+				\addcustomybarplot{../Code/results/impactExplicit/explicit-upwind-100-sign.conf-norms.csv}{2}{green}{$CFL=0.9625$};
+				\addcustomybarplot{../Code/results/impactExplicit/explicit-upwind-100-sign-CFL-0.8.conf-norms.csv}{2}{purple}{$CFL=0.8$};
+				\addcustomybarplot{../Code/results/impactExplicit/explicit-upwind-100-sign-CFL-0.4.conf-norms.csv}{2}{blue}{$CFL=0.4$};
+			
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Initial set (\ref{for:firstSet}).}
+	\end{subfigure}
+	\caption{Distribution of the error (norm 2) among different CFL numbers for explicit upwind scheme.}
 \end{figure}
