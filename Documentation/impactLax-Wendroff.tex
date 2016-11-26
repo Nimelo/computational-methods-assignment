@@ -1,51 +1,121 @@
 \subsection{Lax-Wendroff}
-\begin{figure}
-	\centering	
-	\begin{tikzpicture}[scale=0.7]
+	Recalling stability of the Lax-Wendroff scheme in terms of assignment gives us condition $CFL \in (0,1)$. This scheme is second-order accurate, hence dispersion errors are expected to be occur. In Figures \ref{fig:laxwendroffSignCFL} and \ref{fig:laxwendroffExpCFL} results are shown and the summary of the calculated is presented in Figure \ref{fig:laxwendroffCFLNorms}. 
+	\begin{figure}[!htbp]
+		\centering	
+		\begin{tikzpicture}[scale=0.5]	
+			\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 2, xmax = 32,
+				minor y tick num = 1,
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north west,
+				ticklabel style={
+					/pgf/number format/fixed,
+					/pgf/number format/precision=2
+				},
+				]
+				
+				\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign.conf-chart.csv}{red}{4}{Analytical}
+				\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign.conf-chart.csv}{green}{3}{$CFL=0.98$}
+				\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
+				\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Lax-Wendroff scheme solutions for the initial set (\ref{for:firstSet}) and various CFL numbers.}
+		\label{fig:laxwendroffSignCFL}
+	\end{figure}
 	
-	\pgfplotsset{width=\textwidth}
-	\begin{axis}[
-	xlabel = {$x$},
-	ylabel = {$y$},
-	%ymin = -1, ymax = 1,
-	xmin = 2, xmax = 32,
-	minor y tick num = 1,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	legend pos=north west
-	]
+	Based on errors presented in Figure \ref{fig:laxwendroffCFLNorms} the best results are obtained with biggest CFL numbers, $0.98$ and $0.9975$, respectively for initial sets (\ref{for:firstSet}) and (\ref{for:secondSet}). The CFL numbers for which the results are the best are close to the one, for which the error should be the smallest, because the solution with this parameter is exact. One of the properties of this scheme is fluctuation and oscillatory behavior of the solution for the relatively small CFL numbers. For $CFL=0.4$ mentioned behavior can be easily and clearly noticed. The maximum amplitude of such oscillatory behavior is increasing during the decrease of the CFL number. The increase of the CFL number anomaly is starts to disappear and for CFL close to 1 it is barely visible. 
 	
-	\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign.conf-chart.csv}{red}{4}{Analytical}
-	\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign.conf-chart.csv}{green}{3}{$CFL=0.98$}
-	\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
-	\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Lax-Wendroff scheme solutions for the initial set \ref{for:firstSet} and various CFL numbers.}
-\end{figure}
+	\begin{figure}[!hbtp]
+		\centering	
+		\begin{tikzpicture}[scale=0.5]
+		
+			\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+				xlabel = {$x$},
+				ylabel = {$y$},
+				%ymin = -1, ymax = 1,
+				xmin = 2, xmax = 32,
+				minor y tick num = 1,
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				ticklabel style={
+				/pgf/number format/fixed,
+				/pgf/number format/precision=2
+				},
+				]
+				
+				\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp.conf-chart.csv}{red}{4}{Analytical}
+				\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp.conf-chart.csv}{green}{3}{$CFL=0.9975$}
+				\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
+				\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Lax-Wendroff scheme solutions for the initial set (\ref{for:secondSet}) and various CFL numbers.}
+		\label{fig:laxwendroffExpCFL}
+	\end{figure}
+	
+	For both Figure \ref{fig:laxwendroffSignCFL} and \ref{fig:laxwendroffExpCFL} numerical solutions are slightly shifted in phase comparing to the analytical solutions. This behavior can be seen especially for small CFL numbers.
+	
+	\begin{figure}[!htbp]
+		\begin{subfigure}[b]{0.5\textwidth}
+			\begin{tikzpicture}
+			%\pgfplotsset{width=\textwidth}
+				\begin{axis}[
+					ybar,
+					%symbolic x coords={5,10,15,20},
+					xticklabels={$t=5$,$t=10$},
+					xtick=data,
+					enlarge x limits={abs=2cm},
+					ymajorgrids=true,
+					xmajorgrids=true,
+					grid style=dashed,
+					%legend pos=north west
+					legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left}
+					%nodes near coords,
+					%every node near coord/.append style={rotate=90, anchor=west},
+					]
+					\addcustomybarplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp.conf-norms.csv}{2}{green}{$CFL=0.98$};
+					\addcustomybarplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp-CFL-0.8.conf-norms.csv}{2}{blue}{$CFL=0.8$};
+					\addcustomybarplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp-CFL-0.4.conf-norms.csv}{2}{purple}{$CFL=0.4$};
+				
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Initial set (\ref{for:secondSet}).}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.5\textwidth}
+			\begin{tikzpicture}
+				\begin{axis}[
+					ybar,
+					%symbolic x coords={5,10,15,20},
+					xticklabels={$t=5$,$t=10$},
+					xtick=data,
+					enlarge x limits={abs=2cm},
+					ymajorgrids=true,
+					xmajorgrids=true,
+					grid style=dashed,
+					%legend pos=north west
+					legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
+					%nodes near coords,
+					%every node near coord/.append style={rotate=90, anchor=west},
+					]
+					\addcustomybarplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign.conf-norms.csv}{2}{green}{$CFL=0.9975$};
+					\addcustomybarplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign-CFL-0.8.conf-norms.csv}{2}{blue}{$CFL=0.8$};
+					\addcustomybarplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-sign-CFL-0.4.conf-norms.csv}{2}{purple}{$CFL=0.4$};
+				
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Initial set (\ref{for:firstSet}).}
+		\end{subfigure}
+		\caption{Distribution of the error (norm 2) among different CFL numbers for Lax-Wendroff upwind scheme.}
+		\label{fig:laxwendroffCFLNorms}
+	\end{figure}
 
-\begin{figure}
-	\centering	
-	\begin{tikzpicture}[scale=0.7]
-	
-	\pgfplotsset{width=\textwidth}
-	\begin{axis}[
-	xlabel = {$x$},
-	ylabel = {$y$},
-	%ymin = -1, ymax = 1,
-	xmin = 2, xmax = 32,
-	minor y tick num = 1,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed
-	]
-	
-	\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp.conf-chart.csv}{red}{4}{Analytical}
-	\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp.conf-chart.csv}{green}{3}{$CFL=0.9975$}
-	\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp-CFL-0.8.conf-chart.csv}{purple}{3}{$CFL=0.8$}
-	\addcustomplot{../Code/results/impactLax-Wendroff/lax-wendroff-100-exp-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Lax-Wendroff scheme solutions for the initial set \ref{for:secondSet} and various CFL numbers.}
-\end{figure}
+	Distribution of the error presented in Figure \ref{fig:laxwendroffCFLNorms} shows that error rise with decrease of CFL number. Similarly to other schemes error for (\ref{for:firstSet}) is bigger in this case 2 times.
