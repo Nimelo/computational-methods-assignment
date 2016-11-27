@@ -1,7 +1,8 @@
 \subsection{Comparison of schemes}
-	\begin{figure}
+	In order to completely summarize results of discretization process for advection function comparison is made based on the norm 1. Calculations are made for both initial sets for grid size equal to $400$ and for time level $5$ to describe get the most accurate solution. CFL numbers were chosen based on search criteria, which checked all the possible values for given range of $\Delta t$. Figure \ref{fig:compSign} shows results for (\ref{for:firstSet}), similarly to Figure \ref{fig:compExp}, which describes solutions for initial set (\ref{for:secondSet}).
+	\begin{figure}[!htbp]
 		\centering
-		\begin{tikzpicture}[scale=0.7]	 	
+		\begin{tikzpicture}[scale=0.5]	 	
 			\pgfplotsset{width=\textwidth}
 			\begin{axis}[
 				xlabel = {$x$},
@@ -12,6 +13,10 @@
 				ymajorgrids=true,
 				xmajorgrids=true,
 				grid style=dashed,
+				ticklabel style={
+					/pgf/number format/fixed,
+					/pgf/number format/precision=2
+				},
 				legend pos=south east
 				]
 		
@@ -22,22 +27,27 @@
 				\addcustomplot{../Code/results/comparision/richtmyer-multi-step-400-sign.conf-chart.csv}{black}{1}{Richtmyer multi-step $CFL=1.96$}
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Comparison of schemes for initial set \ref{for:firstSet}, 400 grid size, time level 5, and different CFLs.}
+		\caption{Comparison of schemes for initial set (\ref{for:firstSet}), 400 grid size, time level 5, and different CFLs.}
+		\label{fig:compSign}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[!htbp]
 		\centering
-		\begin{tikzpicture}[scale=0.7]	 	
+		\begin{tikzpicture}[scale=0.5]	 	
 			\pgfplotsset{width=\textwidth}
 				\begin{axis}[
 				xlabel = {$x$},
 				ylabel = {$y$},
 				%ymin = -1, ymax = 1,
-				xmin = 5, xmax = 13,
+				xmin = 5, xmax = 14,
 				minor y tick num = 1,
 				ymajorgrids=true,
 				xmajorgrids=true,
 				grid style=dashed,
+				ticklabel style={
+					/pgf/number format/fixed,
+					/pgf/number format/precision=2
+				},
 				legend pos=north east
 				]
 			
@@ -48,5 +58,62 @@
 				\addcustomplot{../Code/results/comparision/richtmyer-multi-step-400-exp.conf-chart.csv}{black}{1}{Richtmyer multi-step $CFL=1.96$}
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Comparison of schemes for initial set \ref{for:secondSet}, 400 grid size, time level 5, and different CFLs.}
+		\caption{Comparison of schemes for initial set (\ref{for:secondSet}), 400 grid size, time level 5, and different CFLs.}
+		\label{fig:compExp}
 	\end{figure}
+	Error distribution in Figure \ref{fig:errorsComparison} shows clearly that Lax-Wendroff scheme for 
+	\begin{figure}[!htbp]
+		\begin{subfigure}[b]{0.5\textwidth}
+			\begin{tikzpicture}
+			%\pgfplotsset{width=\textwidth}
+			\begin{axis}[
+			ybar,
+			%symbolic x coords={5,10,15,20},
+			xticklabels={$t=5$,$t=10$},
+			xtick=data,
+			enlarge x limits={abs=2cm},
+			ymajorgrids=true,
+			xmajorgrids=true,
+			grid style=dashed,
+			%legend pos=north west
+			legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left}
+			%nodes near coords,
+			%every node near coord/.append style={rotate=90, anchor=west},
+			]
+			\addcustomybarplot{../Code/results/comparision/implicit-upwind-400-sign.conf-norms.csv}{2}{yellow}{Implicit upwind};
+			\addcustomybarplot{../Code/results/comparision/explicit-upwind-400-sign.conf-norms.csv}{2}{red}{Explicit upwind};
+			\addcustomybarplot{../Code/results/comparision/lax-wendroff-400-sign.conf-norms.csv}{2}{blue}{Lax-Wendroff};
+			\addcustomybarplot{../Code/results/comparision/richtmyer-multi-step-400-sign.conf-norms.csv}{2}{green}{Richtmyer multi-step};
+			
+			\end{axis}
+			\end{tikzpicture}
+			\caption{Initial set (\ref{for:firstSet}).}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.5\textwidth}
+			\begin{tikzpicture}
+			\begin{axis}[
+			ybar,
+			%symbolic x coords={5,10,15,20},
+			xticklabels={$t=5$,$t=10$},
+			xtick=data,
+			enlarge x limits={abs=2cm},
+			ymajorgrids=true,
+			xmajorgrids=true,
+			grid style=dashed,
+			%legend pos=north west
+			legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
+			%nodes near coords,
+			%every node near coord/.append style={rotate=90, anchor=west},
+			]
+			\addcustomybarplot{../Code/results/comparision/implicit-upwind-400-exp.conf-norms.csv}{2}{yellow}{Implicit upwind};
+			\addcustomybarplot{../Code/results/comparision/explicit-upwind-400-exp.conf-norms.csv}{2}{red}{Explicit upwind};
+			\addcustomybarplot{../Code/results/comparision/lax-wendroff-400-exp.conf-norms.csv}{2}{blue}{Lax-Wendroff};
+			\addcustomybarplot{../Code/results/comparision/richtmyer-multi-step-400-exp.conf-norms.csv}{2}{green}{Richtmyer multi-step};
+			\end{axis}
+			\end{tikzpicture}
+			\caption{Initial set (\ref{for:secondSet}).}
+		\end{subfigure}
+		\caption{Errors (norm 1) for the best acquired solutions for both initial function sets, 400 grid points.}
+		\label{fig:errorsComparison}
+	\end{figure}
+	
