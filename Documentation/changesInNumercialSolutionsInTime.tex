@@ -1,126 +1,95 @@
 \subsection{Changes in numerical solutions in time}
 	This section discuss how numerical solutions accuracy changes in time. For each of the schemes grid size is equal to $400$ in order to decrease quantization errors.
-	
-	
-	\begin{figure}
-		\centering
-	 	\begin{tikzpicture}[scale=0.7]	 	
-		 	\pgfplotsset{width=\textwidth}
-		 	\begin{axis}[
-			 	xlabel = {$x$},
-			 	ylabel = {$y$},
-			 	%ymin = -1, ymax = 1,
-			 	xmin = 0, xmax = 50,
-			 	minor y tick num = 1,
-			 	ymajorgrids=true,
-			 	xmajorgrids=true,
-			 	grid style=dashed,
-			 	legend pos=north east
-			 	]
-	 	
-			 	\addcustomplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-chart.csv}{red}{7}{$t=19.88$}			 	
-			 	\addcustomplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-chart.csv}{blue}{5}{$t=14.98$}			 	
-			 	\addcustomplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-chart.csv}{purple}{3}{$t=9.94$}			 	
-			 	\addcustomplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-chart.csv}{black}{1}{$t=4.9$}
-			 	
-			 	\node[red,above] at (axis cs:35.5,-0.042){\Large{0.139693}};
-			 	\node[blue,above] at (axis cs:27,-0.042){\Large{0.110073}};
-			 	\node[purple,above] at (axis cs:18,-0.042){\Large{0.0768316}};				
-			 	\node[black,above] at (axis cs:8,-0.042){\Large{0.0403267}};
-
-		 	\end{axis}
-	 	\end{tikzpicture}
-	 	\caption{Explicit upwind scheme solutions for the initial set \ref{for:secondSet} and various time levels, $CFL=0.98$.}
-	\end{figure}
- 
-	\begin{figure}
-		\centering
-	 	\begin{tikzpicture}[scale=0.7]
-		 	\pgfplotsset{width=\textwidth}
-			 	\begin{axis}[
-			 	xlabel = {$x$},
-			 	ylabel = {$y$},
-			 	%ymin = -1, ymax = 1,
-			 	xmin = 0, xmax = 50,
-			 	minor y tick num = 1,
-			 	ymajorgrids=true,
-			 	xmajorgrids=true,
-			 	grid style=dashed,
-			 	legend pos=north east
-			 	]
-	 	
-			 	\addcustomplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-chart.csv}{red}{7}{$t=20$}			 	
-			 	\addcustomplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-chart.csv}{blue}{5}{$t=15$}		 	
-			 	\addcustomplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-chart.csv}{purple}{3}{$t=10$}	 	
-			 	\addcustomplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-chart.csv}{black}{1}{$t=5$}
-	 	
-			 	\node[red,above] at (axis cs:35.5,-0.017){\Large{0.870205}};
-			 	\node[blue,above] at (axis cs:27,-0.017){\Large{0.831957}};
-			 	\node[purple,above] at (axis cs:18,-0.017){\Large{0.76945}};				
-			 	\node[black,above] at (axis cs:8,-0.017){\Large{0.639725}};
-		 	\end{axis}
-	 	\end{tikzpicture}
-	 	\caption{Implicit upwind scheme solutions for the initial set \ref{for:secondSet} and various time levels, $CFL=0.07$.} 	
-	\end{figure}
-
-	\begin{figure}
-		\centering
-		\begin{tikzpicture}[scale=0.7]
-			\pgfplotsset{width=\textwidth}
-				\begin{axis}[
-					xlabel = {$x$},
-					ylabel = {$y$},
-					%ymin = -1, ymax = 1,
-					xmin = 0, xmax = 50,
-					minor y tick num = 1,
-					ymajorgrids=true,
-					xmajorgrids=true,
-					grid style=dashed,
-					legend pos=north east
-					]
-				
-					\addcustomplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-chart.csv}{red}{7}{$t=19.88$}				
-					\addcustomplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-chart.csv}{blue}{5}{$t=14.98$}				
-					\addcustomplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-chart.csv}{purple}{3}{$t=9.94$}					
-					\addcustomplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-chart.csv}{black}{1}{$t=4.9$}
-			
-					\node[red,above] at (axis cs:35.5,-0.045){\Large{0.0568219}};
-					\node[blue,above] at (axis cs:27,-0.045){\Large{0.0436154}};
-					\node[purple,above] at (axis cs:18,-0.045){\Large{0.0295773}};				
-					\node[black,above] at (axis cs:8,-0.045){\Large{0.0150498}};
-					
-				\end{axis}
-		\end{tikzpicture}
-		\caption{Lax-Wendroff scheme solutions for the initial set \ref{for:secondSet} and various time levels, $CFL=0.98$.} 	
-	\end{figure}
-
-	\begin{figure}
-		\centering
-		\begin{tikzpicture}[scale=0.7]
-			\pgfplotsset{width=\textwidth}
+\begin{figure}[!htbp]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\begin{tikzpicture}
 			\begin{axis}[
-				xlabel = {$x$},
-				ylabel = {$y$},
-				%ymin = -1, ymax = 1,
-				xmin = 0, xmax = 50,
-				minor y tick num = 1,
+				ybar,
+				%symbolic x coords={5,10,15,20},
+				xticklabels={$t=5$,$t=10$,$t=15$,$t=20$},
+				xtick=data,
+			%	enlarge x limits={abs=2cm},
 				ymajorgrids=true,
 				xmajorgrids=true,
 				grid style=dashed,
-				legend pos=north east
+				legend pos=north west
+				%legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
+				%nodes near coords,
+				%every node near coord/.append style={rotate=90, anchor=west},
 				]
-				
-				\addcustomplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-chart.csv}{red}{7}{$t=19.88$}				
-				\addcustomplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-chart.csv}{blue}{5}{$t=14.84$}				
-				\addcustomplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-chart.csv}{purple}{3}{$t=9.8$}				
-				\addcustomplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-chart.csv}{black}{1}{$t=4.76$}
-				
-				\node[red,above] at (axis cs:35.5,-0.06){\Large{0.167636}};
-				\node[blue,above] at (axis cs:27,-0.06){\Large{0.133706}};
-				\node[purple,above] at (axis cs:18,-0.06){\Large{0.0954541}};				
-				\node[black,above] at (axis cs:8,-0.06){\Large{0.0515839}};
-				
+				\addcustomybarplot{../Code/results/changeInTime/explicit-upwind-400-exp.conf-norms.csv}{2}{red}{Exponent};
+				\addcustomybarplot{../Code/results/changeInTime/explicit-upwind-400-sign.conf-norms.csv}{2}{green}{Signum};						
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Richtmyer multi-step scheme solutions for the initial set \ref{for:secondSet} and various time levels, $CFL=1.96$.} 	
-	\end{figure}
+		\caption{Explicit upwind scheme, $CFL=0.98$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar,
+				%symbolic x coords={5,10,15,20},
+				xticklabels={$t=5$,$t=10$,$t=15$,$t=20$},
+				xtick=data,
+			%	enlarge x limits={abs=2cm},
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north west
+				%legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
+				%nodes near coords,
+				%every node near coord/.append style={rotate=90, anchor=west},
+				]
+				\addcustomybarplot{../Code/results/changeInTime/implicit-upwind-400-exp.conf-norms.csv}{2}{blue}{Exponent};
+				\addcustomybarplot{../Code/results/changeInTime/implicit-upwind-400-sign.conf-norms.csv}{2}{black}{Signum};						
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Implicit upwind scheme, $CFL=0.07$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar,
+				%symbolic x coords={5,10,15,20},
+				xticklabels={$t=5$,$t=10$,$t=15$,$t=20$},
+				xtick=data,
+			%	enlarge x limits={abs=2cm},
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north west
+				%legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
+				%nodes near coords,
+				%every node near coord/.append style={rotate=90, anchor=west},
+				]
+				\addcustomybarplot{../Code/results/changeInTime/lax-wendroff-400-exp.conf-norms.csv}{2}{yellow}{Exponent};
+				\addcustomybarplot{../Code/results/changeInTime/lax-wendroff-400-sign.conf-norms.csv}{2}{brown}{Signum};						
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Lax-Wendroff scheme, $CFL=0.98$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar,
+				%symbolic x coords={5,10,15,20},
+				xticklabels={$t=5$,$t=10$,$t=15$,$t=20$},
+				xtick=data,
+			%	enlarge x limits={abs=2cm},
+				ymajorgrids=true,
+				xmajorgrids=true,
+				grid style=dashed,
+				legend pos=north west
+				%legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
+				%nodes near coords,
+				%every node near coord/.append style={rotate=90, anchor=west},
+				]
+				\addcustomybarplot{../Code/results/changeInTime/richtmyer-ms-400-exp.conf-norms.csv}{2}{purple}{Exponent};
+				\addcustomybarplot{../Code/results/changeInTime/richtmyer-ms-400-sign.conf-norms.csv}{2}{orange}{Signum};
+										
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Richtmyer multi-step scheme, $CFL=1.96$}
+	\end{subfigure}
+	\caption{Comparison of distribution of error (norm 1) for different schemes among different time steps, for given CFL numbers.}
+	\label{fig:normsInTime}
+\end{figure}
