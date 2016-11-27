@@ -196,4 +196,44 @@
 		\caption{Comparison of distribution of error (norm 1) for different schemes among different grid sizes for initial set (\ref{for:firstSet}).}
 		\label{fig:gridConvergensTimeSign}
 	\end{figure}
-	Further discussion about this topic is in section 5.7 (Convergence Criteria and Iteration Errors) by J.H. Ferziger and M. Peric in \cite{bib:ferzinger}[from p. 124]. Adaptation of this criteria can be used in order to make comparison between schemes. Summarizing the methods involves comparison of two successively refined grids. The higher ratio we get the better solution we have in terms of calculated error (norm).
+	Further discussion about this topic is in section 5.7 (Convergence Criteria and Iteration Errors) by J.H. Ferziger and M. Peric in \cite{bib:ferzinger}[from p. 124]. Adaptation of this criteria can be used in order to make comparison between schemes. Summarizing the methods involves comparison of two successively refined grids. The higher ratio we get the better solution we have in terms of calculated error (norm). Table \ref{tab:ratiosGridConvergence} contains calculated ratios based on mentioned previously technique. The best ratio for initial set (\ref{for:firstSet}) acquired Richtmyer multi-step scheme, which only slightly distinguished from the others. Initial set (\ref{for:secondSet}) scored the best ratio with applying of Richtmyer multi-step scheme. Worth of noticing is fact that for initial set (\ref{for:firstSet}) ratio slightly decreases with increase of grid points, which is opposite behavior to the second set.
+	
+	% Please add the following required packages to your document preamble:
+	% \usepackage{multirow}
+	\begin{table}[]
+		\centering
+		\caption{Errors (norm 1) for various grid sizes.}
+		\label{tab:ratiosGridConvergence}
+		\begin{tabular}{|c|c|c|c|c|}
+			\cline{1-1} \cline{3-5}
+			\textbf{Scheme} & \textbf{} & \textbf{$\Delta x$} & \textbf{Norm 1} & \textbf{Ratio} \\ \hline \hline
+			\multirow{6}{*}{Explicit upwind}
+			& \multirow{3}{*}{Exp} & 1 & 0.00645338 &  \\ \cline{3-5} 
+			&  & 0.5 & 0.00433326 & 1.489267\\ \cline{3-5} 
+			&  & 0.25 & 0.00298 & 1.454256 \\ \cline{2-5} 
+			& \multirow{3}{*}{Sign} & 1 & 0.011334 &  \\ \cline{3-5} 
+			&  & 0.5 & 0.007633 & 1.484839 \\ \cline{3-5} 
+			&  & 0.25 & 0.00573 & 1.332096 \\ \hline \hline
+			\multirow{6}{*}{Implicit upwind}
+			& \multirow{3}{*}{Exp} & 1 & 0.011581 &  \\ \cline{3-5} 
+			&  & 0.5 & 0.009751 & 1.187611 \\ \cline{3-5} 
+			&  & 0.25 & 0.007808 & 1.248852 \\ \cline{2-5} 
+			& \multirow{3}{*}{Sign} & 1 & 0.027893 &  \\ \cline{3-5} 
+			&  & 0.5 & 0.019799 & 1.4100248 \\ \cline{3-5} 
+			&  & 0.25 & 0.014038 & 1.409012 \\ \hline \hline
+			\multirow{6}{*}{Lax-Wendroff}
+			& \multirow{3}{*}{Exp} & 1 & 0.005606 &  \\ \cline{3-5} 
+			&  & 0.5 & 0.003247 & 1.726559 \\ \cline{3-5} 
+			&  & 0.25 & 0.001272 & 2.552087 \\ \cline{2-5} 
+			& \multirow{3}{*}{Sign} & 1 & 0.009161 &  \\ \cline{3-5} 
+			&  & 0.5 & 0.006351 & 1.442388 \\ \cline{3-5} 
+			&  & 0.25 & 0.004851 & 1.386415 \\ \hline \hline
+			\multirow{6}{*}{Richtmyer multi-step}
+			& \multirow{3}{*}{Exp} & 1 & 0.005489 &  \\ \cline{3-5} 
+			&  & 0.5 & 0.002841 & 1.9322 \\ \cline{3-5} 
+			&  & 0.25 & 0.001091 & 2.604307 \\ \cline{2-5} 
+			& \multirow{3}{*}{Sign} & 1 & 0.009185 &  \\ \cline{3-5} 
+			&  & 0.5 & 0.00594 & 1.546303 \\ \cline{3-5} 
+			&  & 0.25 & 0.003929 & 1.511951 \\ \hline
+		\end{tabular}
+	\end{table}
