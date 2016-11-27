@@ -1,5 +1,5 @@
 \subsection{Grid convergence}
-	A finite difference scheme is said to be convergent if the solution of the discretized equations tends to the exact solution of the differential equation as the grid spacing and tends to zero. Mentioned earlier definition is used by J.H. Ferziger and M. Peric in \cite{bib:ferzinger}[p. 32] and Klaus A. Hoffman and Steve T. Chiang \cite{bib:hoffman}[p. 23]. Further discussion about this topic is in section 5.7 (Convergence Criteria and Iteration Errors) by J.H. Ferziger and M. Peric in \cite{bib:ferzinger}[from p. 124]. Adaptation of this criteria can be used in order to make comparison between schemes. Summarizing the methods involves comparison of two successively refined grids. The higher ratio we get the better solution we have in terms of calculated error (norm).
+	A finite difference scheme is said to be convergent if the solution of the discretized equations tends to the exact solution of the differential equation as the grid spacing and tends to zero. Mentioned earlier definition is used by J.H. Ferziger and M. Peric in \cite{bib:ferzinger}[p. 32] and Klaus A. Hoffman and Steve T. Chiang \cite{bib:hoffman}[p. 23]. Comparisons of distribution of error (norm 1) for different schemes among different grid sizes are presented in Figures \ref{fig:gridConvergensTimeSign} and \ref{fig:gridConvergensTimeExp}, respectively for initial sets (\ref{for:firstSet}) and (\ref{for:secondSet}).
 	
 	\begin{figure}[!htbp]
 		\begin{subfigure}[b]{0.5\textwidth}
@@ -98,7 +98,7 @@
 		\caption{Comparison of distribution of error (norm 1) for different schemes among different grid sizes for initial set (\ref{for:secondSet}).}
 		\label{fig:gridConvergensTimeExp}
 	\end{figure}
-
+	In both figures calculated norms tends to minimal value with increase of grid points ($\Delta x \rightarrow 0$) for all considered schemes. 
 	\begin{figure}[!htbp]
 		\begin{subfigure}[b]{0.5\textwidth}
 			\begin{tikzpicture}
@@ -196,3 +196,4 @@
 		\caption{Comparison of distribution of error (norm 1) for different schemes among different grid sizes for initial set (\ref{for:firstSet}).}
 		\label{fig:gridConvergensTimeSign}
 	\end{figure}
+	Further discussion about this topic is in section 5.7 (Convergence Criteria and Iteration Errors) by J.H. Ferziger and M. Peric in \cite{bib:ferzinger}[from p. 124]. Adaptation of this criteria can be used in order to make comparison between schemes. Summarizing the methods involves comparison of two successively refined grids. The higher ratio we get the better solution we have in terms of calculated error (norm).

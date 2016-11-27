@@ -1,5 +1,5 @@
 \subsection{Changes in numerical solutions in time}
-	This section discuss how numerical solutions accuracy changes in time. For each of the schemes grid size is equal to $400$ in order to decrease quantization errors.
+	This section discuss how numerical solutions accuracy changes in time. For each of the schemes grid size is equal to $400$ in order to decrease quantization errors. In Figure \ref{fig:normsInTime} are presented norms calculated for all schemes and initialization functions.
 \begin{figure}[!htbp]
 	\begin{subfigure}[b]{0.5\textwidth}
 		\begin{tikzpicture}
@@ -93,3 +93,4 @@
 	\caption{Comparison of distribution of error (norm 1) for different schemes among different time steps, for given CFL numbers.}
 	\label{fig:normsInTime}
 \end{figure}
+ It is easy to observe that for all schemes and initialization functions error grows in time. The errors of each scheme are accumulating with time. Errors	differ from each other for different initialization functions. For initialization set (\ref{for:firstSet}) calculated norms are higher at least two times for each scheme, comparing to initialization set (\ref{for:secondSet}).

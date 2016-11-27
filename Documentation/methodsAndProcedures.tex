@@ -230,7 +230,7 @@
 			\begin{align}
 				\label{for:lax-wenndroffFinal}
 				\begin{split}
-					f_i^{n+1} = f_i^n - \frac{C}{2}(f_{i+1} - f_{i-1}^n) + \frac{C^2}{2}(f_{i+1}^n - 2f_i^n + f_{i-1}^n) + \mathcal{O}(\Delta t^2, \Delta x^2)
+					f_i^{n+1} = f_i^n - \frac{C}{2}(f_{i+1}^n - f_{i-1}^n) + \frac{C^2}{2}(f_{i+1}^n - 2f_i^n + f_{i-1}^n) + \mathcal{O}(\Delta t^2, \Delta x^2)
 				\end{split}
 			\end{align}						
 			
@@ -276,7 +276,7 @@
 			
 			\begin{equation}
 				\label{for:richtmyer-multi-step}
-				f_i^{n+1} = f_i^n - C\Big(u_{i+1}^{n+\frac{1}{2}} - u_{n-1}^{n+\frac{1}{2}}\Big) + \mathcal{O} (\Delta t^3, \Delta x^2\Delta t)
+				f_i^{n+1} = f_i^n - \frac{C}{2}\Big(u_{i+1}^{n+\frac{1}{2}} - u_{n-1}^{n+\frac{1}{2}}\Big) + \mathcal{O} (\Delta t^3, \Delta x^2\Delta t)
 			\end{equation}
 			
 			This method is stable for $C \in (-2, 0) \cup (0, 2)$. For the same reason as in Lax-Wendroff scheme in terms of assignment only postivie part will be considered. Also this scheme is second-order accurate in space and time. Stencil for this scheme is shown in Figure \ref{fig:richtmyer-multi-step}.
