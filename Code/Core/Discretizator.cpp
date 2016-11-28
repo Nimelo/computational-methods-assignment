@@ -49,7 +49,7 @@ DiscretizationResult * Discretizator::discretize()
 
 	while (timeLevels.size() > 0)
 	{
-		while (time < timeLevels.at(0))
+		while (abs(time) < timeLevels.at(0))
 		{
 			try {
 				std::vector<double> * currentWave = this->parameters->schema->apply(previousWave);
@@ -64,8 +64,11 @@ DiscretizationResult * Discretizator::discretize()
 				throw e;
 			}		
 		}
+		
+		std::vector<double> * copy = new std::vector<double>((*previousWave).begin(), (*previousWave).end());
+		copy = this->parameters->schema->postApplyAction(copy, time - this->parameters->deltaT);
 
-		result->addWaves(time - this->parameters->deltaT, new std::vector<double>((*previousWave).begin(), (*previousWave).end()), getAnalyticalWave(time - this->parameters->deltaT));
+		result->addWaves(time - this->parameters->deltaT, copy, getAnalyticalWave(time - this->parameters->deltaT));
 		timeLevels.erase(timeLevels.begin());
 	}
 	

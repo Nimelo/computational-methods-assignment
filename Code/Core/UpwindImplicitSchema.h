@@ -2,6 +2,7 @@
 #define __H_UPWIND_IMPLICIT_SCHEMA
 
 #include <vector>
+#include <algorithm>
 
 #include "AbstractSchema.h"
 #include "StabilityConditionException.h"
@@ -26,7 +27,7 @@ public:
 	{
 		double coefficient = (this->accelertaion * this->deltaT) / this->deltaX;
 
-		if (coefficient <= 0)
+		if (coefficient == 0)
 			throw StabilityConditionException();
 	}
 
@@ -46,13 +47,24 @@ public:
 
 		double cfl = this->accelertaion * this->deltaT / this->deltaX;
 
-		currentWave->at(0) = previousWave->at(0) + cfl * previousWave->at(0);
+		currentWave->at(0) = previousWave->at(0);
 		currentWave->at(gridSize - 1) = previousWave->at(gridSize - 1);
 
-		for (unsigned int i = 1; i < gridSize - 1; i++)
+		if (cfl > 0)
 		{
-			currentWave->at(i) = (previousWave->at(i) + cfl * currentWave->at(i - 1)) / (1.0 + cfl);
+			for (unsigned int i = 1; i < gridSize - 1; i++)
+			{
+				currentWave->at(i) = (previousWave->at(i) + cfl * currentWave->at(i - 1)) / (1.0 + cfl);
+			}
 		}
+		else
+		{
+			for (unsigned int i = gridSize - 1; i >= 2; i--)
+			{
+				currentWave->at(i - 1) = ((1.0 + cfl) * currentWave->at(i) - previousWave->at(i)) / cfl;
+			}
+		}
+		
 
 		return currentWave;
 	}
@@ -66,6 +78,32 @@ public:
 	UpwindImplicitSchema(double a, double dx, double dt)
 		: AbstractSchema(a, dx, dt)
 	{
+	}
+
+	/**
+	 * Shifts wave by 2uT
+	 * @param previousWave wave for which post action will be applied.
+	 * @param t Current time.
+	 * @return Adjusted wave.
+	 */
+	virtual std::vector<double> * postApplyAction(std::vector<double> * previousWave, double t)
+	{
+		double coefficient = (this->accelertaion * this->deltaT) / this->deltaX;
+		if (coefficient < 0)
+		{
+			unsigned int offset = 2 * (1.0 / this->deltaX) * -1 * this->accelertaion * t;
+
+			for (unsigned int i = 0; i < offset; i++)
+			{
+				for (unsigned int j = previousWave->size() - 1; j >= 1; j--)
+				{
+					(*previousWave)[j] = (*previousWave)[j-1];
+				}
+			}
+			//std::rotate(previousWave->rbegin(), previousWave->rbegin() + offset, previousWave->rend());
+		}
+		
+		return previousWave;
 	}
 };
 

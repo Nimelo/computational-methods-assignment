@@ -1,7 +1,8 @@
+\newpage
 \section{Grid convergence plots}
-	\begin{figure}
+	\begin{figure}[!htb]
 		\centering
-		\begin{tikzpicture}[scale=0.7]	 	
+		\begin{tikzpicture}[scale=0.5]	 	
 			\pgfplotsset{width=\textwidth}
 			\begin{axis}[
 				xlabel = {$x$},
@@ -24,9 +25,9 @@
 		\caption{Explicit upwind scheme solutions for the initial set \ref{for:secondSet} for different, time step 5, $CFL=1.9$.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[!htb]
 		\centering
-		\begin{tikzpicture}[scale=0.7]	 	
+		\begin{tikzpicture}[scale=0.5]	 	
 			\pgfplotsset{width=\textwidth}
 			\begin{axis}[
 				xlabel = {$x$},
@@ -49,9 +50,9 @@
 		\caption{Implicit upwind scheme solutions for the initial set \ref{for:secondSet} for different grid sizes, time step 5, $CFL=0.4$5.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[!htb]
 		\centering
-		\begin{tikzpicture}[scale=0.7]	 	
+		\begin{tikzpicture}[scale=0.5]	 	
 			\pgfplotsset{width=\textwidth}
 			\begin{axis}[
 				xlabel = {$x$},
@@ -74,9 +75,9 @@
 		\caption{Lax-Wendroff scheme solutions for the initial set \ref{for:secondSet} for different grid sizes, time step 5, $CFL=0.8$.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[!htb]
 		\centering
-		\begin{tikzpicture}[scale=0.7]	 	
+		\begin{tikzpicture}[scale=0.5]	 	
 			\pgfplotsset{width=\textwidth}
 			\begin{axis}[
 				xlabel = {$x$},
@@ -99,7 +100,7 @@
 		\caption{Richtmyer multi-step scheme solutions for the initial set \ref{for:secondSet} for different grid sizes, time step 5, $CFL=1.9$.}
 	\end{figure}
 
-	\begin{table}[]
+	\begin{table}[!htb]
 		\centering
 		\caption[Norm-one errors for different schemes and grid sizes for time level 5.]
 		{Norm-one errors for different schemes and grid sizes for time level 5. CFL numbers are 0.8, 0.4, 0.8, 1.9 respectively for explicit, implicit, Lax-Wendroff and Richtmyer multi-step schemes.}

@@ -60,6 +60,17 @@ public:
 	 * @return Wave for next time step.
 	 */
 	virtual std::vector<double> * apply(std::vector<double> * previousWave) = 0;
+
+	/**
+	 * Performs post applygin action for given wave.
+	 * @param previousWave wave for which post action will be applied.
+	 * @param t Current time level.
+	 * @return Adjusted wave.
+	 */
+	virtual std::vector<double> * postApplyAction(std::vector<double> * previousWave, double t)
+	{
+		return previousWave;
+	}
 };
 
 #endif

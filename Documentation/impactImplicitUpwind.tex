@@ -16,9 +16,9 @@
 			legend pos=north west
 			]
 			
-			\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-sign.conf-chart.csv}{red}{4}{Analytical}
+			\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL--1.1.conf-chart.csv}{red}{4}{Analytical}
 			\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-sign.conf-chart.csv}{green}{3}{$CFL=0.0175$}
-			\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL-1.1.conf-chart.csv}{purple}{3}{$CFL=1.1$}		\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
+			\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL-1.1.conf-chart.csv}{purple}{3}{$CFL=1.1$}		\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL--1.1.conf-chart.csv}{blue}{3}{$CFL=-1.1$}
 		\end{axis}
 		\end{tikzpicture}
 		\caption{Implicit upwind scheme solutions for the initial set (\ref{for:firstSet}) and various CFL numbers.}
@@ -45,10 +45,10 @@
 				},				
 				]
 				
-				\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-exp.conf-chart.csv}{red}{4}{Analytical}
+				\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL--1.1.conf-chart.csv}{red}{4}{Analytical}
 				\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-exp.conf-chart.csv}{green}{3}{$CFL=0.0175$}
 				\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL-1.1.conf-chart.csv}{purple}{3}{$CFL=1.1$}
-				\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL-0.4.conf-chart.csv}{blue}{3}{$CFL=0.4$}
+				\addcustomplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL--1.1.conf-chart.csv}{blue}{3}{$CFL=-1.1$}
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Implicit upwind scheme solutions for the initial set (\ref{for:secondSet}) and various CFL numbers.}
@@ -75,9 +75,9 @@
 			%nodes near coords,
 			%every node near coord/.append style={rotate=90, anchor=west},
 			]
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp.conf-norms.csv}{2}{green}{$CFL=0.0175$};
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL-0.4.conf-norms.csv}{2}{blue}{$CFL=0.4$};
 			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL-1.1.conf-norms.csv}{2}{purple}{$CFL=1.1$};
+			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp.conf-norms.csv}{2}{green}{$CFL=0.0175$};
+			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL--1.1.conf-norms.csv}{2}{blue}{$CFL=-1.1$};
 			
 			\end{axis}
 			\end{tikzpicture}
@@ -99,8 +99,8 @@
 			%nodes near coords,
 			%every node near coord/.append style={rotate=90, anchor=west},
 			]
+			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL--1.1.conf-norms.csv}{2}{blue}{$CFL=-1.1$};
 			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign.conf-norms.csv}{2}{green}{$CFL=0.0175$};
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL-0.4.conf-norms.csv}{2}{blue}{$CFL=0.4$};
 			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL-1.1.conf-norms.csv}{2}{purple}{$CFL=1.1$};
 			
 			\end{axis}
