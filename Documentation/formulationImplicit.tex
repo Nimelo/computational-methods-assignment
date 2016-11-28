@@ -37,7 +37,7 @@
 		\end{bmatrix}
 	\end{equation} 	
 	where $N$ is number of grid points.	
-	Explicit upwind method is second-order accurate both in time and space. We can observe that we do not have to solve it by using complicated algorithm. Matrix $A$ is bidiagonal diagonally-dominant, so although this schema is implicit we can solve it using forward or backward substitution described using formula (\ref{app:for:implicitSubstitution}). This equation assumes that we know the boundary conditions for next time step - $u_0^{n+1}$ and $u_N^{n+1}$.
+	Implicit upwind method is second-order accurate both in time and space. We can observe that we do not have to solve it by using complicated algorithm. Matrix $A$ is bidiagonal diagonally-dominant, so although this schema is implicit we can solve it using forward or backward substitution described using formula (\ref{app:for:implicitSubstitution}). This equation assumes that we know the boundary conditions for next time step - $u_0^{n+1}$ and $u_N^{n+1}$.
 	
 	\begin{align}
 		\label{app:for:implicitSubstitution}
