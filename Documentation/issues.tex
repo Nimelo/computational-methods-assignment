@@ -1,0 +1,9 @@
+\section{Issues}
+	During processing the results of numerical solutions several issues appeared in some places. In order to improve quality and graphical representation of results some of those issues are discussed in this section.
+	
+	\subsection{Issue of calculating solution at time t}
+		Precision of $t$ depends on a value of $\Delta t$, which can be chosen arbitrary if fulfills the stability stability condition of calculated CFL number. In general small values of $\Delta t$ are better for accuracy in time level, but it affect overall error of a solution. Considering loop of time and $\Delta t$ it is very usual that number of iterations rarely meets the desired time level precision. In all of performed calculations in this assignment underflow in chosen rather than overflow, because some imitation of real-world processes are not valid in overflowed time. This issue may have been imprecise by value of $\Delta t$, so sometimes it may be quite significant to graphical representation. This issue can be fixed by shifting the solution forward in time by underflow value along the x-axis. Such solution can be only used for visual comparison.
+		
+	\subsection{Issue of calculating implicit upwind scheme for $C<0$}
+		Using negative CFL number for $C<0$ causes moving of numerical solution in opposite direction than analytical one. It is due to using in fact negative acceleration instead of positive one. Shifting of solution can be reversed by moving numerical solution by $\frac{1}{\Delta x}2uT $ at the end of simulation time.  
+\clearpage
