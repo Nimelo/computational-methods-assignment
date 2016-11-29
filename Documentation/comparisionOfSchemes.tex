@@ -1,5 +1,5 @@
 \section{Comparison of schemes}
-	In order to completely summarize results of discretization process for advection function comparison is made based on the norm 1. Calculations are made for both initial sets for grid size equal to $400$ and for time level $5$ to describe get the most accurate solution. CFL numbers were chosen based on search criteria, which checked all the possible values for given range of $\Delta t$. Figure \ref{fig:compSign} shows results for (\ref{for:firstSet}), similarly to Figure \ref{fig:compExp}, which describes solutions for initial set (\ref{for:secondSet}).
+	In order to completely summarize results of discretization process for advection function comparison is made based on the norm 1. Calculations are made for both initial sets for grid size equal to $400$ and for time level $5$ to get the most accurate solution. CFL numbers were chosen based on search criteria, which checked all the possible values for given range of $\Delta t$. Figure \ref{fig:compSign} shows results for (\ref{for:firstSet}), similarly to Figure \ref{fig:compExp}, which describes solutions for initial set (\ref{for:secondSet}). In Figure \ref{fig:errorsComparison} distribution of error is made between the best founded solutions.
 	\begin{figure}[!htbp]
 		\centering
 		\begin{tikzpicture}[scale=0.5]	 	
@@ -21,7 +21,7 @@
 				]
 		
 				\addcustomplot{../Code/results/comparision/implicit-upwind-400-sign.conf-chart.csv}{red}{2}{Analytical}			 	
-				\addcustomplot{../Code/results/comparision/implicit-upwind-400-signComp.conf-chart.csv}{green}{1}{Implicit upwind $CFL=0.07$}			
+				\addcustomplot{../Code/results/comparision/implicit-upwind-400-signComp.conf-chart.csv}{green}{1}{Implicit upwind $CFL=-1.05$}			
 				\addcustomplot{../Code/results/comparision/explicit-upwind-400-sign.conf-chart.csv}{blue}{1}{Explicit upwind $CFL=0.98$}			 	
 				\addcustomplot{../Code/results/comparision/lax-wendroff-400-sign.conf-chart.csv}{purple}{1}{Lax-Wendroff $CFL=0.98$}	
 				\addcustomplot{../Code/results/comparision/richtmyer-multi-step-400-sign.conf-chart.csv}{black}{1}{Richtmyer multi-step $CFL=1.96$}
@@ -30,7 +30,7 @@
 		\caption{Comparison of schemes for initial set (\ref{for:firstSet}), 400 grid size, time level 5, and different CFLs.}
 		\label{fig:compSign}
 	\end{figure}
-	
+	For initial set (\ref{for:firstSet}) we can observe that implicit scheme reaches pick the fastest, but starts to grow to early. In the other hand explicit scheme almost perfectly replaces analytical solution (the shape of the curve is the most similar). For two rest explicit schemes we can observe dispersion error around discontinuity. Similar results are given for initial set (\ref{for:secondSet}), almost all the curves look similar. There are some small dispersion errors for Lax-Wendroff and Richtmyer multi step schemes. It is easy to observe that amplitude is different for each of the applied scheme.
 	\begin{figure}[!htbp]
 		\centering
 		\begin{tikzpicture}[scale=0.5]	 	
@@ -52,7 +52,7 @@
 				]
 			
 				\addcustomplot{../Code/results/comparision/implicit-upwind-400-exp.conf-chart.csv}{red}{2}{Analytical}			 	
-				\addcustomplot{../Code/results/comparision/implicit-upwind-400-expComp.conf-chart.csv}{green}{1}{Implicit upwind $CFL=0.07$}			
+				\addcustomplot{../Code/results/comparision/implicit-upwind-400-expComp.conf-chart.csv}{green}{1}{Implicit upwind $CFL=-0.98$}			
 				\addcustomplot{../Code/results/comparision/explicit-upwind-400-exp.conf-chart.csv}{blue}{1}{Explicit upwind $CFL=0.98$}			 	
 				\addcustomplot{../Code/results/comparision/lax-wendroff-400-exp.conf-chart.csv}{purple}{1}{Lax-Wendroff $CFL=0.98$}	
 				\addcustomplot{../Code/results/comparision/richtmyer-multi-step-400-exp.conf-chart.csv}{black}{1}{Richtmyer multi-step $CFL=1.96$}
@@ -61,7 +61,7 @@
 		\caption{Comparison of schemes for initial set (\ref{for:secondSet}), 400 grid size, time level 5, and different CFLs.}
 		\label{fig:compExp}
 	\end{figure}
-	Error distribution in Figure \ref{fig:errorsComparison} shows clearly that Lax-Wendroff scheme for 
+	Error distribution in Figure \ref{fig:errorsComparison} shows clearly that for initial set (\ref{for:firstSet}) the best solution was acquired for explicit upwind scheme with $CFL=0.98$. For initial set (\ref{for:secondSet}) the best solution was acquired by Lax-Wendroff method, but some anomaly is visible, because for time level 10, error for implicit upwind scheme is lower than for time level 5, which is really surprisingly. The explanation of such behavior can be using of negative acceleration coefficient.
 	\begin{figure}[!htbp]
 		\begin{subfigure}[b]{0.5\textwidth}
 			\begin{tikzpicture}
@@ -80,10 +80,10 @@
 					%nodes near coords,
 					%every node near coord/.append style={rotate=90, anchor=west},
 					]
-					\addcustomybarplot{../Code/results/comparision/implicit-upwind-400-signComp.conf-norms.csv}{2}{yellow}{Implicit upwind};
-					\addcustomybarplot{../Code/results/comparision/explicit-upwind-400-sign.conf-norms.csv}{2}{red}{Explicit upwind};
-					\addcustomybarplot{../Code/results/comparision/lax-wendroff-400-sign.conf-norms.csv}{2}{blue}{Lax-Wendroff};
-					\addcustomybarplot{../Code/results/comparision/richtmyer-multi-step-400-sign.conf-norms.csv}{2}{green}{Richtmyer multi-step};
+					\addcustomybarplot{../Code/results/comparision/implicit-upwind-400-signComp.conf-norms.csv}{2}{yellow}{Implicit upwind $CFL=-1.05$};
+					\addcustomybarplot{../Code/results/comparision/explicit-upwind-400-sign.conf-norms.csv}{2}{red}{Explicit upwind $CFL=0.98$};
+					\addcustomybarplot{../Code/results/comparision/lax-wendroff-400-sign.conf-norms.csv}{2}{blue}{Lax-Wendroff $CFL=0.98$};
+					\addcustomybarplot{../Code/results/comparision/richtmyer-multi-step-400-sign.conf-norms.csv}{2}{green}{Richtmyer multi-step $CFL=1.96$};
 				
 				\end{axis}
 			\end{tikzpicture}
@@ -105,10 +105,10 @@
 			%nodes near coords,
 			%every node near coord/.append style={rotate=90, anchor=west},
 			]
-			\addcustomybarplot{../Code/results/comparision/implicit-upwind-400-expComp.conf-norms.csv}{2}{yellow}{Implicit upwind};
-			\addcustomybarplot{../Code/results/comparision/explicit-upwind-400-exp.conf-norms.csv}{2}{red}{Explicit upwind};
-			\addcustomybarplot{../Code/results/comparision/lax-wendroff-400-exp.conf-norms.csv}{2}{blue}{Lax-Wendroff};
-			\addcustomybarplot{../Code/results/comparision/richtmyer-multi-step-400-exp.conf-norms.csv}{2}{green}{Richtmyer multi-step};
+			\addcustomybarplot{../Code/results/comparision/implicit-upwind-400-expComp.conf-norms.csv}{2}{yellow}{Implicit upwind $CFL=-0.98$};
+			\addcustomybarplot{../Code/results/comparision/explicit-upwind-400-exp.conf-norms.csv}{2}{red}{Explicit upwind $CFL=0.98$};
+			\addcustomybarplot{../Code/results/comparision/lax-wendroff-400-exp.conf-norms.csv}{2}{blue}{Lax-Wendroff $CFL=0.98$};
+			\addcustomybarplot{../Code/results/comparision/richtmyer-multi-step-400-exp.conf-norms.csv}{2}{green}{Richtmyer multi-step $CFL=1.96$};
 			\end{axis}
 			\end{tikzpicture}
 			\caption{Initial set (\ref{for:secondSet}).}
@@ -116,4 +116,4 @@
 		\caption{Errors (norm 1) for the best acquired solutions for both initial function sets, 400 grid points.}
 		\label{fig:errorsComparison}
 	\end{figure}
-	
+\clearpage
