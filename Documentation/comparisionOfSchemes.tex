@@ -1,4 +1,4 @@
-\subsection{Comparison of schemes}
+\section{Comparison of schemes}
 	In order to completely summarize results of discretization process for advection function comparison is made based on the norm 1. Calculations are made for both initial sets for grid size equal to $400$ and for time level $5$ to describe get the most accurate solution. CFL numbers were chosen based on search criteria, which checked all the possible values for given range of $\Delta t$. Figure \ref{fig:compSign} shows results for (\ref{for:firstSet}), similarly to Figure \ref{fig:compExp}, which describes solutions for initial set (\ref{for:secondSet}).
 	\begin{figure}[!htbp]
 		\centering
@@ -65,27 +65,27 @@
 	\begin{figure}[!htbp]
 		\begin{subfigure}[b]{0.5\textwidth}
 			\begin{tikzpicture}
-			%\pgfplotsset{width=\textwidth}
-			\begin{axis}[
-			ybar,
-			%symbolic x coords={5,10,15,20},
-			xticklabels={$t=5$,$t=10$},
-			xtick=data,
-			enlarge x limits={abs=2cm},
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			%legend pos=north west
-			legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left}
-			%nodes near coords,
-			%every node near coord/.append style={rotate=90, anchor=west},
-			]
-			\addcustomybarplot{../Code/results/comparision/implicit-upwind-400-signComp.conf-norms.csv}{2}{yellow}{Implicit upwind};
-			\addcustomybarplot{../Code/results/comparision/explicit-upwind-400-sign.conf-norms.csv}{2}{red}{Explicit upwind};
-			\addcustomybarplot{../Code/results/comparision/lax-wendroff-400-sign.conf-norms.csv}{2}{blue}{Lax-Wendroff};
-			\addcustomybarplot{../Code/results/comparision/richtmyer-multi-step-400-sign.conf-norms.csv}{2}{green}{Richtmyer multi-step};
-			
-			\end{axis}
+				%\pgfplotsset{width=\textwidth}
+				\begin{axis}[
+					ybar,
+					%symbolic x coords={5,10,15,20},
+					xticklabels={$t=5$,$t=10$},
+					xtick=data,
+					enlarge x limits={abs=2cm},
+					ymajorgrids=true,
+					xmajorgrids=true,
+					grid style=dashed,
+					%legend pos=north west
+					legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left}
+					%nodes near coords,
+					%every node near coord/.append style={rotate=90, anchor=west},
+					]
+					\addcustomybarplot{../Code/results/comparision/implicit-upwind-400-signComp.conf-norms.csv}{2}{yellow}{Implicit upwind};
+					\addcustomybarplot{../Code/results/comparision/explicit-upwind-400-sign.conf-norms.csv}{2}{red}{Explicit upwind};
+					\addcustomybarplot{../Code/results/comparision/lax-wendroff-400-sign.conf-norms.csv}{2}{blue}{Lax-Wendroff};
+					\addcustomybarplot{../Code/results/comparision/richtmyer-multi-step-400-sign.conf-norms.csv}{2}{green}{Richtmyer multi-step};
+				
+				\end{axis}
 			\end{tikzpicture}
 			\caption{Initial set (\ref{for:firstSet}).}
 		\end{subfigure}

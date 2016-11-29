@@ -1,7 +1,7 @@
 \subsection{Explicit upwind} \label{sec:explicitCFL}
-	The resulting solutions for different CFL's numbers are presented in a graphical way in figures \ref{fig:explicitSignCFL} and \ref{fig:explicitExpCFL}. In order to compare results among different CFL's numbers in figure \ref{fig:explicitCFLNorms} are presented calculated norms for both initial sets. Other norms were also calculated and are in table \ref{tab:impactCFL}.
+	The resulting solutions for different CFL's numbers are presented in a graphical way in Figures \ref{fig:explicitSignCFL} and \ref{fig:explicitExpCFL}. In order to compare results among different CFL's numbers in Figure \ref{fig:explicitCFLNorms} are presented calculated norms for both initial sets. Other norms were also calculated and are in Table \ref{tab:impactCFL}.
 	
-	First observation for both initial sets of the equation is fact, that error changes with decrease of CFL number. The best acquired solutions were observed for $CFL=0.9625$ and $0.9975$, respectively for initial set (\ref{for:firstSet}) and (\ref{for:secondSet}). This is not surprising because for $CFL=1$ solution is exact. With decreasing of step size $\Delta t$ errors start to appear in our solution. 
+	First observation for both initial sets of the equation is fact, that error changes with decrease of CFL number. The best acquired solutions were observed for $CFL=0.9625$ and $0.9975$, respectively for initial set (\ref{for:firstSet}) and (\ref{for:secondSet}). This is not surprising because for $CFL=1$ solution is exact. With decreasing of step size $\Delta t$ errors start to appear in numerical solution. 
 	\begin{figure}[!htbp]
 		\centering
 		\begin{tikzpicture}[scale=0.5]
@@ -33,7 +33,7 @@
 		\label{fig:explicitSignCFL}
 	\end{figure}
 
-	Explicit upwind scheme is first order accurate both in time and space, hence this scheme is affected by dissipation errors. The phenomenon of decreased amplitude is clearly visible for both of the initial functions. In figure \ref{fig:explicitSignCFL} close to the discontinuities dissipation error occur and with decrease of CFL number function slightly decreases and the solution is dissipated to neighboring points, which in consequences changes discontinuities to continuity by smoothing curve. For initial set (\ref{for:secondSet}) the decrease in the amplitude and in the dissipation of the wave to the neighboring points is even more visible in figure \ref{fig:explicitExpCFL}. Similarly to the initial set (\ref{for:firstSet}) the best result, with the smallest error revelead for CFL close to one.
+	Explicit upwind scheme is first order accurate both in time and space, hence this scheme is affected by dissipation errors. The phenomenon of decreased amplitude is clearly visible for both of the initial functions. In Figure \ref{fig:explicitSignCFL} close to the discontinuities dissipation error occur and with decrease of CFL number function slightly decreases and the solution is dissipated to neighboring points, which in consequences changes discontinuities to continuity by smoothing curve. For initial set (\ref{for:secondSet}) the decrease in the amplitude and in the dissipation of the wave to the neighboring points is even more visible in Figure \ref{fig:explicitExpCFL}. Similarly to the initial set (\ref{for:firstSet}) the best result, with the smallest error revealed for CFL close to one.
 	
 	\begin{figure}[!htbp]
 		\centering	
@@ -68,7 +68,7 @@
 		\label{fig:explicitExpCFL}
 	\end{figure}
 
-	Although error increases with decrease of the CFL number for both initial function. It is worth to note, that error for (\ref{for:firstSet}) is at least two times higher than for (\ref{for:secondSet}), which can be observed in figure \ref{fig:explicitCFLNorms}. Taking into account mentioned before property and noticing that (\ref{for:firstSet}) has discontinuity in contrast to the other function it is possible to conclude that this scheme has problem with functions that are not continuous. In the other words discontinuity contribute to the increase of error, similarly to the CFL, but in this case not that drastically.
+	Although error increases with decrease of the CFL number for both initial function. It is worth to note, that error for (\ref{for:firstSet}) is at least two times higher than for (\ref{for:secondSet}), which can be observed in Figure \ref{fig:explicitCFLNorms}. Taking into account mentioned before property and noticing that (\ref{for:firstSet}) has discontinuity in contrast to the other function it is possible to conclude that this scheme has problem with functions that are not continuous. In the other words discontinuity contribute to the increase of error, similarly to the CFL, but in this case not that drastically.
 
 	\begin{figure}[!htbp]
 		\begin{subfigure}[b]{0.5\textwidth}
@@ -123,3 +123,4 @@
 		\caption{Distribution of the error (norm 2) among different CFL numbers for explicit upwind scheme.}
 		\label{fig:explicitCFLNorms}
 	\end{figure}
+	\clearpage

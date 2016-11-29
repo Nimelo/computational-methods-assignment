@@ -1,5 +1,5 @@
 \subsection{Implicit upwind}
-	Figures \ref{fig:implicitSignCFL} and \ref{fig:implicitExpCFL} show graphical results of implicit upwind scheme for two different initial sets of initialization functions. Recalling that this scheme is stable (in terms of assignment) for every CFL number greater than zero, we can observe that this scheme in this range of values in very dissipative. It is impossible to get nearly analytical solution, even for time step close to the starting time, which will be shown later in different section. 
+	Figures \ref{fig:implicitSignCFL} and \ref{fig:implicitExpCFL} show graphical results of implicit upwind scheme for two different initial sets of initialization functions. Recalling that this scheme is stable (in terms of assignment) for every CFL number greater than zero, we can observe that this scheme in this range of values is very dissipative. It is impossible to get nearly analytical solution, even for time step close to the starting time, which will be shown later in different section. Using negative CFL numbers gives much more better results with greater accuracy.
 	\begin{figure}[!htbp]
 		\centering	
 		\begin{tikzpicture}[scale=0.5]
@@ -55,55 +55,55 @@
 		\label{fig:implicitExpCFL}
 	\end{figure}
 
-	For both initial sets amplitude decreases and dissipation error starts occurring while CFL number tends to $\infty$. In the contrast of the results in \ref{sec:explicitCFL} there is different dependence for CFLs. This dependency is different because there are two different numerical viscosities for these schemes, which were calculated during stability analysis. This schemes generates the best results for the smallest CFL numbers. For both initial sets in case of assignment the best calculated CFL number is equal to $0.0175$. Even for that small CFL number approximation of the discontinuity in Figure \ref{fig:implicitSignCFL} is poorly. The curve is really smooth and reaches boundary limit far from the correct point. In Figure \ref{fig:implicitExpCFL} amplitude is almost four times lower than the analytical one and expanded among wider amount of points around pick value.
+	For both initial sets amplitude decreases and dissipation error starts occurring while CFL number tends to $\infty$. In the contrast of the results in \ref{sec:explicitCFL} there is different dependence for CFLs. This dependency is different because there are two different numerical viscosities for these schemes, which were calculated during stability analysis. This schemes generates the best results for the smallest CFL numbers. For both initial sets in case of assignment the best calculated CFL number is equal to $0.0175$ for positive CFLs. Even for that small positive CFL number approximation of the discontinuity in Figure \ref{fig:implicitSignCFL} is poorly. The curve is really smooth and reaches boundary limit far from the correct point. In Figure \ref{fig:implicitExpCFL} amplitude is almost four times lower than the analytical one and expanded among wider amount of points around pick value. Noticing dependency described before experiment was made with negative CFL number, which surprisingly gives the best result with minimal dissipation error. 
 
 	\begin{figure}[!htbp]
 		\begin{subfigure}[b]{0.5\textwidth}
 			\begin{tikzpicture}
 			%\pgfplotsset{width=\textwidth}
-			\begin{axis}[
-			ybar,
-			%symbolic x coords={5,10,15,20},
-			xticklabels={$t=5$,$t=10$},
-			xtick=data,
-			enlarge x limits={abs=2cm},
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			%legend pos=north west
-			legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left}
-			%nodes near coords,
-			%every node near coord/.append style={rotate=90, anchor=west},
-			]
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL-1.1.conf-norms.csv}{2}{purple}{$CFL=1.1$};
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp.conf-norms.csv}{2}{green}{$CFL=0.0175$};
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL--1.1.conf-norms.csv}{2}{blue}{$CFL=-1.1$};
-			
-			\end{axis}
+				\begin{axis}[
+					ybar,
+					%symbolic x coords={5,10,15,20},
+					xticklabels={$t=5$,$t=10$},
+					xtick=data,
+					enlarge x limits={abs=2cm},
+					ymajorgrids=true,
+					xmajorgrids=true,
+					grid style=dashed,
+					%legend pos=north west
+					legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left}
+					%nodes near coords,
+					%every node near coord/.append style={rotate=90, anchor=west},
+					]
+					\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL--1.1.conf-norms.csv}{2}{blue}{$CFL=-1.1$};
+					\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp.conf-norms.csv}{2}{green}{$CFL=0.0175$};
+					\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-exp-CFL-1.1.conf-norms.csv}{2}{purple}{$CFL=1.1$};
+					
+				\end{axis}
 			\end{tikzpicture}
 			\caption{Initial set (\ref{for:secondSet}).}
 		\end{subfigure}
 		\begin{subfigure}[b]{0.5\textwidth}
 			\begin{tikzpicture}
-			\begin{axis}[
-			ybar,
-			%symbolic x coords={5,10,15,20},
-			xticklabels={$t=5$,$t=10$},
-			xtick=data,
-			enlarge x limits={abs=2cm},
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			%legend pos=north west
-			legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
-			%nodes near coords,
-			%every node near coord/.append style={rotate=90, anchor=west},
-			]
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL--1.1.conf-norms.csv}{2}{blue}{$CFL=-1.1$};
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign.conf-norms.csv}{2}{green}{$CFL=0.0175$};
-			\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL-1.1.conf-norms.csv}{2}{purple}{$CFL=1.1$};
-			
-			\end{axis}
+				\begin{axis}[
+					ybar,
+					%symbolic x coords={5,10,15,20},
+					xticklabels={$t=5$,$t=10$},
+					xtick=data,
+					enlarge x limits={abs=2cm},
+					ymajorgrids=true,
+					xmajorgrids=true,
+					grid style=dashed,
+					%legend pos=north west
+					legend style={at={(0.5,-0.1)},anchor=north,legend cell align=left},
+					%nodes near coords,
+					%every node near coord/.append style={rotate=90, anchor=west},
+					]
+					\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL--1.1.conf-norms.csv}{2}{blue}{$CFL=-1.1$};
+					\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign.conf-norms.csv}{2}{green}{$CFL=0.0175$};
+					\addcustomybarplot{../Code/results/impactImplicit/implicit-upwind-100-sign-CFL-1.1.conf-norms.csv}{2}{purple}{$CFL=1.1$};
+				
+				\end{axis}
 			\end{tikzpicture}
 			\caption{Initial set (\ref{for:firstSet}).}
 		\end{subfigure}
@@ -111,4 +111,5 @@
 		\label{fig:implicittCFLNorms}
 	\end{figure}
 
-	Similarly to the explicit upwind scheme errors are also higher for initial set (\ref{for:firstSet}), but this time it is around 3 times higher comparing to initial sets, which can be seen in Figure \ref{fig:implicittCFLNorms}.
+	Similarly to the explicit upwind scheme errors are also higher for initial set (\ref{for:firstSet}), but this time it is around 2--3 times higher comparing to initial sets, which can be seen in Figure \ref{fig:implicittCFLNorms}.
+	\clearpage

@@ -1,5 +1,5 @@
 \subsection{Richtmyer multi-step}
-	
+	Richtmyer multi-step scheme in terms of assignment is stable for following condition: $C \in (0,2)$. In Figures \ref{fig:richtmyerSignCFL} and \ref{fig:richtmyerExpCFL} results of numerical solution are shown, respectively for initial solution sets (\ref{for:firstSet}) and (\ref{for:secondSet}). Figure \ref{fig:richtmyerfCFLNorms} presents distribution of an error among different CFL numbers.
 	\begin{figure}[!htbp]
 		\centering	
 		\begin{tikzpicture}[scale=0.5]	
@@ -29,7 +29,7 @@
 		\caption{Richtmyer multi-step scheme solutions for the initial set (\ref{for:firstSet}) and various CFL numbers.}
 		\label{fig:richtmyerSignCFL}
 	\end{figure}
-sdfklgjslkfdjghkjld sfhgjksdfhgjkhsfdkljg hsjkldfghlks djfhgjksd  fhgljk shfdlkjgh sdfjkghs kfjghk   dsfjhgkj sdfhgk jlsdfhg sfgkjsdf hgkljshd  fghsdfkljghk sjdlfhgkljsdfhgjklsdfhg  kjlshdfkgjh sdfkljg  hskdfjlg hkjlsfdhg kjlshdfkljg  hskjdfhgkls jdfhgkjlsdfhg jklshfkljghsdl fkjghlsjfdk ghlksjdfhglkj sdghkljsdhfgkjs hfdkgjhsfdkljghlskjghskfdjl sdfklgjslkfdjghkjld sfhgjksdfhgjkhsfdkljg hsjkldfghlks djfhgjksd  fhgljk shfdlkjgh sdfjkghs kfjghk   dsfjhgkj sdfhgk jlsdfhg sfgkjsdf hgkljshd  fghsdfkljghk sjdlfhgkljsdfhgjklsdfhg  kjlshdfkgjh sdfkljg  hskdfjlg hkjlsfdhg kjlshdfkljg  hskjdfhgkls jdfhgkjlsdfhg jklshfkljghsdl fkjghlsjfdk ghlksjdfhglkj sdghkljsdhfgkjs hfdkgjhsfdkljghlskjghskfdjl
+	Similarly to the Lax-Wendroff scheme Richtmyer multi-step method introduces dispersion errors, because mentioned scheme is second-order accurate in time and space. Alike to Lax-Wendroff scheme dispersion for this scheme also occurs for small CFL numbers. Solutions for (\ref{for:firstSet}) give smooth and continuous curves for smaller CFLs. Continuousness disappears with increase of CFL number. Shape and behavior of solutions for (\ref{for:secondSet}) is unexpected. Dispersion occurs near discontinuous fragment of curve, similarly like for Lax-Wendroff scheme. The second anomaly is saw-shaped top fragment of the curve. Both of mentioned anomalies have lower impact on solution for bigger CFLs.
 	\begin{figure}[!hbtp]
 		\centering	
 		\begin{tikzpicture}[scale=0.5]
@@ -58,9 +58,7 @@ sdfklgjslkfdjghkjld sfhgjksdfhgjkhsfdkljg hsjkldfghlks djfhgjksd  fhgljk shfdlkj
 		\end{tikzpicture}
 		\caption{Richtmyer multi-step scheme solutions for the initial set (\ref{for:secondSet}) and various CFL numbers.}
 		\label{fig:richtmyerExpCFL}
-	\end{figure}
-
-	
+	\end{figure} 
 	\begin{figure}[!htbp]
 		\begin{subfigure}[b]{0.5\textwidth}
 			\begin{tikzpicture}
@@ -114,3 +112,5 @@ sdfklgjslkfdjghkjld sfhgjksdfhgjkhsfdkljg hsjkldfghlks djfhgjksd  fhgljk shfdlkj
 		\caption{Distribution of the error (norm 2) among different CFL numbers for Richtmyer multi-step scheme.}
 		\label{fig:richtmyerfCFLNorms}
 	\end{figure}
+	Alike in all previous mentioned explicit schemes error grows with the decrease of CFL number. Worth of noticing is a difference between two highest CFL numbers for (\ref{for:secondSet}). Difference between this CFL numbers is equal to $0.095$ which translates into $0.5 * 10^2$ increase of error. Surprisingly decrease of CFL number from $1.9$ to $0.8$ worsen solution by $1 * 10^-2$, which is not as intuitive as it is. Initial set (\ref{for:firstSet}) has worse results in terms of calculated error comparing to the other one.
+	\clearpage

@@ -3,7 +3,7 @@
 % • The experimental design, methods of gathering data.
 % • Subsections.
 %----------------------------------------------------------------------------------------
-\section{General approach} \label{sec:generalApproach}
+\chapter{General approach} \label{sec:generalApproach}
 	Different approaches have been proposed to describe finite difference method in many books. In case of this report I will base on explanation in chapter 3.5 in Computational Techniques for Fluid Dynamics\cite{bib:fletcher} written by C. A. J. Fletcher. The basis for the finite difference method is the construction of a discrete grid, the replacement of the continuous derivatives in the governing partial equations with equivalent finite difference expressions. Mentioned transformation is presented in Figure \ref{fig:schematicOfFDM}\cite{bib:fletcher}[p. 64--65].
 	
 	\begin{figure}
@@ -55,7 +55,7 @@
 
 	General approach mentioned before is a core for algorithm for each of discussed schemes (implicit and explicit upwind, Lax-Wendroff and Richtmyer multi-step). After initialization of the grid and other dependent variables choice is made for finite difference analogue which in our case is particular scheme. Next step in the algorithm is to iterate for given amount of time steps and through all the points that consist for grid. After reaching a final time step or time level actual grid is solution for this time level.
 	
-	\subsection{Analysis of the schemes} \label{sec:analysis}
+	\section{Analysis of the schemes} \label{sec:analysis}
 		This section is devoted to briefly introduce reader about formulations, stencils and stability conditions, which will be described more precisely in appendix\ref{app:stabilities}. All the formulas are using following dependency \ref{for:cfl}, also known as Courant–Friedrichs–Lewy (CFL) number.
 		
 		\begin{equation}
@@ -76,7 +76,7 @@
 			\item if scheme is multi-step there will be number corresponding to the step above directed line.
 		\end{itemize}
 		
-	\subsection{Explicit upwind scheme} \label{sec:explicitUpwind}
+	\section{Explicit upwind scheme} \label{sec:explicitUpwind}
 		Formula that gives first-order accurate method for our problem is described by Klaus A. Hoffman and Steve T. Chiang in \cite{bib:hoffman}[p. 191 - 192] in section 6.5 titled Applications to a Linear Problem, which looks as follows:
 		
 		\begin{align}
@@ -117,18 +117,18 @@
 			\label{fig:explicitUpwind}
 		\end{figure}
 		
-		Described earlier scheme is first-order accurate both in space and time. Stability analysis in appendix \ref{app:explicit} shows that this method is conditionally stable for: $C \in (0,1)$.
+		Described earlier scheme is first-order accurate both in space and time. %Stability analysis in appendix \ref{app:explicit} shows that this method is conditionally stable for: $C \in (0,1)$.
+		This method is conditionally stable for: $C \in (0,1)$.
 		
-		\subsection{Implicit upwind scheme}
-			This formulation uses the FTBS method of finite differencing in the approximation of the PDE in \ref{for:advection}, therefore givin:
+		\section{Implicit upwind scheme}
+			This formulation uses the FTBS method of finite differencing in the approximation of the PDE in (\ref{for:advection}), therefore giving:
 			
 			\begin{equation}
 				\label{for:implicitUpwind_first}
 				\frac{f_i^{n+1} - f_i^n}{\Delta t} + u\frac{f_i^{n+1} - f_{i-1}^{n+1}}{\Delta x} = \mathcal{O}(\Delta t, \Delta x)
 			\end{equation}
 	
-			The only known value of $f$ at $i$ is at time $n$. Mentioned dependency drives us to solve following linear equation set of form $Af^{n+1} = f^n$:
-			
+			The only known value of $f$ at $i$ is at time $n$. Mentioned dependency drives us to solve following linear equation set of form $Af^{n+1} = f^n$:		
 			\begin{equation}
 				\begin{bmatrix}
 					1+C & & & \\
@@ -150,11 +150,10 @@
 					\vdots	\\
 					f_N^{n}\\
 				\end{bmatrix},
-			\end{equation} 
-			
+			\end{equation} 			
 			where $N$ is number of grid points.
 			
-			The opposite of the previous described explicit upwind method this method is second-order accurate both in time and space. We can observe that we do not have to solve it by using complicated algorithm. Matrix $A$ is bidiagonal diagonally-dominant, so although this schema is implicit we can solve it using forward or backward substitution described using formula \ref{for:implicitSubstitution}. This equation assumes that we know the boundary conditions for next time step - $f_o^{n+1}$ and $f_N^{n+1}$.
+			The opposite of the previous described explicit upwind method this method is second-order accurate both in time and space. We can observe that we do not have to solve it by using complicated algorithm. Matrix $A$ is bidiagonal diagonally-dominant, so although this schema is implicit we can solve it using forward or backward substitution described using formula \ref{for:implicitSubstitution}. This equation assumes that we know the boundary conditions for next time step -- $f_0^{n+1}$ and $f_N^{n+1}$.
 			
 			\begin{align}
 				\label{for:implicitSubstitution}
@@ -216,8 +215,8 @@
 			
 			% Should I Mention something about negative CFL?
 			
-		\subsection{Lax-Wendroff scheme}
-			In section 6.2.1.6. in Klaus A. Hoffman and Steve T. Chiang \cite{bib:hoffman}[p. 187] there are considerations about Lax-Wendroff scheme considering problem described by (\ref{for:advection}). The finite difference representation of the PDE is derived from Taylor series expansion of the dependent variable as follows: 
+		\section{Lax-Wendroff scheme}
+			In section 6.2.1.6. Klaus A. Hoffman and Steve T. Chiang \cite{bib:hoffman}[p. 187] discuss about Lax-Wendroff scheme considering problem described by (\ref{for:advection}). The finite difference representation of the PDE is derived from Taylor series expansion of the dependent variable as follows: 
 			
 			\begin{align}
 				\begin{split}
@@ -225,7 +224,7 @@
 				\end{split}
 			\end{align}		
 			
-			Considering \ref{for:advection} and calculations provided in \ref{app:lax-wendroff} final formula (\ref{for:lax-wenndroffFinal}) looks as following, while stencil for Lax-Wendroff scheme is shown in Figure \ref{fig:lax-wendroff}.
+			Considering (\ref{for:advection}) final formula (\ref{for:lax-wenndroffFinal}) looks as following, while stencil for Lax-Wendroff scheme is shown in Figure \ref{fig:lax-wendroff}.
 			
 			\begin{align}
 				\label{for:lax-wenndroffFinal}
@@ -264,10 +263,10 @@
 				\label{fig:lax-wendroff}
 			\end{figure}
 				
-			This method is compared to implicit upwind scheme is also second-order accurate both in time and space. Stability analysis in \ref{app:lax-wendroff} shows that this explicit method is stable in symmetric function for $C \in (-1, 0) \cup (0, 1)$. However in case of assignment only positive part will be considered.
+			This method is compared to implicit upwind scheme is also second-order accurate both in time and space. Stability analysis shows that this explicit method is stable in symmetric function for $C \in (-1, 0) \cup (0, 1)$. However in case of assignment only positive part will be considered.
 			
-		\subsection{Richtmyer multi-step scheme}
-			In Computation fluid dynamics vol I\cite{bib:hoffman} we can find formulation for each point of a grid on page 190. This method is multi-step because in first step we predict value to the time level $n + \frac{1}{2}$ and using Lax-Fredrich predictor \ref{for:lax-friedrichPredictor}. Next predicted values are used in order to get value for time level $n+1$ by applying it to formula \ref{for:richtmyer-multi-step}.
+		\section{Richtmyer multi-step scheme}
+			Klaus A. Hoffman and Steve T. Chiang in \cite{bib:hoffman} wrote formulation for each point of a grid on page 190. This method is multi-step because in first step we predict value to the time level $n + \frac{1}{2}$ and using Lax-Fredrich predictor (\ref{for:lax-friedrichPredictor}). Next predicted values are used in order to get value for time level $n+1$ by applying it to formula (\ref{for:richtmyer-multi-step}).
 			
 			\begin{equation}
 				\label{for:lax-friedrichPredictor}
@@ -276,7 +275,7 @@
 			
 			\begin{equation}
 				\label{for:richtmyer-multi-step}
-				f_i^{n+1} = f_i^n - \frac{C}{2}\Big(u_{i+1}^{n+\frac{1}{2}} - u_{n-1}^{n+\frac{1}{2}}\Big) + \mathcal{O} (\Delta t^3, \Delta x^2\Delta t)
+				f_i^{n+1} = f_i^n - \frac{C}{2}\Big(u_{i+1}^{n+\frac{1}{2}} - u_{i-1}^{n+\frac{1}{2}}\Big) + \mathcal{O} (\Delta t^3, \Delta x^2\Delta t)
 			\end{equation}
 			
 			This method is stable for $C \in (-2, 0) \cup (0, 2)$. For the same reason as in Lax-Wendroff scheme in terms of assignment only postivie part will be considered. Also this scheme is second-order accurate in space and time. Stencil for this scheme is shown in Figure \ref{fig:richtmyer-multi-step}.
