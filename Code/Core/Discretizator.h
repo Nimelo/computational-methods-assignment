@@ -1,3 +1,7 @@
+/**
+ * @file Discretizator.h
+ * @brief Declaration of methods for Discretizator.
+ */
 #ifndef __H_DISCRETIZATOR
 #define __H_DISCRETIZATOR
 
@@ -7,7 +11,7 @@
 #include "DiscretizationResult.h"
 
 /**
- * Tool for solving discretization problem given by parameters.
+ * @brief Tool for solving discretization problem given by parameters.
  * @author Mateusz Gasior
  */
 class Discretizator

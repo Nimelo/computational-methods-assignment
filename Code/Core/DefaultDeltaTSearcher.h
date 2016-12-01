@@ -1,3 +1,8 @@
+/**
+ * @file DefaultDeltaTSearcher.h
+ * @brief Declaration of methods for DefaultDeltaTSearcher.
+ */
+ 
 #ifndef __H_DEFAULT_DELTA_T_SEARCHER
 #define __H_DEFAULT_DELTA_T_SEARCHER
 
@@ -7,7 +12,7 @@
 #include "AbstractAnalyticalFunctionsResolver.h"
 
 /**
-* Default delta t searcher, which decision making base on norm two.
+* @brief Default delta t searcher, which decision making base on norm two.
 * @see AbstractDeltaTSearcher
 * Provides all necessary abstractions for searching for optimal delta t value.
 * @author Mateusz Gasior

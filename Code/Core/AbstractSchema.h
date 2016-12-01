@@ -1,10 +1,15 @@
+/**
+ * @file AbstractSchema.h
+ * @brief Declaration of methods for AbstractSchema.
+ */
+
 #ifndef __H_ABSTRACT_SCHEMA
 #define __H_ABSTRACT_SCHEMA
 
 #include <vector>
 
 /**
- * Abstraction for schema.
+ * @brief Abstraction for schema.
  * Provides all methods that have to be used by discretizator.
  * @author Mateusz Gasior
  */
@@ -34,19 +39,12 @@ public:
 	 * @param dx Delta x.
 	 * @param dt Delta t.
 	 */	 
-	explicit AbstractSchema(double a, double dx, double dt)
-		: accelertaion(a), deltaT(dt), deltaX(dx)
-	{
-
-	}
+	explicit AbstractSchema(double a, double dx, double dt);
 
 	/**
 	 * Default destructor.
 	 */
-	virtual ~AbstractSchema()
-	{
-
-	}
+	virtual ~AbstractSchema();
 
 	/**
 	 * Checks the stability condition for given parameters.
@@ -67,10 +65,7 @@ public:
 	 * @param t Current time level.
 	 * @return Adjusted wave.
 	 */
-	virtual std::vector<double> * postApplyAction(std::vector<double> * previousWave, double t)
-	{
-		return previousWave;
-	}
+	virtual std::vector<double> * postApplyAction(std::vector<double> * previousWave, double t);
 };
 
 #endif

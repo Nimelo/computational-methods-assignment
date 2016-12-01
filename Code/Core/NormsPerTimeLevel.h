@@ -1,8 +1,13 @@
+/**
+ * @file NormsPerTimeLevel.h
+ * @brief Declaration of methods for NormsPerTimeLevel.
+ */
+
 #ifndef __H_NORMS_PER_TIME_LEVEL
 #define __H_NORMS_PER_TIME_LEVEL
 
 /**
- * Structure used for storing values of the norms for given time level.
+ * @brief Structure used for storing values of the norms for given time level.
  * @author Mateusz Gasior
  */
 struct NormsPerTimeLevel
@@ -31,7 +36,7 @@ struct NormsPerTimeLevel
 	/**
 	 * Constructor for explicitly given parameters.
 	 * @param time Time level.
-	 * @param normInifnity Norm inifnity.
+	 * @param normInfinity Norm inifnity.
 	 * @param normOne Norm one.
 	 * @param normTwo Norm two.
 	 */

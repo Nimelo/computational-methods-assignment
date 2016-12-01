@@ -1,3 +1,7 @@
+/**
+ * @file NormSummary.h
+ * @brief Declaration of methods for NormSummary.
+ */
 #ifndef __H_NORM_SUMMARY
 #define __H_NORM_SUMMARY
 
@@ -6,7 +10,7 @@
 #include "NormsPerTimeLevel.h"
 
 /**
- * Stores information about list of NormsPerTimeLevel.
+ * @brief Stores information about list of NormsPerTimeLevel.
  * @see NormsPerTimeLevel
  */
 class NormSummary : private std::vector<NormsPerTimeLevel>

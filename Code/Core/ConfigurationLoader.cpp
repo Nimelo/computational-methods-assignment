@@ -1,3 +1,7 @@
+/**
+ * @file ConfigurationLoader.cpp
+ * @brief Implementation of methods for ConfigurationLoader.
+ */
 #include "ConfigurationLoader.h"
 #include "ConfigurationLoadingException.h"
 #include "Configuration.h"

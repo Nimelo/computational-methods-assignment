@@ -1,10 +1,14 @@
+/**
+* @file AbstractAnalyticalFunctionsResolver.h
+* @brief Declaration of methods for AbstractAnalyticalFunctionsResolver.
+*/
 #ifndef __H_ABSTRACT_ANALYTICAL_FUNCTIONS_RESOLVER
 #define __H_ABSTRACT_ANALYTICAL_FUNCTIONS_RESOLVER
 
 #include "AnalyticalFunctionsEnum.h"
 
 /**
- * Abstraction for resolving analytical function for discretization. 
+ * @brief Abstraction for resolving analytical function for discretization. 
  * @author Mateusz Gasior
  */
 class AbstractAnalyticalFunctionsResolver

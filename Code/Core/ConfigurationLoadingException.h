@@ -1,10 +1,15 @@
+/**
+ * @file ConfigurationLoadingException.h
+ * @brief Declaration of methods for ConfigurationLoadingException.
+ */
+
 #ifndef __H_CONFIGURATION_LOADING_EXCEPTION
 #define __H_CONFIGURATION_LOADING_EXCEPTION
 
 #include "Exception.h"
 
 /**
- * Exception used when there is a problem with loading a confiuration.
+ * @brief Exception used when there is a problem with loading a confiuration.
  * @see Configuration
  * @see ConfigurationLoader
  * @see Exception

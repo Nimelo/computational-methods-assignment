@@ -1,3 +1,7 @@
+/**
+ * @file AbstractSchemasResolver.h
+ * @brief Declaration of methods for AbstractSchemasResolver.
+ */
 #ifndef __H_ABSTRACT_SCHEMAS_RESOLVER
 #define __H_ABSTRACT_SCHEMAS_RESOLVER
 
@@ -5,7 +9,7 @@
 #include "AbstractSchema.h"
 
 /**
- * Abstraction for resolving schema for discretization.
+ * @brief Abstraction for resolving schema for discretization.
  * @author Mateusz Gasior
  */
 class AbstractSchemasResolver

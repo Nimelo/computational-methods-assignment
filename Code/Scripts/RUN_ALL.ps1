@@ -1,8 +1,8 @@
 param(
 [string]$confDirectory="..\Configurations", 
 [string]$confExtension="conf",
-[string]$resultDirectory="..\Debug\results",
-[string]$appDirectory="..\Debug",
+[string]$resultDirectory="..\Release\results",
+[string]$appDirectory="..\Release",
 [string]$appName = "Main.exe",
 [string]$regex = "*.$confExtension"
 )

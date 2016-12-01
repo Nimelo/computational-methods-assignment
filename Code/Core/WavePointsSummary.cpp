@@ -1,3 +1,8 @@
+/**
+ * @file WavePointsSummary.cpp
+ * @brief Implementation of methods for WavePointsSummary.
+ */
+
 #include "WavePointsSummary.h"
 #include <math.h>
 #include <vector>

@@ -1,3 +1,8 @@
+/**
+ * @file AbstractDeltaTSearcher.h
+ * @brief Declaration of methods for AbstractDeltaTSearcher.
+ */
+
 #ifndef __H_ABSTRACT_DELTA_T_SEARCHER
 #define __H_ABSTRACT_DELTA_T_SEARCHER
 
@@ -6,7 +11,7 @@
 #include "AbstractSchemasResolver.h"
 
 /**
-* Abstraction for searching for optimal delta t value.
+* @brief Abstraction for searching for optimal delta t value.
 * Provides all necessary abstractions for searching for optimal delta t value.
 * @author Mateusz Gasior
 */

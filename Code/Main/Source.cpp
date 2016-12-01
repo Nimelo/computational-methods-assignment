@@ -1,3 +1,7 @@
+/**
+ * @file Source.cpp
+ * @brief Contains main method for solving given PDE problem.
+ */
 #if _DEBUG
 	#include <vld.h>
 #endif
@@ -26,6 +30,17 @@
 #define NORM_FILE_INDEX 3
 #define OPTIMAL_DELTA_T_FILE_INDEX 4
 
+ /**
+ * @brief Main entry point for application.
+ * Requires 4 additional parameters to run:
+ *			- Name of configuration file.
+ *			- Name for output wave file.
+ *			- Name for output norm file.
+ *			- Name for output  optimal values file.
+ * @param argc Parameter count.
+ * @param argv Array of arguments.
+ * @return int Zero if program executed correctly.
+ */
 int main(int argc, char * argv[])
 {
 	try
@@ -33,20 +48,13 @@ int main(int argc, char * argv[])
 		if (argc != PARAMETER_COUNT)
 		{
 			std::cout << "Invalid amount of parameters." << std::endl;
-		//	return -1;
+			return -1;
 		}
 
-#if _DEBUG
-		char * configurationFile = "C:\\Users\\mrnim\\Desktop\\Repos\\numerical-methods-assignment\\Code\\Configurations\\implicit-upwind-400-sign.conf";
-		char * wavesFile = "1";
-		char * normsFile = "2";
-		char * optimalDeltaTFile = "3";
-#else
 		char * configurationFile = argv[CONFIGURATION_FILE_INDEX];
 		char * wavesFile = argv[WAVE_FILE_INDEX];
 		char * normsFile = argv[NORM_FILE_INDEX];
 		char * optimalDeltaTFile = argv[OPTIMAL_DELTA_T_FILE_INDEX];
-#endif
 				
 		ConfigurationLoader configurationLoader;
 		Configuration * configuration = configurationLoader.loadFromFile(configurationFile);

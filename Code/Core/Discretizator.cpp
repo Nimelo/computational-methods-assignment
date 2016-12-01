@@ -1,3 +1,8 @@
+/**
+* @file Discretizator.cpp
+* @brief Implementation of methods for Discretizator.
+*/
+
 #include <algorithm>
 #include <vector>
 

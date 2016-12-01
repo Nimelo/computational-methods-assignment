@@ -1,3 +1,7 @@
+/**
+ * @file DiscretizationParameters.h
+ * @brief Declaration of methods for DiscretizationParameters.
+ */
 #ifndef __H_DISCRETIZATION_PARAMETERS
 #define __H_DISCRETIZATION_PARAMETERS
 
@@ -6,7 +10,7 @@
 #include "AbstractSchema.h"
 
 /**
- * Stores values needed to perform discretization.
+ * @brief Stores values needed to perform discretization.
  */
 struct DiscretizationParameters
 {
@@ -73,7 +77,6 @@ struct DiscretizationParameters
 	 * @param meshSize Mesh size (grid size).
 	 * @param timeLevels Time levels.
 	 * @param dt Delta t.
-	 * @param dx Delta x.
 	 */
 	DiscretizationParameters(double lowerBound, double upperBound,
 		double acceleration, double(*analyticalFunction) (double, double),

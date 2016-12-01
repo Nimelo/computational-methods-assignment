@@ -1,3 +1,8 @@
+/**
+ * @file DiscretizationResult.cpp
+ * @brief Implementation of methods for DiscretizationResult.
+ */
+
 #include <vector>
 #include "DiscretizationResult.h"
 

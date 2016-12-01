@@ -1,3 +1,7 @@
+/**
+* @file Configuration.cpp
+* @brief Implementation of methods for Configuration.
+*/
 #include "Configuration.h"
 
 Configuration::Configuration(double lowerBound, double upperBound,

@@ -1,8 +1,13 @@
+/**
+ * @file AnalyticalFunctions.h
+ * @brief Declaration of methods for AnalyticalFunctions.
+ */
+
 #ifndef __H_ANALYTICAL_FUNCTIONS
 #define __H_ANALYTICAL_FUNCTIONS
 
 /**
- * Contains implementations of analytical function that are used in discretization process.
+ * @brief Contains implementations of analytical function that are used in discretization process.
  * @author Mateusz Gasior
  */
 class AnalyticalFunctions

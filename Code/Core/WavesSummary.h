@@ -1,3 +1,8 @@
+/**
+ * @file WavesSummary.h
+ * @brief Declaration of methods for WaveSummary.
+ */
+
 #ifndef __H_WAVES_SUMMARY
 #define __H_WAVES_SUMMARY
 
@@ -7,7 +12,7 @@
 #include "WavePointsSummary.h"
 
 /**
- * Stores information about list of WavePointsSummary.
+ * @brief Stores information about list of WavePointsSummary.
  * @see WavePointsSummary
  * @see std::vector
  * Provides all functionality of base class with additional of serialization to .csv format.

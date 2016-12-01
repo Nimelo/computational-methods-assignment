@@ -1,3 +1,8 @@
+/**
+ * @file DefaultDeltaTSearcher.cpp
+ * @brief Implementation of methods for DefaultDeltaTSearcher.
+ */
+
 #include "DefaultDeltaTSearcher.h"
 
 #include "AbstractDeltaTSearcher.h"

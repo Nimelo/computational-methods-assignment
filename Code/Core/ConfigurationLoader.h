@@ -1,3 +1,7 @@
+/**
+ * @file ConfigurationLoader.h
+ * @brief Declaration of methods for ConfigurationLoader.
+ */
 #ifndef __H_CONFIGURATION_LOADER
 #define __H_CONFIGURATION_LOADER
 
@@ -10,7 +14,7 @@
 #include "ConfigurationParameter.h"
 
 /**
- * ConfigurationLoader is responsible for creating an Configuration from a file or vector of parameters.
+ * @brief ConfigurationLoader is responsible for creating an Configuration from a file or vector of parameters.
  * @see Configuration
  * @author Mateusz Gasior
  */

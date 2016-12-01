@@ -1,3 +1,8 @@
+/**
+ * @file AbstractDeltaTSearcher.cpp
+ * @brief Implementation of methods for AbstractDeltaTSearcher.
+ */
+
 #include "AbstractDeltaTSearcher.h"
 
 AbstractDeltaTSearcher::AbstractDeltaTSearcher(Configuration * parameters,

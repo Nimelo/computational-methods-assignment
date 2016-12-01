@@ -1,3 +1,7 @@
+/**
+ * @file DiscretizationParameters.cpp
+ * @brief Implementation of methods for DiscretizationParameters.
+ */
 #include "DiscretizationParameters.h"
 
 DiscretizationParameters::DiscretizationParameters(double lowerBound, double upperBound,

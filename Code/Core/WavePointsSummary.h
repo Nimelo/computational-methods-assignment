@@ -1,10 +1,15 @@
+/**
+ * @file WavePointsSummary.h
+ * @brief Declaration of methods for WavePointsSummary.
+ */
+
 #ifndef __H_WAVE_POINTS_SUMMARY
 #define __H_WAVE_POINTS_SUMMARY
 
 #include <vector>
 
 /**
- * Structure stores analytical and numerical solutions for given time step.
+ * @brief Structure stores analytical and numerical solutions for given time step.
  * Provides 3 methods for calculation of norms.
  * @author Mateusz Gasior
  */

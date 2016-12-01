@@ -1,3 +1,7 @@
+/**
+ * @file NormSummary.cpp
+ * @brief Implementation of methods for NormSummary.
+ */
 #include "NormSummary.h"
 
 std::ostream & operator<<(std::ostream & os, const NormSummary & ns)

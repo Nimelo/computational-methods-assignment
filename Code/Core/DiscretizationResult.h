@@ -1,3 +1,8 @@
+/**
+ * @file DiscretizationResult.h
+ * @brief Declaration of methods for DiscretizationResult.
+ */
+
 #ifndef __H_DISCRETIZATION_RESULT
 #define __H_DISCRETIZATION_RESULT
 
@@ -9,7 +14,7 @@
 #include "NormSummary.h"
 
 /**
- * Result of discretization. 
+ * @brief Result of discretization. 
  * Stores and provides all neccessary informations produced during discretization proceess.
  */
 class DiscretizationResult

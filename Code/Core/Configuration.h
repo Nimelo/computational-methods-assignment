@@ -1,3 +1,7 @@
+/**
+ * @file Configuration.h
+ * @brief Declaration of methods for Configuration.
+ */
 #ifndef __H_CONFIGURATION
 #define __H_CONFIGURATION
 
@@ -6,7 +10,7 @@
 #include "AnalyticalFunctionsEnum.h"
 
 /**
- * Stores information about all parameters used during discretization process, such as types and numeric values.
+ * @brief Stores information about all parameters used during discretization process, such as types and numeric values.
  * @author Mateusz Gasior
  */
 struct Configuration

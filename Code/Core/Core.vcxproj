@@ -148,14 +148,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AbstractDeltaTSearcher.cpp" />
+    <ClCompile Include="AbstractSchema.cpp" />
     <ClCompile Include="AnalyticalFunctions.cpp" />
     <ClCompile Include="ConfigurationLoader.cpp" />
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="ConfigurationParameter.cpp" />
     <ClCompile Include="DefaultDeltaTSearcher.cpp" />
+    <ClCompile Include="DefaultSchemasResolver.cpp" />
     <ClCompile Include="DiscretizationParameters.cpp" />
     <ClCompile Include="DiscretizationResult.cpp" />
     <ClCompile Include="Discretizator.cpp" />
+    <ClCompile Include="LaxWendroffSchema.cpp" />
     <ClCompile Include="NormSummary.cpp" />
+    <ClCompile Include="RichtmyerMultiStepSchema.cpp" />
+    <ClCompile Include="UpwindExplicitSchema.cpp" />
+    <ClCompile Include="UpwindImplicitSchema.cpp" />
     <ClCompile Include="WavePointsSummary.cpp" />
     <ClCompile Include="WavesSummary.cpp" />
   </ItemGroup>

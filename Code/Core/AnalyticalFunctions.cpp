@@ -1,3 +1,8 @@
+/**
+ * @file AnalyticalFunctions.cpp
+ * @brief Implementation of methods for AnalyticalFunctions.
+ */
+
 #include "AnalyticalFunctions.h"
 #include <math.h>
 

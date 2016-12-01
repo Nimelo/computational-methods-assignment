@@ -1,3 +1,8 @@
+/**
+ * @file DefaultAnalyticalFunctionsResolver.h
+ * @brief Declaration of methods for DefaultAnalyticalFunctionsResolver.
+ */
+
 #ifndef __H_DEFAULT_ANALYTICAL_FUNCTIONS_RESOLVER
 #define __H_DEFAULT_ANALYTICAL_FUNCTIONS_RESOLVER
 
@@ -7,7 +12,7 @@
 #include "AnalyticalFunctions.h"
 
 /**
- * Default class for resolving analytical function for discretization.
+ * @brief Default class for resolving analytical function for discretization.
  * @see AbstractAnalyticalFunctionsResolver
  * @author Mateusz Gasior
  */

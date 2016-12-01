@@ -111,6 +111,27 @@
     <ClCompile Include="AbstractDeltaTSearcher.cpp">
       <Filter>Header Files\OptimalDeltaTSearcher</Filter>
     </ClCompile>
+    <ClCompile Include="ConfigurationParameter.cpp">
+      <Filter>Header Files\Configuration\Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractSchema.cpp">
+      <Filter>Header Files\Discretization\Schemas</Filter>
+    </ClCompile>
+    <ClCompile Include="LaxWendroffSchema.cpp">
+      <Filter>Header Files\Discretization\Schemas\Detailed</Filter>
+    </ClCompile>
+    <ClCompile Include="RichtmyerMultiStepSchema.cpp">
+      <Filter>Header Files\Discretization\Schemas\Detailed</Filter>
+    </ClCompile>
+    <ClCompile Include="UpwindExplicitSchema.cpp">
+      <Filter>Header Files\Discretization\Schemas\Detailed</Filter>
+    </ClCompile>
+    <ClCompile Include="UpwindImplicitSchema.cpp">
+      <Filter>Header Files\Discretization\Schemas\Detailed</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultSchemasResolver.cpp">
+      <Filter>Header Files\Discretization\Parameters\Resolving\Schemas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exception.h">

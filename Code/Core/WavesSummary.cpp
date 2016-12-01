@@ -1,3 +1,8 @@
+/**
+ * @file WavesSummary.cpp
+ * @brief Implementation of methods for WavesSummary.
+ */
+
 #include "WavesSummary.h"
 #include <vector>
 
