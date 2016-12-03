@@ -1,19 +1,16 @@
 \section{Formulation and stability analysis of implicit upwind scheme} \label{app:implicit}
-	This formulation uses the FTBS method of finite differencing in the approximation of the PDE in \ref{for:advection}, therefore giving:
-	
+	Implicit upwind scheme is FTBS method of finite differencing in the approximation of the PDE in (\ref{for:advection}), presented as:
 	\begin{equation}
 		\label{app:for:implicitUpwind_first}
 		\frac{u_j^{n+1} - u_j^n}{\Delta t} + a\frac{u_j^{n+1} - u_{j-1}^{n+1}}{\Delta x} = \mathcal{O}(\Delta t, \Delta x)
 	\end{equation}	
-	The only known value of $u$ at point $j$ is at time $n$. Evaluating (\ref{app:for:implicitUpwind_first}) with the unknowns on right side give:
-	
+	The only known value of $u$ at point $j$ is at time $n$. Evaluating (\ref{app:for:implicitUpwind_first}) with the unknowns on right side give:	
 	\begin{equation}
 		\label{app:for:implicitUpwind_solution}
 		u_j^n = -Cu_{j-1}^{n+1} + (1+C)u_j^{n+1}
 	\end{equation}
 	where $C=a\frac{\Delta t}{\Delta x}$ is Courant-Friedrichs-Lewy (CFL) number.
-	Mentioned dependency drives us to solve following linear equation set of form $Au^{n+1} = u^n$.
-	
+	Mentioned dependency drives us to solve following linear equation set of form $Au^{n+1} = u^n$.	
 	\begin{equation}
 		\begin{bmatrix}
 			1+C & & & \\
@@ -26,14 +23,14 @@
 			u_1^{n+1} \\
 			u_2^{n+1} \\
 			\vdots	\\
-			u_N^{n+1}\\
+			u_{N-1}^{n+1}\\
 		\end{bmatrix}
 			=
 		\begin{bmatrix}
 			u_1^{n} + C u_0^{n+1}\\
 			u_2^{n} \\
 			\vdots	\\
-			u_N^{n}\\
+			u_{N-1}^{n}\\
 		\end{bmatrix}
 	\end{equation} 	
 	where $N$ is number of grid points.	
@@ -46,8 +43,7 @@
 			u_{j-1}^{n+1}&= \frac{(1+C)u_j^{n+1} - u_j^{n+1}}{C}\text{, for $j = N, N-1, \ldots, 2$ and $C < 0$}
 		\end{split}
 	\end{align}
-	
-	Key to the von Neumann's analysis is assuming that the solution to the difference equation is of the form:
+	Von Neumann's analysis In a large simplification (based on knowledge of S. Scott Collis) assumes that the solution to the difference equation is of the form:
 	\begin{equation}
 		\label{app:for:vnkeyImp}
 		u_j^{(n)} = \sigma^ne^{ikx_j}

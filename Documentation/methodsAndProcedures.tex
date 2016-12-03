@@ -56,7 +56,7 @@
 	General approach mentioned before is a core for algorithm for each of discussed schemes (implicit and explicit upwind, Lax-Wendroff and Richtmyer multi-step). After initialization of the grid and other dependent variables choice is made for finite difference analogue which in our case is particular scheme. Next step in the algorithm is to iterate for given amount of time steps and through all the points that consist for grid. After reaching a final time step or time level actual grid is solution for this time level. Issues related with calculations, interpretation and representations of numerical solution are described in appendix \ref{app:issues}.
 	
 	\section{Analysis of the schemes} \label{sec:analysis}
-		This section is devoted to briefly introduce reader about formulations, stencils and stability conditions, which will be described more precisely in appendix\ref{app:stabilities}. All the formulas are using following dependency \ref{for:cfl}, also known as Courant–Friedrichs–Lewy (CFL) number. In order to connect error of calculated norm 1 with a single point in grid formulation of this norm was changed and is explained in appendix \ref{app:calcNorm1}.
+		This section is devoted to briefly introduce reader about formulations, stencils and stability conditions, which will be described more precisely in appendix \ref{app:stabilities}. All the formulas are using following dependency \ref{for:cfl}, also known as Courant–Friedrichs–Lewy (CFL) number. In order to connect error of calculated norm 1 with a single point in grid formulation of this norm was changed and is explained in appendix \ref{app:calcNorm1}.
 		
 		\begin{equation}
 			\label{for:cfl}
