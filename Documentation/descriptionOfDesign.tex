@@ -1,0 +1,109 @@
+\section{Design}
+	The solution is written in a object-oriented fashion using C++ language. It contains multiple classes, which can be grouped in following way:
+	\begin{itemize}
+		\item schema routines,
+		\item storage classes
+		\item resolvers and loaders
+	\end{itemize}
+	Each of those groups will be described deeply in a following subsections. More specific information can be found in a doxygen documentation.
+	
+	\subsection{Schema routines}
+		Schema routines provides functionality for generating new solution for next time level. Each of new schemes is derived from an abstraction called \texttt{AbstractScheme}, which contains method for applying scheme and checking stability condition. Relationship between those classes is shown in a Figure \ref{fig:abstractSchema}. 
+		\begin{figure}[!hbtp]
+			\centering
+			\includegraphics[width=0.9\textwidth]{C:/Users/mrnim/Desktop/Repos/numerical-methods-assignment/DoxygenGeneretedDocumentation/latex/class_abstract_schema__inherit__graph.pdf}
+			\caption{UML diagram of AbstractSchema and derived classes.}
+			\label{fig:abstractSchema}
+		\end{figure}
+		Mentioned approach is very convenient in terms of usage different schemes in a same way by abstraction.
+	\subsection{Storage classes}
+		The purpose of storage classes is to gather and store information produced by discretization process. The example of storage classes is \texttt{Configuration}, which stores all the necessary data to start discretization. \texttt{DiscretizationResult}, \texttt{NormsPerTimeLevel}, \texttt{NormSummary}, \texttt{WavesSummary} and \texttt{WavePointsSummary} are classes for storing temporary data between time steps. All of those classes can be seen in a Figure \ref{fig:storage}.
+		\begin{figure}[!hbtp]
+			\begin{subfigure}[t]{0.33\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/struct_configuration__coll__graph.png}
+				\caption{Configuration structure.}
+			\end{subfigure}
+			\begin{subfigure}[t]{0.33\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/struct_norms_per_time_level__coll__graph.png}
+				\caption{NormsPerTimeLevel structure.}
+			\end{subfigure}	
+		\begin{subfigure}[t]{0.33\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/struct_wave_points_summary__coll__graph.png}
+			\caption{WavePointsSummary structure.}
+		\end{subfigure}
+	
+		\begin{subfigure}[t]{0.33\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/class_waves_summary__inherit__graph.png}
+			\caption{WavesSummary class.}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.33\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/class_discretization_result__coll__graph.png}
+			\caption{DiscretizationResult class.}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.33\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/class_norm_summary__inherit__graph.png}
+			\caption{NormSummary class.}
+		\end{subfigure}
+			\caption{UML diagram of storage classes.}
+			\label{fig:storage}
+		\end{figure}
+	\subsection{Loaders and resolvers}	
+		For the purposes of transforming string parameters into objects some special classes were written. ConfigurationLoader reads configuration from file, DefaultAnalyticalFunctionsResolver and DefaultSchemasResolver are responsible for resolving respectively initial function and schema. All resolvers are derived from an abstraction to make them easier to maintain and extend. In Figure \ref{fig:resolvers} all of mentioned previously classes are shown.
+		\begin{figure}[!hbtp]
+			\begin{subfigure}[t]{0.33\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/class_abstract_analytical_functions_resolver__inherit__graph.png}
+				\caption{AnalyticalFunctionResolver class.}
+			\end{subfigure}
+			\begin{subfigure}[t]{0.33\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/class_abstract_schemas_resolver__inherit__graph.png}
+				\caption{SchemasResolver class.}
+			\end{subfigure}
+			\begin{subfigure}[t]{0.33\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/class_configuration_loader__coll__graph.png}
+				\caption{ConfigurationLoader class.}
+			\end{subfigure}
+			\caption{UML diagram of resolving and loading classes.}
+			\label{fig:resolvers}
+		\end{figure}
+		
+	\subsection{Discretizator}
+		Discretizator is the most important class, it consumes DiscretizationParameters and returns DiscretizationResult mentioned in previous section. The collaboration diagram of this classes is presented in Figure \ref{fig:discretizator}. Discretizator contains only one public method called discretize, which performs the discretization process based on given parameters.
+		\begin{figure}[!hbtp]
+				\centering
+				\includegraphics[width=0.5\textwidth]{../DoxygenGeneretedDocumentation/html/class_discretizator__coll__graph.png}
+			\caption{UML collaboration diagram for Discretizator class.}
+			\label{fig:discretizator}
+		\end{figure}
+	
+	\subsection{Miscellaneous classes}
+		In the solution there are also other classes that contains more or less sophisticated features. AnalyticalFunctions class gives implementation for initial set of functions. ConfigurationParameter provides set of methods for converting string to other types. For all exceptions in a system there is one common type -- Exception. All of those classes are in Figure \ref{fig:rest}.
+		
+		\begin{figure}[!hbtp]
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/class_analytical_functions__coll__graph.png}
+			\caption{AnalyticalFunctions class.}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/struct_configuration_parameter__coll__graph.png}
+			\caption{ConfigurationParameter structure.}
+		\end{subfigure}
+	
+		\begin{subfigure}[t]{\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{../DoxygenGeneretedDocumentation/html/class_exception__inherit__graph.png}
+			\caption{Exception class hierarchy.}
+		\end{subfigure}
+		\caption{UML diagram of miscellaneous classes.}
+		\label{fig:rest}
+	\end{figure}
