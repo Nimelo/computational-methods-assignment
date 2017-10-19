@@ -13,4 +13,4 @@ The program should give support to get solution using following schemes:
  
 ### Who do I talk to? ###
 
-Mateusz Gasior [mateusz.p.gasior@cranfield.ac.uk](mateusz.p.gasior@cranfield.ac.uk)
+Mateusz Gasior mr.nimelo@gmail.com
